@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Script.Runtime.InputSystem {
     public class SCInputManager : MonoBehaviour {
-        public SCInputManager Instance { get; private set; }
+        public static SCInputManager Instance { get; private set; }
         
         public SInputEvent OnMoveEvent;
         public float MoveValue;

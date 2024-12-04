@@ -31,7 +31,7 @@ namespace Script.Runtime.ColorManagment {
         private void ApplyColor(Mesh mesh, LayerMask layer)
         {
             _meshFilter.mesh = mesh;
-            int layerValue = Mathf.Log((int)layer.value, 2);
+            int layerValue = (int)Mathf.Log(layer.value, 2);
             gameObject.layer = layerValue;
         }
     }

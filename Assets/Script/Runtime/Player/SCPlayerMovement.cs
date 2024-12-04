@@ -1,25 +1,37 @@
-﻿using Script.Runtime.InputSystem;
+﻿using System;
+using System.Collections;
+using Script.Runtime.InputSystem;
 using UnityEngine;
 
 namespace Script.Runtime.Player {
     public class SCPlayerMovement : MonoBehaviour {
         SCInputManager _inputManager => SCInputManager.Instance;
 
-        private float _direction;
+        [Header("Movement")]
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _frictionForce;
+        private bool _isMoving;
         
+        [Header("Jump")]
         [SerializeField] private float _jumpForce;
+        private bool _isGrounded;
+        [SerializeField] private Vector3 _groundOffset;
+        [SerializeField] private LayerMask _groundLayer;
+        [SerializeField] float _groundCheckRadius = 0.1f; 
         
+        [Header("Rotation")]
         [SerializeField] private float _turnTime;
         private float _time;
-
-        GameObject _mesh;
+        private float _direction;
+        private float _oldY;
         
+        enum FacingDirection { Right, Left }
+        FacingDirection _facingDirection;
+        
+        GameObject _mesh;
         private Rigidbody _body;
 
-        private bool _isMoving;
         
         private void Start() {
             _body = GetComponent<Rigidbody>();
@@ -27,6 +39,8 @@ namespace Script.Runtime.Player {
             
             _inputManager.OnMoveEvent.Performed.AddListener(() => _isMoving = true);
             _inputManager.OnMoveEvent.Canceled.AddListener(() => _isMoving = false);
+            
+            _inputManager.OnJumpEvent.Performed.AddListener(Jump);
         }
         
         private void Update() {
@@ -39,8 +53,14 @@ namespace Script.Runtime.Player {
             if (_isMoving) {
                 Move();
             }
-        }
 
+
+            CheckGround();
+        }
+        
+
+        
+    #region MyRegion
         void Move() {
             if(_body.linearVelocity.magnitude < _maxSpeed) {
                 Vector3 movement = (transform.right * _inputManager.MoveValue) * (_acceleration * Time.fixedDeltaTime);
@@ -55,7 +75,6 @@ namespace Script.Runtime.Player {
             horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, _maxSpeed);
             if(!_body.isKinematic) {
                 _body.linearVelocity = new Vector3(horizontalVelocity.x, _body.linearVelocity.y, horizontalVelocity.z);
-                Debug.Log(horizontalVelocity);
             }
         }
         
@@ -63,24 +82,50 @@ namespace Script.Runtime.Player {
             Vector3 friction = -_body.linearVelocity * (Time.fixedDeltaTime * _frictionForce);
             _body.AddForce(new Vector3(friction.x, 0, friction.y));
         }
-        
-        void UpdateRotation() {
-            if(_isMoving && _inputManager.MoveValue != 0) {
-                float targetAngle = _inputManager.MoveValue > 0 ? -90f : 90f;
-                
-                _time += Time.deltaTime / _turnTime;
-                _time = Mathf.Clamp01(_time);
-                float smoothAngle = Mathf.LerpAngle(transform.eulerAngles.y, targetAngle,_time);
-                if( Mathf.Approximately(_time, 1)) {
-                    _time = 0;
-                }
-                
-                _mesh.transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
-            }
+    #endregion
+
+    #region Rotation
+    void UpdateRotation() {
+        if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
+            StartCoroutine(FlipSmoothly(0f));
         }
+        else if (_inputManager.MoveValue < 0 && _facingDirection == FacingDirection.Right) {
+            StartCoroutine(FlipSmoothly(-180f));
+        }
+    }
+
+    private IEnumerator FlipSmoothly(float targetAngle) {
+        _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
+                
+        Quaternion startRotation = _mesh.transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _turnTime) {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / _turnTime);
+            _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+            yield return null;
+        }
+
+        _mesh.transform.rotation = targetRotation;
+    }
+    #endregion        
+
         
-        void Jump() {
-            
+        private void CheckGround() {
+            Vector3 capsuleBottom = transform.position + _groundOffset;
+
+            // Perform a sphere overlap check at the capsule's bottom
+            _isGrounded = Physics.CheckSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+        }    
+    
+        private void Jump() {
+            if (_isGrounded) {
+                _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+                _isGrounded = false;
+            }
         }
     }
 }

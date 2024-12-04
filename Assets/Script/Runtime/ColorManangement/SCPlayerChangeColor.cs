@@ -6,7 +6,6 @@ namespace Script.Runtime.ColorManagement {
         private SCInputManager _inputManager => SCInputManager.Instance;
         
         void Start() {
-            ApplyColor(_white);
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
         }
 

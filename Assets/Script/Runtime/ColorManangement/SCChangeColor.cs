@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using static Script.Runtime.SCEnum;
@@ -17,6 +18,10 @@ namespace Script.Runtime.ColorManagement {
         void Awake() {
             _meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
             _meshFilter = transform.GetComponentInChildren<MeshFilter>();
+        }
+
+        private void Start() {
+            ChangeColor(_oldColor);
         }
 
         public void ApplyColor(SColor color) {
@@ -42,7 +47,7 @@ namespace Script.Runtime.ColorManagement {
             _oldColor = color;
         }
 
-        [System.Serializable]
+        [Serializable]
         public struct SColor {
             public Mesh Mesh;
             public Material Material;

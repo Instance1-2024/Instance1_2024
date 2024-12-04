@@ -7,7 +7,7 @@ namespace Script.Runtime
         {
             White,
             Black,
-            Grey
+            Gray
         }
     }
 }

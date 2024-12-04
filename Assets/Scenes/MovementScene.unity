@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1191846050}
   - component: {fileID: 1191846049}
   - component: {fileID: 1191846051}
+  - component: {fileID: 1191846052}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -342,6 +343,37 @@ MonoBehaviour:
     m_Bits: 16
   _groundCheckRadius: -0.5
   _turnTime: 0.25
+--- !u!114 &1191846052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191846048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a9ee328c1a2d764a9fddcd92232154f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _oldColor: 0
+  _black:
+    Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    Material: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
+    Layer:
+      serializedVersion: 2
+      m_Bits: 128
+  _white:
+    Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    Material: {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
+    Layer:
+      serializedVersion: 2
+      m_Bits: 64
+  _gray:
+    Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    Material: {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
+    Layer:
+      serializedVersion: 2
+      m_Bits: 256
 --- !u!1 &1404880514
 GameObject:
   m_ObjectHideFlags: 0

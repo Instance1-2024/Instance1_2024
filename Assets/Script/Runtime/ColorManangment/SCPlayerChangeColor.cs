@@ -9,6 +9,7 @@ namespace Script.Runtime.ColorManagment {
         void Start()
         {
             _meshFilter = transform.GetComponent<MeshFilter>();
+            ChangeColor(EColor.White);
         }
 
         public void ChangeColor(EColor color)
@@ -30,6 +31,8 @@ namespace Script.Runtime.ColorManagment {
         private void ApplyColor(Mesh mesh, LayerMask layer)
         {
             _meshFilter.mesh = mesh;
+            int layerValue = Mathf.Log((int)layer.value, 2);
+            gameObject.layer = layerValue;
         }
     }
 }

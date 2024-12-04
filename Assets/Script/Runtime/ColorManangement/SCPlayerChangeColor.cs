@@ -7,6 +7,7 @@ namespace Script.Runtime.ColorManagement {
         
         void Start() {
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
+            ChangeColor(_oldColor);
         }
 
         void OnChangeColor() {

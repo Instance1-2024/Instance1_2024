@@ -2,6 +2,7 @@
 using System.Collections;
 using Script.Runtime.InputSystem;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Runtime.Player {
     public class SCPlayerMovement : MonoBehaviour {
@@ -17,7 +18,8 @@ namespace Script.Runtime.Player {
         [SerializeField] private float _jumpForce;
         private bool _isGrounded;
         [SerializeField] private Vector3 _groundOffset;
-        [SerializeField] private LayerMask _groundLayer;
+        public LayerMask ColorGroundLayer;
+        [SerializeField] LayerMask _groundLayer;
         [SerializeField] float _groundCheckRadius = 0.1f; 
         
         [Header("Rotation")]
@@ -117,8 +119,7 @@ namespace Script.Runtime.Player {
         private void CheckGround() {
             Vector3 capsuleBottom = transform.position + _groundOffset;
 
-            // Perform a sphere overlap check at the capsule's bottom
-            _isGrounded = Physics.CheckSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+            _isGrounded = Physics.CheckSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer) || Physics.CheckSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
         }    
     
         private void Jump() {

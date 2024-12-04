@@ -36,11 +36,11 @@ namespace Script.Runtime.ColorManagement {
             _meshFilter.gameObject.layer = layerValue;
         }
         
-       void ExcludeLayer(SColor color) {
+       protected void ExcludeLayer(SColor color) {
             _collider.excludeLayers = color.Layer.value;
         }
         
-        public void ChangeColor(EColor color) {
+        public virtual void ChangeColor(EColor color) {
             switch (color) {
                 case EColor.White:
                     ApplyColor(_white);

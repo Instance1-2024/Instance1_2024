@@ -27,11 +27,6 @@ namespace Script.Runtime.ColorManagement {
         }
         
         public void ChangeColor(EColor color) {
-            if (_oldColor == color) {
-                Debug.Log( _oldColor);
-                return;
-            }
-            
             switch (color) {
                 case EColor.White:
                     ApplyColor(_white);

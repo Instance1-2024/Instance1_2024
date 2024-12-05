@@ -10,18 +10,19 @@ namespace Script.Runtime.Player {
         SCInputManager _inputManager => SCInputManager.Instance;
         [SerializeField] LayerMask _interactMask;
 
-        public GameObject HoldItem;
-
         private Transform _transform;
 
+        SCPlayerHold _playerHold;
+        
         private void Start() {
             _transform = transform;
             _inputManager.OnInteractEvent.Started.AddListener(InteractStart);
+            _playerHold = GetComponent<SCPlayerHold>();
         }
 
 
         void InteractStart() {
-            if(HoldItem != null) return;
+            if(_playerHold.HoldItem != null) return;
             Vector3 size = new(1f, 1.8f, 1f);
             Collider[] hits = Physics.OverlapBox(_interactPoint.position + Vector3.right * 0.5f, size, _interactPoint.rotation);
             
@@ -41,10 +42,7 @@ namespace Script.Runtime.Player {
 
         void Interact(GameObject obj, IInteractable interactable) {
             interactable.Interact();
-            HoldItem = obj.transform.parent.gameObject;
-            HoldItem.GetComponent<Rigidbody>().isKinematic = true;
-            HoldItem.transform.SetParent(_interactPoint);
-            obj.GetComponent<Collider>().enabled = false;
+            _playerHold.Hold(obj);
         }
 
         private void OnDrawGizmos() {

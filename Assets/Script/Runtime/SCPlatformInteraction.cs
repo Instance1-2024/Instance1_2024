@@ -11,14 +11,18 @@ public class SCPlatformInteraction : MonoBehaviour
         _animation = GetComponent<Animation>();
     }
 
+    /// <summary>
+    /// Start the platform apparition animation on collision after stop the previous one
+    /// </summary>
+    /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Pebble"))
         {
-            //Stop animation if one was started on collision
+            
             _animation.Stop();
 
-            //Start the animation of the platform apparition on collision
+            
             _animation.Play("ShowPlatform");
             Debug.Log("hit");
         }

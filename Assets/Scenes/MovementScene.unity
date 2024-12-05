@@ -227,6 +227,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &186852312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3000130200932419080, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+  m_PrefabInstance: {fileID: 5181203822427922350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &186852319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186852312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fbdfeea3904c16a01ae926941b1471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &511241831
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +736,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1845263568}
         m_TargetAssemblyTypeName: Script.Runtime.InputSystem.SCInputManager, Assembly-CSharp
-        m_MethodName: OnDrop
+        m_MethodName: OnStartThrow
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -763,6 +780,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bfd379c7-ff13-4b0e-9ef6-0dbf871a5e08
     m_ActionName: 'InGame/ChangeColor[/Keyboard/e,/XInputControllerWindows/buttonEast]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1845263568}
+        m_TargetAssemblyTypeName: Script.Runtime.InputSystem.SCInputManager, Assembly-CSharp
+        m_MethodName: OnThrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fcc066a7-10f1-44e2-8961-ecbb52d20d67
+    m_ActionName: InGame/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: InGame
@@ -821,7 +854,17 @@ MonoBehaviour:
     Canceled:
       m_PersistentCalls:
         m_Calls: []
-  OnDropEvent:
+  OnThrowEvent:
+    Started:
+      m_PersistentCalls:
+        m_Calls: []
+    Performed:
+      m_PersistentCalls:
+        m_Calls: []
+    Canceled:
+      m_PersistentCalls:
+        m_Calls: []
+  OnStartThrowEvent:
     Started:
       m_PersistentCalls:
         m_Calls: []
@@ -1017,7 +1060,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3000130200932419080, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 186852319}
   m_SourcePrefab: {fileID: 100100000, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

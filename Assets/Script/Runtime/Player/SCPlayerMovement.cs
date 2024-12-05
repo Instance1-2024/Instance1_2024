@@ -87,35 +87,36 @@ namespace Script.Runtime.Player {
     #endregion
 
     #region Rotation
-    void UpdateRotation() {
-        if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
-            StartCoroutine(FlipSmoothly(0f));
-        }
-        else if (_inputManager.MoveValue < 0 && _facingDirection == FacingDirection.Right) {
-            StartCoroutine(FlipSmoothly(-180f));
-        }
-    }
-
-    private IEnumerator FlipSmoothly(float targetAngle) {
-        _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
-                
-        Quaternion startRotation = _mesh.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < _turnTime) {
-            elapsedTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedTime / _turnTime);
-            _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
-            yield return null;
+        void UpdateRotation() {
+            if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
+                StartCoroutine(FlipSmoothly(0f));
+            }
+            else if (_inputManager.MoveValue < 0 && _facingDirection == FacingDirection.Right) {
+                StartCoroutine(FlipSmoothly(-180f));
+            }
         }
 
-        _mesh.transform.rotation = targetRotation;
-    }
-    #endregion        
+        private IEnumerator FlipSmoothly(float targetAngle) {
+            _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
+                    
+            Quaternion startRotation = _mesh.transform.rotation;
+            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
 
-        
+            float elapsedTime = 0f;
+
+            while (elapsedTime < _turnTime) {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / _turnTime);
+                _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+                yield return null;
+            }
+
+            _mesh.transform.rotation = targetRotation;
+        }
+    #endregion
+
+
+    #region Jump
         private void CheckGround() {
             Vector3 capsuleBottom = transform.position + _groundOffset;
 
@@ -126,12 +127,16 @@ namespace Script.Runtime.Player {
                 _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
             }
         }    
-    
+        
         private void Jump() {
             if (_isGrounded) {
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
             }
         }
+    
+
+    #endregion
+    
     }
 }

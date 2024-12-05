@@ -22,7 +22,11 @@ namespace Script.Runtime.Player {
 
 
         void InteractStart() {
-            if(_playerHold.HoldItem != null) return;
+            if (_playerHold.HoldItem != null){
+                _playerHold.Drop();
+                return;
+            }
+
             Vector3 size = new(1f, 1.8f, 1f);
             Collider[] hits = Physics.OverlapBox(_interactPoint.position + Vector3.right * 0.5f, size, _interactPoint.rotation);
             
@@ -41,8 +45,11 @@ namespace Script.Runtime.Player {
         }
 
         void Interact(GameObject obj, IInteractable interactable) {
-            interactable.Interact();
-            _playerHold.Hold(obj);
+            if (_playerHold.CanHold) {
+                interactable.Interact();
+                _playerHold.Hold(obj);
+            }
+
         }
 
         private void OnDrawGizmos() {

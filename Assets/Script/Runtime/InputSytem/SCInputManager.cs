@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Script.Runtime.InputSystem {
     public class SCInputManager : MonoBehaviour {
@@ -15,7 +16,9 @@ namespace Script.Runtime.InputSystem {
         
         public SInputEvent OnInteractEvent;
         
-        public SInputEvent OnDropEvent;
+        public SInputEvent OnThrowEvent;
+        public SInputEvent OnStartThrowEvent;
+        
         public SInputEvent OnPauseEvent;
 
         private void Awake() {
@@ -45,8 +48,12 @@ namespace Script.Runtime.InputSystem {
             InvokeInputEvent(ctx, OnInteractEvent);
         }
 
-        public void OnDrop(InputAction.CallbackContext ctx) {
-            InvokeInputEvent(ctx, OnDropEvent);
+        public void OnThrow(InputAction.CallbackContext ctx) {
+            InvokeInputEvent(ctx, OnThrowEvent);
+        }
+        
+        public void OnStartThrow(InputAction.CallbackContext ctx) {
+            InvokeInputEvent(ctx, OnStartThrowEvent);
         }
         
         public void OnPause(InputAction.CallbackContext ctx) {

@@ -11,7 +11,6 @@ namespace Script.Runtime.ColorManagement {
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
             _playerMovement = GetComponent<SCPlayerMovement>();
             ChangeColor(_oldColor);
-            
         }
 
         void OnChangeColor() {

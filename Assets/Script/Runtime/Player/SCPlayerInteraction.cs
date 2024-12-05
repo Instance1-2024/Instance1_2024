@@ -48,6 +48,7 @@ namespace Script.Runtime.Player {
             if (_playerHold.CanHold) {
                 interactable.Interact();
                 _playerHold.Hold(obj);
+                _playerHold.SetHoldImage(interactable.Sprite);
             }
 
         }

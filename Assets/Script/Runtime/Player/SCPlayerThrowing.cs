@@ -25,7 +25,7 @@ namespace Script.Runtime.Player {
         private void Update() {
             CanThrow = _StartedThrow && _playerHold.CanHold;
             if (CanThrow) {
-                Debug.Log( "Can Throw" );
+                _ThrowPosition = _camera.ScreenToWorldPoint( new(Input.mousePosition.x, Input.mousePosition.y, -_camera.transform.position.z) );
             }
         }
         
@@ -34,13 +34,16 @@ namespace Script.Runtime.Player {
         }
         
         void Throw() {
-            if(!_StartedThrow) return;
-
-            _ThrowPosition = _camera.ScreenToWorldPoint( new(Input.mousePosition.x, Input.mousePosition.y, _camera.transform.position.z) );
+            if(!CanThrow) return;
+            RaycastHit hit;
+            if (Physics.Linecast(transform.position, _ThrowPosition, out hit)) {
+                _ThrowPosition = hit.point;
+            }
             
-            Debug.Log(_ThrowPosition);
+            _playerHold.Throw(_ThrowPosition);
             
             _StartedThrow = false;
         }
+        
     }
 }

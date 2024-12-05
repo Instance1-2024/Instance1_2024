@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactPoint: {fileID: 2225204550822901233}
+  _interactMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5330780738954450983
 GameObject:
   m_ObjectHideFlags: 0

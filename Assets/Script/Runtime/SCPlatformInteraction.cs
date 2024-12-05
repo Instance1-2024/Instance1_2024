@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Animation))]
 public class SCPlatformInteraction : MonoBehaviour
 {
-    Animation _animation;
+    [SerializeField] private Animation _animation;
 
     private void Start()
     {
@@ -15,7 +15,10 @@ public class SCPlatformInteraction : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Pebble"))
         {
+            //Stop animation if one was started on collision
             _animation.Stop();
+
+            //Start the animation of the platform apparition on collision
             _animation.Play("ShowPlatform");
             Debug.Log("hit");
         }

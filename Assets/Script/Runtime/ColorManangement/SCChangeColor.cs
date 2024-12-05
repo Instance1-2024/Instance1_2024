@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 using static Script.Runtime.SCEnum;
 
 namespace Script.Runtime.ColorManagement {

@@ -88,6 +88,7 @@ MonoBehaviour:
     m_Bits: 256
   _groundCheckRadius: -0.5
   _turnTime: 0.25
+  _mesh: {fileID: 8760576605095852656}
 --- !u!114 &4411154798486948868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
   _interactMask:
     serializedVersion: 2
     m_Bits: 256
+  HoldItem: {fileID: 0}
 --- !u!1 &5330780738954450983
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2225204550822901233}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: InteractingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -32,14 +32,13 @@ namespace Script.Runtime.Player {
         enum FacingDirection { Right, Left }
         FacingDirection _facingDirection;
         
-        GameObject _mesh;
+        [SerializeField] GameObject _mesh;
         private Rigidbody _body;
 
         
         private void Start() {
             _body = GetComponent<Rigidbody>();
-            _mesh = transform.GetChild(0).gameObject;
-            
+           
             _inputManager.OnMoveEvent.Performed.AddListener(() => _isMoving = true);
             _inputManager.OnMoveEvent.Canceled.AddListener(() => _isMoving = false);
             

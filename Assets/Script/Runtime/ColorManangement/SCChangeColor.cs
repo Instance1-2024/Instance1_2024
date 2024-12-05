@@ -24,7 +24,6 @@ namespace Script.Runtime.ColorManagement {
         }
 
         private void Start() {
-            Debug.Log(_oldColor);
             ChangeColor(_oldColor);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using Script.Runtime.InputSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -119,7 +120,12 @@ namespace Script.Runtime.Player {
         private void CheckGround() {
             Vector3 capsuleBottom = transform.position + _groundOffset;
 
-            _isGrounded = Physics.CheckSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer) || Physics.CheckSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+            Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
+            _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+            if (!_isGrounded) {
+                hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+                _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+            }
         }    
     
         private void Jump() {

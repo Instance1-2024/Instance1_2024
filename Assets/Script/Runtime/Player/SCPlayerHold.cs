@@ -73,7 +73,7 @@ namespace Script.Runtime.Player {
             
             _holdItemBody.AddForce(direction * _throwSpeed, ForceMode.Impulse);
             
-            Invoke(nameof(ActiveCollider), 0.1f);
+            Invoke(nameof(ActiveCollider), 0.2f);
         }
 
         /// <summary>

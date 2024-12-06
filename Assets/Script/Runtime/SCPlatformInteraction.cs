@@ -23,7 +23,7 @@ public class SCPlatformInteraction : MonoBehaviour
             _animation.Stop();
 
             
-            _animation.Play("ShowPlatform");
+            _animation.Play(_animation.clip.name);
             Debug.Log("hit");
         }
     }

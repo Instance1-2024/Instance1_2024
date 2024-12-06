@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using static Script.Runtime.SCEnum;
 
@@ -35,7 +36,7 @@ namespace Script.Runtime.ColorManagement {
         /// <param name="color.Layer"> The layer to apply</param>
         public void ApplyColor(SColor color) {
             _meshFilter.mesh = color.Mesh;
-            _meshRenderer.material = color.Material;
+            _meshRenderer.materials = color.Material.ToArray();
             int layerValue = (int)Mathf.Log(color.Layer.value, 2);
             gameObject.layer = layerValue;
             _meshFilter.gameObject.layer = layerValue;
@@ -80,7 +81,7 @@ namespace Script.Runtime.ColorManagement {
         [Serializable]
         public struct SColor {
             public Mesh Mesh;
-            public Material Material;
+            public List<Material> Material;
             public LayerMask Layer;
         }
     }

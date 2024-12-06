@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: _oldColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 147824cbf3aa79d4ab73590775c52a98, type: 3}
+      propertyPath: '_gray.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07161330e14499d46a735f31d00430b3, type: 2}
+    - target: {fileID: 802013681912282129, guid: 147824cbf3aa79d4ab73590775c52a98, type: 3}
+      propertyPath: '_black.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ed51dca0a479f81489a1078966ea7eda, type: 2}
+    - target: {fileID: 802013681912282129, guid: 147824cbf3aa79d4ab73590775c52a98, type: 3}
+      propertyPath: '_white.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bb981e188a2d24140b903101a2d94017, type: 2}
     - target: {fileID: 2957285838683122402, guid: 147824cbf3aa79d4ab73590775c52a98, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

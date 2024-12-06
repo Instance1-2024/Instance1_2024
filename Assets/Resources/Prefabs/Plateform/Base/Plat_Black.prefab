@@ -52,13 +52,37 @@ PrefabInstance:
       propertyPath: _oldColor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: _gray.Material.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: _black.Material.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: _white.Material.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: '_gray.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: '_black.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: '_white.Material.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
     - target: {fileID: 2957285838683122402, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     - target: {fileID: 3266856179287137338, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: m_Name
-      value: plateform_Black
+      value: Plat_Black
       objectReference: {fileID: 0}
     - target: {fileID: 3266856179287137338, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: m_Layer

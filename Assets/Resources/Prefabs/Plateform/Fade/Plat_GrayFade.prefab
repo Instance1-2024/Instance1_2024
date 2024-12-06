@@ -48,19 +48,22 @@ MonoBehaviour:
   _oldColor: 2
   _black:
     Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: ed51dca0a479f81489a1078966ea7eda, type: 2}
+    Material:
+    - {fileID: 2100000, guid: ed51dca0a479f81489a1078966ea7eda, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 128
   _white:
     Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: bb981e188a2d24140b903101a2d94017, type: 2}
+    Material:
+    - {fileID: 2100000, guid: bb981e188a2d24140b903101a2d94017, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 64
   _gray:
     Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: 07161330e14499d46a735f31d00430b3, type: 2}
+    Material:
+    - {fileID: 2100000, guid: 07161330e14499d46a735f31d00430b3, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 256

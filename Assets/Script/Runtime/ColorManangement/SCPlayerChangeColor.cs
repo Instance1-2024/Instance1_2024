@@ -13,6 +13,9 @@ namespace Script.Runtime.ColorManagement {
             ChangeColor(_oldColor);
         }
 
+        /// <summary>
+        /// When the player changes color, it changes the color
+        /// </summary>
         void OnChangeColor() {
             if (_oldColor == EColor.Black) {
                 ChangeColor(EColor.White);
@@ -22,6 +25,10 @@ namespace Script.Runtime.ColorManagement {
             }
         }
         
+        /// <summary>
+        /// Changes the color and exclude the inverse layer from the collider and change the ground layer
+        /// </summary>
+        /// <param name="color"> The color to apply</param>
         public override void ChangeColor(EColor color) {
             switch (color) {
                 case EColor.White:
@@ -45,6 +52,10 @@ namespace Script.Runtime.ColorManagement {
             _oldColor = color;
         }
 
+        /// <summary>
+        /// Changes the ground layer
+        /// </summary>
+        /// <param name="color.Layer"> the layer to apply</param>
         void ChangeGroundLayer(SColor color) {
             _playerMovement.ColorGroundLayer = color.Layer.value;
         }

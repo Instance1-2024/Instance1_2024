@@ -26,6 +26,13 @@ namespace Script.Runtime.ColorManagement {
             ChangeColor(_oldColor);
         }
 
+        
+        /// <summary>
+        /// Applies the mesh, the material and the layer to the object
+        /// </summary>
+        /// <param name="color.Mesh"> The mesh to apply</param>
+        /// <param name="color.Material"> The material to apply</param>
+        /// <param name="color.Layer"> The layer to apply</param>
         public void ApplyColor(SColor color) {
             _meshFilter.mesh = color.Mesh;
             _meshRenderer.material = color.Material;
@@ -34,10 +41,18 @@ namespace Script.Runtime.ColorManagement {
             _meshFilter.gameObject.layer = layerValue;
         }
         
+        /// <summary>
+        /// Excludes the layer from the collider
+        /// </summary>
+        /// <param name="color.Layer"> The layer to exclude</param>
        protected void ExcludeLayer(SColor color) {
             _collider.excludeLayers = color.Layer.value;
         }
         
+        /// <summary>
+        /// Changes the color and exclude the inverse color layer from the collider
+        /// </summary>
+        /// <param name="color"> The color to apply</param>
         public virtual void ChangeColor(EColor color) {
             switch (color) {
                 case EColor.White:
@@ -56,6 +71,12 @@ namespace Script.Runtime.ColorManagement {
             _oldColor = color;
         }
 
+        /// <summary>
+        /// The structure that contains the mesh, the material and the layer to apply to the object
+        /// </summary>
+        /// <param name="Mesh">The mesh to apply</param>
+        /// <param name="Material">The material to apply</param>
+        /// <param name="Layer">The layer to apply</param>
         [Serializable]
         public struct SColor {
             public Mesh Mesh;

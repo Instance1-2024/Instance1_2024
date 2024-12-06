@@ -21,6 +21,10 @@ namespace Script.Runtime.Player {
         }
 
 
+        
+        /// <summary>
+        /// When the player interact, it will detect one of the object in front and try interacting with it
+        /// </summary>
         void InteractStart() {
             if (_playerHold.HoldItem != null){
                 _playerHold.Drop();
@@ -44,6 +48,11 @@ namespace Script.Runtime.Player {
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj">The object that can be interacted </param>
+        /// <param name="interactable"> The component who has the interact function</param>
         void Interact(GameObject obj, IInteractable interactable) {
             if (_playerHold.CanHold) {
                 interactable.Interact();
@@ -53,9 +62,9 @@ namespace Script.Runtime.Player {
 
         }
 
-        private void OnDrawGizmos() {
+        /*private void OnDrawGizmos() {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(_interactPoint.position + Vector3.right *0.1f, new Vector3(1f, 1.8f, 1f));
-        }
+        }*/
     }
 }

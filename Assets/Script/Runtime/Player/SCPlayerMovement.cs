@@ -62,7 +62,11 @@ namespace Script.Runtime.Player {
         
 
         
-    #region MyRegion
+    #region Movement
+        
+        /// <summary>
+        /// Move the player
+        /// </summary>
         void Move() {
             if(_body.linearVelocity.magnitude < _maxSpeed) {
                 Vector3 movement = (transform.right * _inputManager.MoveValue) * (_acceleration * Time.fixedDeltaTime);
@@ -70,8 +74,9 @@ namespace Script.Runtime.Player {
             }
         }
 
-        
-        
+        /// <summary>
+        /// Limit the Player speed
+        /// </summary>
         void ClampSpeed() {
             Vector3 horizontalVelocity = new Vector3(_body.linearVelocity.x, 0, _body.linearVelocity.z);
             horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, _maxSpeed);
@@ -80,6 +85,9 @@ namespace Script.Runtime.Player {
             }
         }
         
+        /// <summary>
+        /// Apply the Friction of the player
+        /// </summary>
         void ApplyFriction() {
             Vector3 friction = -_body.linearVelocity * (Time.fixedDeltaTime * _frictionForce);
             _body.AddForce(new Vector3(friction.x, 0, friction.y));
@@ -87,6 +95,10 @@ namespace Script.Runtime.Player {
     #endregion
 
     #region Rotation
+    
+        /// <summary>
+        /// Choose rotation by the direction of the player
+        /// </summary>
         void UpdateRotation() {
             if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
                 StartCoroutine(FlipSmoothly(0f));
@@ -96,6 +108,12 @@ namespace Script.Runtime.Player {
             }
         }
 
+        
+        /// <summary>
+        /// Flip the player smoothly
+        /// </summary>
+        /// <param name="targetAngle"> The angle to flip </param>
+        /// <returns></returns>
         private IEnumerator FlipSmoothly(float targetAngle) {
             _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
                     
@@ -117,6 +135,10 @@ namespace Script.Runtime.Player {
 
 
     #region Jump
+    
+        /// <summary>
+        /// Detect if the player is on the ground
+        /// </summary>
         private void CheckGround() {
             Vector3 capsuleBottom = transform.position + _groundOffset;
 
@@ -128,6 +150,9 @@ namespace Script.Runtime.Player {
             }
         }    
         
+        /// <summary>
+        /// Jump if the player is on the ground
+        /// </summary>
         private void Jump() {
             if (_isGrounded) {
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);

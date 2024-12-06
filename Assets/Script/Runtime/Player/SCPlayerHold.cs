@@ -26,6 +26,11 @@ namespace Script.Runtime.Player {
             _holdSlotImage = _holdSlot.transform.GetChild(0).GetComponent<Image>();
         }
 
+        
+        /// <summary>
+        /// Take the item to the inventory
+        /// </summary>
+        /// <param name="item"> The item to take</param>
         public void Hold( GameObject item) {
             if (!CanHold) return;
             
@@ -36,6 +41,9 @@ namespace Script.Runtime.Player {
             HoldItem.SetActive(false);
         }
         
+        /// <summary>
+        /// Drop the item from the inventory in front of the player
+        /// </summary>
         public void Drop() {
             if (!CanHold) return;
             
@@ -48,6 +56,10 @@ namespace Script.Runtime.Player {
             RemoveHoldImage();
         }
 
+        /// <summary>
+        /// Throw the item to the throw position
+        /// </summary>
+        /// <param name="throwPosition"> The position to throw</param>
         public void Throw(Vector3 throwPosition) {
             HoldItem.SetActive(true);
             HoldItem.transform.SetParent(null);
@@ -64,6 +76,9 @@ namespace Script.Runtime.Player {
             Invoke(nameof(ActiveCollider), 0.1f);
         }
 
+        /// <summary>
+        /// Active the collider and the rigidbody then remove to the inventory
+        /// </summary>
         private void ActiveCollider() {
             HoldItem.GetComponentInChildren<Collider>().enabled = true;
             _holdItemBody.mass = 1f;
@@ -72,12 +87,19 @@ namespace Script.Runtime.Player {
             RemoveHoldImage();
         }
 
-
+        /// <summary>
+        /// Set the sprite to the hold slot
+        /// </summary>
+        /// <param name="sprite">Sprite of the item</param>
         public void SetHoldImage(Sprite sprite) {
             _holdSlot.SetActive(true);
             _holdSlotImage.sprite = sprite;
         }
         
+        
+        /// <summary>
+        /// Remove the sprite from the hold slot
+        /// </summary>
         public void RemoveHoldImage() {
             _holdSlot.SetActive(false);
             _holdSlotImage.sprite = null;

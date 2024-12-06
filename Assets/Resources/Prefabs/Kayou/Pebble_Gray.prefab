@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 6793736305217471929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.55, y: 1.28, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -159,19 +159,22 @@ MonoBehaviour:
   _oldColor: 2
   _black:
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
+    Material:
+    - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 128
   _white:
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
+    Material:
+    - {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 64
   _gray:
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    Material: {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
+    Material:
+    - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 256

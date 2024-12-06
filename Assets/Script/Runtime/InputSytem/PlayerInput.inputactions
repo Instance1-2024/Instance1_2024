@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Drop",
+                    "name": "StartThrow",
                     "type": "Button",
                     "id": "46a1ccb1-fa88-4f1b-9c0e-ad5a36883be9",
                     "expectedControlType": "",
@@ -54,6 +54,15 @@
                     "name": "ChangeColor",
                     "type": "Button",
                     "id": "bfd379c7-ff13-4b0e-9ef6-0dbf871a5e08",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "fcc066a7-10f1-44e2-8961-ecbb52d20d67",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -200,7 +209,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drop",
+                    "action": "StartThrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -211,7 +220,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drop",
+                    "action": "StartThrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -256,6 +265,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeColor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7350980c-244b-4d1f-a47a-854e995fe008",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d586640-fab4-48b2-b424-729cdd4260e2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

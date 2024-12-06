@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using Script.Runtime.InputSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -31,14 +32,13 @@ namespace Script.Runtime.Player {
         enum FacingDirection { Right, Left }
         FacingDirection _facingDirection;
         
-        GameObject _mesh;
+        [SerializeField] GameObject _mesh;
         private Rigidbody _body;
 
         
         private void Start() {
             _body = GetComponent<Rigidbody>();
-            _mesh = transform.GetChild(0).gameObject;
-            
+           
             _inputManager.OnMoveEvent.Performed.AddListener(() => _isMoving = true);
             _inputManager.OnMoveEvent.Canceled.AddListener(() => _isMoving = false);
             
@@ -62,7 +62,11 @@ namespace Script.Runtime.Player {
         
 
         
-    #region MyRegion
+    #region Movement
+        
+        /// <summary>
+        /// Move the player
+        /// </summary>
         void Move() {
             if(_body.linearVelocity.magnitude < _maxSpeed) {
                 Vector3 movement = (transform.right * _inputManager.MoveValue) * (_acceleration * Time.fixedDeltaTime);
@@ -70,8 +74,9 @@ namespace Script.Runtime.Player {
             }
         }
 
-        
-        
+        /// <summary>
+        /// Limit the Player speed
+        /// </summary>
         void ClampSpeed() {
             Vector3 horizontalVelocity = new Vector3(_body.linearVelocity.x, 0, _body.linearVelocity.z);
             horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, _maxSpeed);
@@ -80,6 +85,9 @@ namespace Script.Runtime.Player {
             }
         }
         
+        /// <summary>
+        /// Apply the Friction of the player
+        /// </summary>
         void ApplyFriction() {
             Vector3 friction = -_body.linearVelocity * (Time.fixedDeltaTime * _frictionForce);
             _body.AddForce(new Vector3(friction.x, 0, friction.y));
@@ -87,46 +95,73 @@ namespace Script.Runtime.Player {
     #endregion
 
     #region Rotation
-    void UpdateRotation() {
-        if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
-            StartCoroutine(FlipSmoothly(0f));
+    
+        /// <summary>
+        /// Choose rotation by the direction of the player
+        /// </summary>
+        void UpdateRotation() {
+            if (_inputManager.MoveValue > 0 && _facingDirection == FacingDirection.Left) {
+                StartCoroutine(FlipSmoothly(0f));
+            }
+            else if (_inputManager.MoveValue < 0 && _facingDirection == FacingDirection.Right) {
+                StartCoroutine(FlipSmoothly(-180f));
+            }
         }
-        else if (_inputManager.MoveValue < 0 && _facingDirection == FacingDirection.Right) {
-            StartCoroutine(FlipSmoothly(-180f));
-        }
-    }
-
-    private IEnumerator FlipSmoothly(float targetAngle) {
-        _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
-                
-        Quaternion startRotation = _mesh.transform.rotation;
-        Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-        float elapsedTime = 0f;
-
-        while (elapsedTime < _turnTime) {
-            elapsedTime += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsedTime / _turnTime);
-            _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
-            yield return null;
-        }
-
-        _mesh.transform.rotation = targetRotation;
-    }
-    #endregion        
 
         
+        /// <summary>
+        /// Flip the player smoothly
+        /// </summary>
+        /// <param name="targetAngle"> The angle to flip </param>
+        /// <returns></returns>
+        private IEnumerator FlipSmoothly(float targetAngle) {
+            _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
+                    
+            Quaternion startRotation = _mesh.transform.rotation;
+            Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
+
+            float elapsedTime = 0f;
+
+            while (elapsedTime < _turnTime) {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / _turnTime);
+                _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+                yield return null;
+            }
+
+            _mesh.transform.rotation = targetRotation;
+        }
+    #endregion
+
+
+    #region Jump
+    
+        /// <summary>
+        /// Detect if the player is on the ground
+        /// </summary>
         private void CheckGround() {
             Vector3 capsuleBottom = transform.position + _groundOffset;
 
-            _isGrounded = Physics.CheckSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer) || Physics.CheckSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+            Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
+            _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+            if (!_isGrounded) {
+                hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
+                _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+            }
         }    
-    
+        
+        /// <summary>
+        /// Jump if the player is on the ground
+        /// </summary>
         private void Jump() {
             if (_isGrounded) {
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
             }
         }
+    
+
+    #endregion
+    
     }
 }

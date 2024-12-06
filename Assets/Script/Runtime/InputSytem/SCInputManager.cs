@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Script.Runtime.InputSystem {
     public class SCInputManager : MonoBehaviour {
@@ -15,7 +16,9 @@ namespace Script.Runtime.InputSystem {
         
         public SInputEvent OnInteractEvent;
         
-        public SInputEvent OnDropEvent;
+        public SInputEvent OnThrowEvent;
+        public SInputEvent OnStartThrowEvent;
+        
         public SInputEvent OnPauseEvent;
 
         private void Awake() {
@@ -28,31 +31,68 @@ namespace Script.Runtime.InputSystem {
             }
         }
 
+        /// <summary>
+        /// When the player move, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnMove(InputAction.CallbackContext ctx) {
             MoveValue = ctx.ReadValue<float>();
             InvokeInputEvent(ctx, OnMoveEvent);
         }
 
+        /// <summary>
+        /// When the player Jump, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnJump(InputAction.CallbackContext ctx) {
             InvokeInputEvent(ctx, OnJumpEvent);
         }
         
+        /// <summary>
+        /// When the player Change Color, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnChangeColor(InputAction.CallbackContext ctx) {
             InvokeInputEvent(ctx, OnChangeColorEvent);
         }
-
+        
+        /// <summary>
+        /// When the player interact, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnInteract(InputAction.CallbackContext ctx) {
             InvokeInputEvent(ctx, OnInteractEvent);
         }
-
-        public void OnDrop(InputAction.CallbackContext ctx) {
-            InvokeInputEvent(ctx, OnDropEvent);
+        
+        /// <summary>
+        /// When the player throw, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
+        public void OnThrow(InputAction.CallbackContext ctx) {
+            InvokeInputEvent(ctx, OnThrowEvent);
         }
         
+        /// <summary>
+        /// When the player Prepare to throw, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
+        public void OnStartThrow(InputAction.CallbackContext ctx) {
+            InvokeInputEvent(ctx, OnStartThrowEvent);
+        }
+        
+        /// <summary>
+        /// When the player pause, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnPause(InputAction.CallbackContext ctx) {
             InvokeInputEvent(ctx, OnPauseEvent);
         }
 
+        /// <summary>
+        ///  Invoke the input by the event
+        /// </summary>
+        /// <param name="ctx">The context of the input</param>
+        /// <param name="inputEvent"> The event to invoke</param>
         void InvokeInputEvent(InputAction.CallbackContext ctx, SInputEvent inputEvent) {
             if (ctx.started) {
                 inputEvent.Started?.Invoke();
@@ -63,6 +103,12 @@ namespace Script.Runtime.InputSystem {
             }
         }
 
+        /// <summary>
+        /// Event related to the input
+        /// </summary>
+        /// <param name="Started">When the input is started</param>
+        /// <param name="Canceled">When the input is canceled</param>
+        ///  <param name="Performed">When the input is performed</param>
         [System.Serializable]
         public struct SInputEvent {
             public UnityEvent Started;

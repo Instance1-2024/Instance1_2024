@@ -1,13 +1,17 @@
 using UnityEngine;
 
-public class SCSpikeInteraction : MonoBehaviour
+public class SCDeadlyObstacleInteraction : MonoBehaviour
 {
-    //[SerializeField] GameObject _myPlayer;
+    /// <summary>
+    /// Death of player on collision with Spike
+    /// </summary>
+    /// <param name="other"></param>
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Death");
+
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 970240788121890005}
   - component: {fileID: 1731282199839128415}
   - component: {fileID: 6157707444202267444}
+  - component: {fileID: 6244587064198880582}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
@@ -108,6 +109,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6244587064198880582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843114422411036961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e61c99390c78b4caaa1c985ae0fd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8436681459494552198
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,10 +131,9 @@ GameObject:
   m_Component:
   - component: {fileID: 358736045586056089}
   - component: {fileID: 8497151640702158803}
-  - component: {fileID: 8464330357184068580}
   m_Layer: 8
   m_Name: SpikeGray
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,16 +185,3 @@ MonoBehaviour:
     Layer:
       serializedVersion: 2
       m_Bits: 256
---- !u!114 &8464330357184068580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8436681459494552198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e61c99390c78b4caaa1c985ae0fd26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _myPlayer: {fileID: 0}

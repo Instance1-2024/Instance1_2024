@@ -37,6 +37,7 @@ namespace Script.Runtime.Player {
             HoldItem = item.transform.parent.gameObject;
             HoldItem.GetComponent<Rigidbody>().isKinematic = true;
             HoldItem.transform.SetParent(_holdPoint);
+            HoldItem.transform.localPosition = Vector3.zero;
             HoldItem.GetComponentInChildren<Collider>().enabled = false;
             HoldItem.SetActive(false);
         }

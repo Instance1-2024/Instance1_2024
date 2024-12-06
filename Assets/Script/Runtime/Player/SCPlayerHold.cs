@@ -14,7 +14,7 @@ namespace Script.Runtime.Player {
         [SerializeField] private Transform _holdPoint;
         [SerializeField] private Transform _meshTrans;
         
-        [SerializeField]float _throwSpeed = 1.5f;
+        [SerializeField]float _throwSpeed = 0.25f;
 
         private Rigidbody _holdItemBody;
 

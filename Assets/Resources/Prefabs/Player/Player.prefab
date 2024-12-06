@@ -182,8 +182,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HoldItem: {fileID: 0}
+  _holdSlot: {fileID: 0}
   _holdPoint: {fileID: 3173426428971848788}
   _meshTrans: {fileID: 4570191073883376724}
+  _throwSpeed: 1
 --- !u!114 &2971476854067179295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fbdfeea3904c16a01ae926941b1471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanThrow: 0
 --- !u!1 &5330780738954450983
 GameObject:
   m_ObjectHideFlags: 0

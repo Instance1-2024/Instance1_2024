@@ -41,15 +41,21 @@ namespace Script.Runtime.Player {
             foreach (Collider hit in hits) {
                 if (hit == null || hit.transform.parent == null) continue;
                 if (hit.transform.parent.TryGetComponent<IInteractable>(out var interactable)) {
-                    if (hit.gameObject.layer != gameObject.layer && hit.gameObject.layer != _interactMask) continue;
+                    if (hit.gameObject.layer != gameObject.layer && !CompareLayerMask(hit.gameObject.layer, _interactMask)) {
+                        continue;
+                    }
                     Interact(hit.gameObject, interactable);
                     return;
                 }
             }
         }
+        
+        bool CompareLayerMask( int layer, LayerMask mask) => (mask.value & (1 << layer)) != 0;
+        
+        
 
         /// <summary>
-        /// 
+        /// When interacting with the object, it will check if the player can hold the object
         /// </summary>
         /// <param name="obj">The object that can be interacted </param>
         /// <param name="interactable"> The component who has the interact function</param>

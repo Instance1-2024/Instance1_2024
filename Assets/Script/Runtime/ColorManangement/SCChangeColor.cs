@@ -27,6 +27,8 @@ namespace Script.Runtime.ColorManagement {
             ChangeColor(_oldColor);
         }
 
+        public EColor GetColor() => _oldColor;
+        
         
         /// <summary>
         /// Applies the mesh, the material and the layer to the object

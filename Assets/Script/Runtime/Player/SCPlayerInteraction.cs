@@ -50,6 +50,12 @@ namespace Script.Runtime.Player {
             }
         }
         
+        /// <summary>
+        /// Check if the layer is in the mask
+        /// </summary>
+        /// <param name="layer"> The layer to check</param>
+        /// <param name="mask">The layer mask to check</param>
+        /// <returns>True if the layer is in the mask</returns>
         bool CompareLayerMask( int layer, LayerMask mask) => (mask.value & (1 << layer)) != 0;
         
         

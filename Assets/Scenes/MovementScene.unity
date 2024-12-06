@@ -341,7 +341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 188534479725222975, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 200000
       objectReference: {fileID: 0}
     - target: {fileID: 188534479725222975, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: m_LocalScale.y
@@ -402,6 +402,10 @@ PrefabInstance:
     - target: {fileID: 3266856179287137338, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: m_Name
       value: plateform_Gray
+      objectReference: {fileID: 0}
+    - target: {fileID: 7941279984979068385, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -590,9 +594,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5537735414019115388, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: _bounceForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537735414019115388, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: _staticFrictionForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537735414019115388, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: _dynamicFrictionForce
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: _oldColor
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6793736305217471929, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
       propertyPath: m_Name
       value: Pebble_Gray
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378620032228554555, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: m_AngularDrag
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1143,7 +1167,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2926287436824038966, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: m_Mass
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2971476854067179295, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: _camera
@@ -1205,6 +1229,10 @@ PrefabInstance:
       propertyPath: _holdSlot
       value: 
       objectReference: {fileID: 1991681467}
+    - target: {fileID: 6541986954138691229, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: _throwSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

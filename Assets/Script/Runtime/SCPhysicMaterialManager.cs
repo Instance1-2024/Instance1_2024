@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Runtime.Pebble {
+namespace Script.Runtime {
 
 
     [RequireComponent(typeof(Rigidbody))]
@@ -21,30 +21,55 @@ namespace Script.Runtime.Pebble {
         }
 
         /// <summary>
-        /// Apply the value set in the inspector to the Static Friction in the Physic Material
+        /// Apply the value to the Static Friction in the Physic Material
         /// </summary>
         /// <param name="friction"></param>
         public void ApplyStaticFriction(float friction) {
-            friction = _staticFrictionForce;
+            _staticFrictionForce = friction;
             _physicMaterial.staticFriction = friction;
         }
 
         /// <summary>
-        /// Apply the value set in the inspector to the Static Friction in the Physic Material
+        /// Apply the value to the Dynamic Friction in the Physic Material
         /// </summary>
         /// <param name="friction"></param>
         public void ApplyDynamicFriction(float friction) {
-            friction = _dynamicFrictionForce;
+            _dynamicFrictionForce = friction;
             _physicMaterial.dynamicFriction = friction;
+        }
+        
+        /// <summary>
+        /// Apply the value to the Static Friction and the Dynamic Friction in the Physic Material
+        /// </summary>
+        /// <param name="friction"></param>
+        public void ApplyFrictions(float friction) {
+            ApplyStaticFriction(friction);
+            ApplyDynamicFriction(friction);
         }
 
         /// <summary>
-        /// Apply the value set in the inspector to the Static Friction in the Physic Material
+        /// Apply the value to the Bounce in the Physic Material
         /// </summary>
         /// <param name="bounce"></param>
         public void ApplyBounce(float bounce) {
-            bounce = _bounceForce;
+            _bounceForce = bounce ;
             _physicMaterial.bounciness = bounce;
+        }
+        
+        /// <summary>
+        /// Apply the mode to the Friction Combine in the Physic Material
+        /// </summary>
+        /// <param name="mode"></param>
+        public void ApplyFrictionCombine(PhysicsMaterialCombine mode) {
+            _physicMaterial.frictionCombine = mode;
+        }
+        
+        /// <summary>
+        /// Apply the mode to the Bounce Combine in the Physic Material
+        /// </summary>
+        /// <param name="mode"></param>
+        public void ApplyBounceCombine(PhysicsMaterialCombine mode) {
+            _physicMaterial.bounceCombine = mode;
         }
 
     }

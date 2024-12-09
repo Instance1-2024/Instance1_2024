@@ -66,8 +66,8 @@ namespace Script.Runtime.Player {
         /// <param name="obj">The object that can be interacted </param>
         /// <param name="interactable"> The component who has the interact function</param>
         void Interact(GameObject obj, IInteractable interactable) {
+            interactable.Interact();
             if (_playerHold.CanHold && interactable.CanBeHold) {
-                interactable.Interact();
                 _playerHold.Hold(obj);
                 _playerHold.SetHoldImage(interactable.Sprite);
             }

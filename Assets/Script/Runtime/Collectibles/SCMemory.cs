@@ -11,12 +11,10 @@ namespace Script.Runtime.Collectibles
 
         public bool CanBeHold { get; set; }
 
-        private void Collect(int amount)
-        {
-           //amount++;
-           //_collectibleAmount = amount;
-            
-        }
+
+        /// <summary>
+        /// Interaction between player and memory, destroy GO when Interact button is pressed
+        /// </summary>
         public void Interact()
         {
             Debug.Log("Collected");

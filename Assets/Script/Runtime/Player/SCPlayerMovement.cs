@@ -18,10 +18,11 @@ namespace Script.Runtime.Player {
         [Header("Jump")]
         [SerializeField] private float _jumpForce;
         private bool _isGrounded;
-        [SerializeField] private Vector3 _groundOffset;
         public LayerMask ColorGroundLayer;
         [SerializeField] LayerMask _groundLayer;
-        [SerializeField] float _groundCheckRadius = 0.1f; 
+
+        [SerializeField] private Transform _groundCheck;
+        [SerializeField] float _groundCheckRadius; 
         
         [Header("Rotation")]
         [SerializeField] private float _turnTime;
@@ -35,9 +36,12 @@ namespace Script.Runtime.Player {
         [SerializeField] GameObject _mesh;
         private Rigidbody _body;
 
+        private SCPhysicMaterialManager _materialManager;
+
         
         private void Start() {
             _body = GetComponent<Rigidbody>();
+            _materialManager = GetComponent<SCPhysicMaterialManager>();
            
             _inputManager.OnMoveEvent.Performed.AddListener(() => _isMoving = true);
             _inputManager.OnMoveEvent.Canceled.AddListener(() => _isMoving = false);
@@ -54,6 +58,14 @@ namespace Script.Runtime.Player {
             ApplyFriction();
             if (_isMoving) {
                 Move();
+            }
+
+            if (_isGrounded) {
+                _materialManager.ApplyFrictions(0.6F);
+                _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Average);
+            } else {
+                _materialManager.ApplyFrictions(0f);
+                _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Minimum);
             }
 
 
@@ -140,15 +152,21 @@ namespace Script.Runtime.Player {
         /// Detect if the player is on the ground
         /// </summary>
         private void CheckGround() {
-            Vector3 capsuleBottom = transform.position + _groundOffset;
-            //Debug.DrawLine(transform.position, capsuleBottom, Color.red, 1f);
+            Vector3 capsuleBottom = _groundCheck.position;
             Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
-            _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+            _isGrounded = hits.Any(hit => !IsMyself(hit.transform));
             if (!_isGrounded) {
                 hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
-                _isGrounded = hits.Any(hit => hit.transform != _mesh.transform && !hit.transform.IsChildOf(_mesh.transform));
+                _isGrounded = hits.Any(hit =>  !IsMyself(hit.transform));
             }
-        }    
+            Debug.Log(_isGrounded);
+            
+        }
+
+        bool IsMyself(Transform other) {
+            return other == transform || other == _mesh.transform || other.IsChildOf(_mesh.transform);
+        }
+        
         
         /// <summary>
         /// Jump if the player is on the ground
@@ -159,9 +177,14 @@ namespace Script.Runtime.Player {
                 _isGrounded = false;
             }
         }
-    
 
-    #endregion
+        private void OnDrawGizmos() {
+            Vector3 capsuleBottom = _groundCheck.position;
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(capsuleBottom, _groundCheckRadius);
+        }
+
+        #endregion
     
     }
 }

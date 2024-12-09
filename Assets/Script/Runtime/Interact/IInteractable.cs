@@ -6,6 +6,8 @@ namespace Script.Runtime.Interact {
         public void Interact();
         public Sprite Sprite { get; set; }
         
+        public bool CanBeHold { get; set; }
+        
         
 
     }

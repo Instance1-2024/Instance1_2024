@@ -27,17 +27,15 @@ public class SCChangeColorOnCollision : MonoBehaviour
             // to avoid having to GetComponent multiple time
             SCColorChange plat = other.gameObject.GetComponentInParent<SCColorChange>();
             Debug.Log(plat);
-            
-            plat.ChangeColor(SCEnum.EColor.White);
 
-            // if (plat._oldColor == SCEnum.EColor.White)
-            //     plat.ChangeColor(SCEnum.EColor.Black);
+            if (plat.GetColor() == SCEnum.EColor.White)
+                plat.ChangeColor(SCEnum.EColor.Black);
 
-            // else if (plat._oldColor == SCEnum.EColor.Black)
-            //     plat.ChangeColor(SCEnum.EColor.White);
+            else if (plat.GetColor() == SCEnum.EColor.Black)
+                plat.ChangeColor(SCEnum.EColor.White);
 
         }
-        
+
         Destroy(this.gameObject);
     }
 }

@@ -118,9 +118,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1651239986122457383}
   - component: {fileID: 6056948012608178517}
-  - component: {fileID: 2250526870543632826}
   - component: {fileID: 8378620032228554555}
   - component: {fileID: 5537735414019115388}
+  - component: {fileID: -6856198861597846337}
   m_Layer: 6
   m_Name: Pebble_Gray
   m_TagString: Pebble
@@ -178,19 +178,6 @@ MonoBehaviour:
     Layer:
       serializedVersion: 2
       m_Bits: 256
---- !u!114 &2250526870543632826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6793736305217471929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a03b33e4d05214ea452b730949b36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!54 &8378620032228554555
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -234,3 +221,17 @@ MonoBehaviour:
   _staticFrictionForce: 1
   _dynamicFrictionForce: 1
   _physicMaterial: {fileID: 13400000, guid: c979e8e45fe1a184b95270dd9d59c877, type: 2}
+--- !u!114 &-6856198861597846337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793736305217471929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0663c76c13f946d4bcad3f80db74c774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  <CanBeHold>k__BackingField: 0

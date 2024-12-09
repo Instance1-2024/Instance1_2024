@@ -66,7 +66,7 @@ namespace Script.Runtime.Player {
         /// <param name="obj">The object that can be interacted </param>
         /// <param name="interactable"> The component who has the interact function</param>
         void Interact(GameObject obj, IInteractable interactable) {
-            if (_playerHold.CanHold) {
+            if (_playerHold.CanHold && interactable.CanBeHold) {
                 interactable.Interact();
                 _playerHold.Hold(obj);
                 _playerHold.SetHoldImage(interactable.Sprite);
@@ -74,9 +74,9 @@ namespace Script.Runtime.Player {
 
         }
 
-        /*private void OnDrawGizmos() {
+        private void OnDrawGizmos() {
             Gizmos.color = Color.red;
             Gizmos.DrawWireCube(_interactPoint.position + Vector3.right *0.1f, new Vector3(1f, 1.8f, 1f));
-        }*/
+        }
     }
 }

@@ -9,25 +9,15 @@ namespace Script.Runtime.Player {
         
         private SCInputManager _inputManager => SCInputManager.Instance;
         public Vector3 ThrowPosition;
+        
 
-        private Image _image;
-        private RectTransform _rectTransform;
         Camera _camera => Camera.main;
         
         public bool CanThrow;
-
-        [SerializeField] private Transform _player;
         
-        private void Start() {
-            _rectTransform = GetComponent<RectTransform>();
-            _image = GetComponent<Image>();
-            _image.enabled = false;
-        }
-
-
         private void Update() {
             if (CanThrow) { 
-                /*_image.enabled = true;*/
+
                 if (_inputManager.IsKeyboard){
                    ThrowPosition = _camera.ScreenToWorldPoint(new(Input.mousePosition.x, Input.mousePosition.y,-_camera.transform.position.z));
                 }
@@ -35,16 +25,14 @@ namespace Script.Runtime.Player {
                     ThrowPosition = Vector2To3Y(ThrowPosition,_inputManager.AimValue);
                 }
                 ThrowPosition = new Vector3(
-                    Mathf.Clamp(ThrowPosition.x, _player.position.x - 21, _player.position.x + 21),
-                    Mathf.Clamp(ThrowPosition.y, _player.position.y - 12, _player.position.y + 12),
+                    Mathf.Clamp(ThrowPosition.x, transform.position.x - 21, transform.position.x + 21),
+                    Mathf.Clamp(ThrowPosition.y, transform.position.y - 12, transform.position.y + 12),
                     0
                 );
-                
-                /*_rectTransform.position = ThrowPosition;*/
+
             }
-            else {
-                /*_image.enabled = false;*/
-            }
+
+
         }
 
 

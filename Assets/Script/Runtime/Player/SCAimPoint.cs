@@ -25,7 +25,7 @@ namespace Script.Runtime.Player {
 
         private void Update() {
             if (CanThrow) { 
-                _image.enabled = true;
+                /*_image.enabled = true;*/
                 if (_inputManager.IsKeyboard){
                    ThrowPosition = _camera.ScreenToWorldPoint(new(Input.mousePosition.x, Input.mousePosition.y,-_camera.transform.position.z));
                 }
@@ -38,10 +38,10 @@ namespace Script.Runtime.Player {
                     0
                 );
                 
-                _rectTransform.position = ThrowPosition;
+                /*_rectTransform.position = ThrowPosition;*/
             }
             else {
-                _image.enabled = false;
+                /*_image.enabled = false;*/
             }
         }
 

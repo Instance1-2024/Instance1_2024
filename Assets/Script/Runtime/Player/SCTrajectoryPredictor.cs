@@ -29,8 +29,6 @@ namespace Script.Runtime.Player {
             _playerHold = GetComponent<SCPlayerHold>();
         }
 
-        
-
         public void PredictTrajectory(SProjectileData projectile) {
             Vector3 velocity = projectile.initSpeed / projectile.mass * projectile.direction;
             Vector3 position = projectile.initPos;

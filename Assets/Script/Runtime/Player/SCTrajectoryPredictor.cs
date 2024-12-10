@@ -75,11 +75,11 @@ namespace Script.Runtime.Player {
                     case EColor.White:
                         return _ignoredLayer[1];
                     case EColor.Gray:
-                        return _ignoredLayer[2];
+                        return 0;
                 }
             }
 
-            return gameObject.layer;
+            return 0;
         }
         
         public void SetTrajectoryVisible (bool visible) {

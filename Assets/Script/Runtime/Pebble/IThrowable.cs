@@ -6,7 +6,7 @@ namespace Script.Runtime.Pebble {
         public LayerMask ThrowGray { get; set; }
         public LayerMask ThrowWhite { get; set; }
 
-        public void Take();
-        public void Reset();
+        public void RemoveColllisions();
+        public void GiveCollisions();
     }
 }

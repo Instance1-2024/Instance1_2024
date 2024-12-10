@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 6994027422061060209}
   - component: {fileID: 5179727027237066034}
   - component: {fileID: 1288797893517921812}
+  - component: {fileID: 1805664256529407323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -251,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwSpeed: 10
-  _aimPoint: {fileID: 0}
+  _aimPoint: {fileID: 1805664256529407323}
   _throwItem: {fileID: 0}
 --- !u!114 &6994027422061060209
 MonoBehaviour:
@@ -403,6 +404,20 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Color: 0
     IsHandle: 0
+--- !u!114 &1805664256529407323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000130200932419080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bd8aa8feb7a20b44b40c00938da480b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThrowPosition: {x: 0, y: 0, z: 0}
+  CanThrow: 0
 --- !u!1 &4326770490566874776
 GameObject:
   m_ObjectHideFlags: 0

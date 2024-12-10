@@ -7,6 +7,8 @@ namespace Script.Runtime.ColorManagement {
     public class SCPlayerChangeColor : SCColorChange {
         private SCInputManager _inputManager => SCInputManager.Instance;
         private SCPlayerMovement _playerMovement;
+
+        [SerializeField] private LayerMask _throwingLayer;
         
         void Start() {
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
@@ -53,6 +55,10 @@ namespace Script.Runtime.ColorManagement {
             _oldColor = color;
         }
 
+        public override void ExcludeLayer(SColor color) {
+            _collider.excludeLayers = color.Layer.value | _throwingLayer.value;
+        }
+        
         /// <summary>
         /// Changes the ground layer
         /// </summary>

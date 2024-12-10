@@ -2,8 +2,10 @@
 using Script.Runtime.InputSystem;
 using Script.Runtime.Interact;
 using UnityEngine;
+using static Script.Runtime.SCUtils;
 
 namespace Script.Runtime.Player {
+    [RequireComponent(typeof(SCTrajectoryPredictor))]
     public class SCPlayerInteraction : MonoBehaviour {
         
         [SerializeField] Transform _interactPoint;
@@ -19,8 +21,6 @@ namespace Script.Runtime.Player {
             _inputManager.OnInteractEvent.Started.AddListener(InteractStart);
             _playerHold = GetComponent<SCPlayerHold>();
         }
-
-
         
         /// <summary>
         /// When the player interact, it will detect one of the object in front and try interacting with it
@@ -34,7 +34,7 @@ namespace Script.Runtime.Player {
             Vector3 size = new(1f, 1.8f, 1f);
             Collider[] hits = Physics.OverlapBox(_interactPoint.position + Vector3.right * 0.5f, size, _interactPoint.rotation);
             
-            foreach (Collider hit in hits.ToList().Where(hit => hit.transform.IsChildOf(_transform) || hit.transform == _transform)) {
+            foreach (Collider hit in hits.ToList().Where(hit => IsMyself(hit.transform, _transform))) {
                 hits = hits.Where(h => h != hit).ToArray();
             }
             
@@ -50,16 +50,6 @@ namespace Script.Runtime.Player {
             }
         }
         
-        /// <summary>
-        /// Check if the layer is in the mask
-        /// </summary>
-        /// <param name="layer"> The layer to check</param>
-        /// <param name="mask">The layer mask to check</param>
-        /// <returns>True if the layer is in the mask</returns>
-        bool CompareLayerMask( int layer, LayerMask mask) => (mask.value & (1 << layer)) != 0;
-        
-        
-
         /// <summary>
         /// When interacting with the object, it will check if the player can hold the object
         /// </summary>

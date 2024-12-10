@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6856198861597846337, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: <ThrowGray>k__BackingField.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: -6856198861597846337, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: <ThrowBlack>k__BackingField.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: -6856198861597846337, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: <ThrowWhite>k__BackingField.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 1651239986122457383, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

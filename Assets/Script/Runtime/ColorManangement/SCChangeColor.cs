@@ -48,7 +48,7 @@ namespace Script.Runtime.ColorManagement {
         /// Excludes the layer from the collider
         /// </summary>
         /// <param name="color.Layer"> The layer to exclude</param>
-       protected void ExcludeLayer(SColor color) {
+        public virtual void ExcludeLayer(SColor color) {
             _collider.excludeLayers = color.Layer.value;
         }
         

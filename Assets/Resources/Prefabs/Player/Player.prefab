@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 2971476854067179295}
   - component: {fileID: 7366058715110538198}
   - component: {fileID: 207132858668391909}
+  - component: {fileID: 6994027422061060209}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -123,7 +124,7 @@ MonoBehaviour:
   _groundCheck: {fileID: 190520631179404762}
   _groundCheckRadius: 0.4
   _turnTime: 0.25
-  _mesh: {fileID: 8760576605095852656}
+  _comp: {fileID: 8760576605095852656}
 --- !u!114 &4411154798486948868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +194,6 @@ MonoBehaviour:
   _holdSlot: {fileID: 0}
   _holdPoint: {fileID: 3173426428971848788}
   _meshTrans: {fileID: 4570191073883376724}
-  _throwSpeed: 1
 --- !u!114 &2971476854067179295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CanThrow: 0
+  _throwSpeed: 0.25
+  _throwSpeedMultiplier: 0.25
 --- !u!114 &7366058715110538198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +248,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6994027422061060209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000130200932419080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902374a1aeb77ff4db9716269236fcf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxPoints: 10
+  _increment: 0.025
+  _rayOverlap: 1.1
 --- !u!1 &4326770490566874776
 GameObject:
   m_ObjectHideFlags: 0

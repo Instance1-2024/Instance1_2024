@@ -4,6 +4,7 @@ using System.Linq;
 using Script.Runtime.InputSystem;
 using UnityEngine;
 using UnityEngine.Serialization;
+using static Script.Runtime.SCUtils;
 
 namespace Script.Runtime.Player {
     public class SCPlayerMovement : MonoBehaviour {
@@ -33,7 +34,7 @@ namespace Script.Runtime.Player {
         enum FacingDirection { Right, Left }
         FacingDirection _facingDirection;
         
-        [SerializeField] GameObject _mesh;
+        [SerializeField] GameObject _comp;
         private Rigidbody _body;
 
         private SCPhysicMaterialManager _materialManager;
@@ -129,7 +130,7 @@ namespace Script.Runtime.Player {
         private IEnumerator FlipSmoothly(float targetAngle) {
             _facingDirection = _facingDirection == FacingDirection.Left ? FacingDirection.Right : FacingDirection.Left;
                     
-            Quaternion startRotation = _mesh.transform.rotation;
+            Quaternion startRotation = _comp.transform.rotation;
             Quaternion targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
 
             float elapsedTime = 0f;
@@ -137,11 +138,11 @@ namespace Script.Runtime.Player {
             while (elapsedTime < _turnTime) {
                 elapsedTime += Time.deltaTime;
                 float t = Mathf.Clamp01(elapsedTime / _turnTime);
-                _mesh.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+                _comp.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
                 yield return null;
             }
 
-            _mesh.transform.rotation = targetRotation;
+            _comp.transform.rotation = targetRotation;
         }
     #endregion
 
@@ -154,18 +155,14 @@ namespace Script.Runtime.Player {
         private void CheckGround() {
             Vector3 capsuleBottom = _groundCheck.position;
             Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
-            _isGrounded = hits.Any(hit => !IsMyself(hit.transform));
-            if (!_isGrounded) {
+            _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform, _comp));
+            if(!_isGrounded) {
                 hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
-                _isGrounded = hits.Any(hit =>  !IsMyself(hit.transform));
+                _isGrounded = hits.Any(hit =>  !IsMyself(hit.transform, transform, _comp));
             }
-            Debug.Log(_isGrounded);
-            
+           
         }
-
-        bool IsMyself(Transform other) {
-            return other == transform || other == _mesh.transform || other.IsChildOf(_mesh.transform);
-        }
+        
         
         
         /// <summary>

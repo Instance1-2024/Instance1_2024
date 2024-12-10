@@ -1,4 +1,5 @@
 ﻿using System;
+using Script.Runtime.Pebble;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -10,16 +11,14 @@ namespace Script.Runtime.Player {
 
         [SerializeField] private GameObject _holdSlot;
         Image _holdSlotImage;
-        
-        [SerializeField] private Transform _holdPoint;
+        public Transform HoldPoint;
         [SerializeField] private Transform _meshTrans;
-        
-        [SerializeField]float _throwSpeed = 0.25f;
 
         private Rigidbody _holdItemBody;
 
         public bool CanHold => _meshTrans.rotation == Quaternion.Euler(0f, -180f, 0f) || _meshTrans.rotation == Quaternion.Euler(0f, 0f, 0f);
 
+        public bool IsHolding => HoldItem != null;
 
         private void Start() {
             _holdSlot.SetActive(false);
@@ -36,7 +35,10 @@ namespace Script.Runtime.Player {
             
             HoldItem = item.transform.parent.gameObject;
             HoldItem.GetComponent<Rigidbody>().isKinematic = true;
-            HoldItem.transform.SetParent(_holdPoint);
+            HoldItem.transform.SetParent(HoldPoint);
+            if(HoldItem.TryGetComponent(out IThrowable throwable)) {
+                throwable.Take();
+            }   
             HoldItem.transform.localPosition = Vector3.zero;
             HoldItem.GetComponentInChildren<Collider>().enabled = false;
             HoldItem.SetActive(false);
@@ -49,41 +51,12 @@ namespace Script.Runtime.Player {
             if (!CanHold) return;
             
             HoldItem.SetActive(true);
+            if(HoldItem.TryGetComponent(out IThrowable throwable)) {
+                throwable.Reset();
+            }
             HoldItem.GetComponentInChildren<Collider>().enabled = true;
             HoldItem.GetComponent<Rigidbody>().isKinematic = false;
             HoldItem.transform.SetParent(null);
-            HoldItem = null;
-
-            RemoveHoldImage();
-        }
-
-        /// <summary>
-        /// Throw the item to the throw position
-        /// </summary>
-        /// <param name="throwPosition"> The position to throw</param>
-        public void Throw(Vector3 throwPosition) {
-            HoldItem.SetActive(true);
-            HoldItem.transform.SetParent(null);
-            
-            Vector3 direction = (throwPosition - HoldItem.transform.position).normalized;
-            
-            _holdItemBody = HoldItem.GetComponent<Rigidbody>();
-            
-            _holdItemBody.isKinematic = false;
-            _holdItemBody.mass = 0.1f;
-            
-            _holdItemBody.AddForce(direction * _throwSpeed, ForceMode.Impulse);
-            
-            Invoke(nameof(ActiveCollider), 0.15f);
-        }
-
-        /// <summary>
-        /// Active the collider and the rigidbody then remove to the inventory
-        /// </summary>
-        private void ActiveCollider() {
-            HoldItem.GetComponentInChildren<Collider>().enabled = true;
-            _holdItemBody.mass = 1f;
-            HoldItem = null;
 
             RemoveHoldImage();
         }
@@ -104,6 +77,7 @@ namespace Script.Runtime.Player {
         public void RemoveHoldImage() {
             _holdSlot.SetActive(false);
             _holdSlotImage.sprite = null;
+            HoldItem = null;
         }
     }
 }

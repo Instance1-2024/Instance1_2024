@@ -1,3 +1,4 @@
+using Script.Runtime.Player;
 using UnityEngine;
 
 public class SCDeadlyObstacleInteraction : MonoBehaviour
@@ -11,6 +12,7 @@ public class SCDeadlyObstacleInteraction : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Death");
+            other.gameObject.GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
 
         }
     }

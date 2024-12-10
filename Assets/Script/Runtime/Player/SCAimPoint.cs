@@ -15,6 +15,8 @@ namespace Script.Runtime.Player {
         Camera _camera => Camera.main;
         
         public bool CanThrow;
+
+        [SerializeField] private Transform _player;
         
         private void Start() {
             _rectTransform = GetComponent<RectTransform>();
@@ -33,8 +35,8 @@ namespace Script.Runtime.Player {
                     ThrowPosition = Vector2To3Y(ThrowPosition,_inputManager.AimValue);
                 }
                 ThrowPosition = new Vector3(
-                    Mathf.Clamp(ThrowPosition.x, -21, 21),
-                    Mathf.Clamp(ThrowPosition.y, -12, 12),
+                    Mathf.Clamp(ThrowPosition.x, _player.position.x - 21, _player.position.x + 21),
+                    Mathf.Clamp(ThrowPosition.y, _player.position.y - 12, _player.position.y + 12),
                     0
                 );
                 

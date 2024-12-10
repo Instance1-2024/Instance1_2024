@@ -37,7 +37,6 @@ namespace Script.Runtime.Pebble {
         }
         
         public void Take() {
-            Debug.Log("Throwing" + gameObject.name);
             switch (_colorChange.GetColor()) {
                 case EColor.Black:
                     gameObject.layer = (int)Mathf.Log(ThrowBlack.value, 2);

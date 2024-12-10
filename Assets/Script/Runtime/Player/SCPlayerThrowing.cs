@@ -9,11 +9,9 @@ namespace Script.Runtime.Player {
         private SCTrajectoryPredictor _trajectoryPredictor;
 
         private bool _StartedThrow;
-        public bool CanThrow;
-        private Vector3 _ThrowPosition;
+        private Vector3 _throwPosition;
         [SerializeField]float _throwSpeed = 2.5f;
-        Camera _camera => Camera.main;
-        
+        [SerializeField] SCAimPoint _aimPoint;
         [SerializeField]GameObject _throwItem;
         Rigidbody _throwItemBody;
 
@@ -31,19 +29,14 @@ namespace Script.Runtime.Player {
         }
 
         private void Update() {
-            CanThrow = _StartedThrow && _playerHold.CanHold;
+            _aimPoint.CanThrow = _StartedThrow && _playerHold.CanHold;
             if (_StartedThrow) {
                 UpdateProjectileData();
                 Predict();
             }
 
-            if (CanThrow) {
-                _ThrowPosition = _camera.ScreenToWorldPoint( new(Input.mousePosition.x, Input.mousePosition.y, -_camera.transform.position.z) );
-            }
-
             if (_pebbleComp != null) {
                 if (_pebbleComp.IsColliding) {
-                    Debug.Log("Collide");
                     RemoveItem();
                 }
             }
@@ -57,20 +50,19 @@ namespace Script.Runtime.Player {
             _StartedThrow = !_StartedThrow && _playerHold.HoldItem != null;
         }
 
-
-
         /// <summary>
         /// When the player press the throw button, it throws the object if it can
         /// </summary>
         void Throw() {
-            if(!CanThrow) return;
+            if(!_aimPoint.CanThrow) return;
 
-            RaycastHit hit;
-            if (Physics.Linecast(transform.position, _ThrowPosition, out hit)) {
-                _ThrowPosition = hit.point;
-            }
+            _throwPosition = _aimPoint.ThrowPosition;
+            /*RaycastHit hit;
+            if (Physics.Linecast(transform.position, _throwPosition, out hit)) {
+                _throwPosition = hit.point;
+            }*/
             
-            Throw(_ThrowPosition, _throwSpeed, _playerHold.HoldItem);
+            Throw(_throwPosition, _throwSpeed, _playerHold.HoldItem);
         }
         
         /// <summary>
@@ -128,7 +120,7 @@ namespace Script.Runtime.Player {
             _projectile = new SProjectileData{
                 initPos = _playerHold.HoldPoint.position,
                 initSpeed = _throwSpeed,
-                direction = (_ThrowPosition - _playerHold.HoldPoint.position).normalized,
+                direction = (_aimPoint.ThrowPosition - _playerHold.HoldPoint.position).normalized,
                 mass = _playerHold.HoldItem.GetComponent<Rigidbody>().mass,
                 drag = 0.1f
             };

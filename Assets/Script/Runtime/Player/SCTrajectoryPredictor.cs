@@ -73,13 +73,10 @@ namespace Script.Runtime.Player {
             if (_playerHold.HoldItem.TryGetComponent(out SCColorChange colorChange)) {
                 switch (colorChange.GetColor()) {
                     case EColor.Black:
-                        Debug.Log("Ball is Black");
                         return _ignoredLayer[0];
                     case EColor.White:
-                        Debug.Log("Ball is White");
                         return _ignoredLayer[1];
                     case EColor.Gray:
-                        Debug.Log("Ball is Gray");
                         return _ignoredLayer[2];
                 }
             }

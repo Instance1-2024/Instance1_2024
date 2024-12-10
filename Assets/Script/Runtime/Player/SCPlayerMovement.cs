@@ -60,13 +60,13 @@ namespace Script.Runtime.Player {
                 Move();
             }
 
-            // if (_isGrounded) {
-            //     _materialManager.ApplyFrictions(0.6F);
-            //     _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Average);
-            // } else {
-            //     _materialManager.ApplyFrictions(0f);
-            //     _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Minimum);
-            // }
+            if (_isGrounded) {
+                _materialManager.ApplyFrictions(0.6F);
+                _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Average);
+            } else {
+                _materialManager.ApplyFrictions(0f);
+                _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Minimum);
+            }
 
 
             CheckGround();

@@ -29,8 +29,8 @@ namespace Script.Runtime.Player {
         }
 
         private void Update() {
-            _aimPoint.CanThrow = _StartedThrow && _playerHold.CanHold;
-            if (_StartedThrow) {
+            _aimPoint.CanThrow = _StartedThrow && _playerHold.IsHolding;
+            if (_aimPoint.CanThrow) {
                 UpdateProjectileData();
                 Predict();
             }
@@ -39,6 +39,14 @@ namespace Script.Runtime.Player {
                 if (_pebbleComp.IsColliding) {
                     RemoveItem();
                 }
+            }
+
+            if (_playerHold.HoldItem == null ) {
+                RemoveItem();
+            }
+
+            if (!_StartedThrow) {
+                _trajectoryPredictor.SetTrajectoryVisible(false);
             }
         }
         
@@ -99,6 +107,7 @@ namespace Script.Runtime.Player {
         /// Active the collider and the rigidbody then remove to the inventory
         /// </summary>
         private void ActiveCollider() {
+            if(_throwItem == null) return;
             if(_throwItem.TryGetComponent(out IThrowable throwable)) {
                 throwable.Reset();
             }
@@ -112,11 +121,11 @@ namespace Script.Runtime.Player {
             _throwItem = null;
             _pebbleComp = null;
             _throwItemBody = null;
-            
         }
 
         private void UpdateProjectileData() {
-            if(_playerHold.HoldItem == null) return;
+            if(_playerHold.HoldItem == null) 
+                return;
             _projectile = new SProjectileData{
                 initPos = _playerHold.HoldPoint.position,
                 initSpeed = _throwSpeed,

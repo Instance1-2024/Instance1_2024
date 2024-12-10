@@ -19,7 +19,7 @@ namespace Script.Runtime.Player {
         public bool CanHold => _meshTrans.rotation == Quaternion.Euler(0f, -180f, 0f) || _meshTrans.rotation == Quaternion.Euler(0f, 0f, 0f);
 
         public bool IsHolding => HoldItem != null;
-
+        
         private void Start() {
             _holdSlot.SetActive(false);
             _holdSlotImage = _holdSlot.transform.GetChild(0).GetComponent<Image>();

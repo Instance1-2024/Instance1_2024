@@ -63,11 +63,13 @@ namespace Script.Runtime.Player {
         }
         
         void UpdateLineRender(int count, (int point, Vector3 pos) pointPos) {
+            if(count <= 0)return;
             _line.positionCount = count;
             _line.SetPosition(pointPos.point, pointPos.pos);            
         }
         
         LayerMask GetWallLayer() {
+            if (!_playerHold.IsHolding) return 0;
             if (_playerHold.HoldItem.TryGetComponent(out SCColorChange colorChange)) {
                 switch (colorChange.GetColor()) {
                     case EColor.Black:

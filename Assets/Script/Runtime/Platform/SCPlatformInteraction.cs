@@ -16,12 +16,8 @@ namespace Script.Runtime.Platform {
         /// <param name="other"></param>
         private void OnCollisionEnter(Collision other) {
             if (other.gameObject.CompareTag("Pebble")) {
-
                 _animation.Stop();
-
-
                 _animation.Play(_animation.clip.name);
-                Debug.Log("hit");
             }
         }
     }

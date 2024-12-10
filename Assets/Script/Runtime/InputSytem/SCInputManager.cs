@@ -7,6 +7,8 @@ namespace Script.Runtime.InputSystem {
     public class SCInputManager : MonoBehaviour {
         public static SCInputManager Instance { get; private set; }
         
+        public bool IsKeyboard;
+        
         public SInputEvent OnMoveEvent;
         public float MoveValue;
         
@@ -21,6 +23,9 @@ namespace Script.Runtime.InputSystem {
         
         public SInputEvent OnPauseEvent;
 
+        public SInputEvent OnAimEvent;
+        public Vector2 AimValue;
+        
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -28,6 +33,15 @@ namespace Script.Runtime.InputSystem {
             }
             else {
                 DestroyImmediate(gameObject);
+            }
+        }
+
+        public void OnAny(InputAction.CallbackContext ctx) {
+            if(ctx.action.activeControl.device.name == "Keyboard" || ctx.action.activeControl.device.name == "Mouse") {
+                IsKeyboard = true;
+            }
+            else {
+                IsKeyboard = false;
             }
         }
 
@@ -86,6 +100,11 @@ namespace Script.Runtime.InputSystem {
         /// <param name="ctx">context of the input</param>
         public void OnPause(InputAction.CallbackContext ctx) {
             InvokeInputEvent(ctx, OnPauseEvent);
+        }
+        
+        public void OnAim(InputAction.CallbackContext ctx) {
+            AimValue = ctx.ReadValue<Vector2>();
+            InvokeInputEvent(ctx, OnAimEvent);
         }
 
         /// <summary>

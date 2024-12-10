@@ -65,10 +65,6 @@ namespace Script.Runtime.Player {
             if(!_aimPoint.CanThrow) return;
 
             _throwPosition = _aimPoint.ThrowPosition;
-            /*RaycastHit hit;
-            if (Physics.Linecast(transform.position, _throwPosition, out hit)) {
-                _throwPosition = hit.point;
-            }*/
             
             Throw(_throwPosition, _throwSpeed, _playerHold.HoldItem);
         }
@@ -104,15 +100,18 @@ namespace Script.Runtime.Player {
         }
 
         /// <summary>
-        /// Active the collider and the rigidbody then remove to the inventory
+        /// ReActive the collision with the player to the throw item
         /// </summary>
         private void ActiveCollider() {
             if(_throwItem == null) return;
             if(_throwItem.TryGetComponent(out IThrowable throwable)) {
-                throwable.Reset();
+                throwable.GiveCollisions();
             }
         }
 
+        /// <summary>
+        /// Remove the item from the inventory
+        /// </summary>
         void RemoveItem() {
             ActiveCollider();
             _playerHold.RemoveHoldImage();
@@ -123,18 +122,24 @@ namespace Script.Runtime.Player {
             _throwItemBody = null;
         }
 
+        /// <summary>
+        /// Update the projectile data for the trajectory
+        /// </summary>
         private void UpdateProjectileData() {
             if(_playerHold.HoldItem == null) 
                 return;
             _projectile = new SProjectileData{
-                initPos = _playerHold.HoldPoint.position,
-                initSpeed = _throwSpeed,
-                direction = (_aimPoint.ThrowPosition - _playerHold.HoldPoint.position).normalized,
-                mass = _playerHold.HoldItem.GetComponent<Rigidbody>().mass,
-                drag = 0.1f
+                InitPos = _playerHold.HoldPoint.position,
+                InitSpeed = _throwSpeed,
+                Direction = (_aimPoint.ThrowPosition - _playerHold.HoldPoint.position).normalized,
+                Mass = _playerHold.HoldItem.GetComponent<Rigidbody>().mass,
+                Drag = 0.1f
             };
         }
         
+        /// <summary>
+        /// Predict the trajectory and show it
+        /// </summary>
         void Predict() {
             _trajectoryPredictor.SetTrajectoryVisible(true);
             _trajectoryPredictor.PredictTrajectory(_projectile);

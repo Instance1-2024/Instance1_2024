@@ -37,7 +37,7 @@ namespace Script.Runtime.Player {
             HoldItem.GetComponent<Rigidbody>().isKinematic = true;
             HoldItem.transform.SetParent(HoldPoint);
             if(HoldItem.TryGetComponent(out IThrowable throwable)) {
-                throwable.Take();
+                throwable.RemoveColllisions();
             }   
             HoldItem.transform.localPosition = Vector3.zero;
             HoldItem.GetComponentInChildren<Collider>().enabled = false;
@@ -52,7 +52,7 @@ namespace Script.Runtime.Player {
             
             HoldItem.SetActive(true);
             if(HoldItem.TryGetComponent(out IThrowable throwable)) {
-                throwable.Reset();
+                throwable.GiveCollisions();
             }
             HoldItem.GetComponentInChildren<Collider>().enabled = true;
             HoldItem.GetComponent<Rigidbody>().isKinematic = false;

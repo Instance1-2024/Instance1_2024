@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class SCCheckpointManager : MonoBehaviour
 {
-    public UnityEvent ReachCheckpoint;
+    [HideInInspector] public UnityEvent ReachCheckpoint;
     public static SCCheckpointManager Instance;
 
 

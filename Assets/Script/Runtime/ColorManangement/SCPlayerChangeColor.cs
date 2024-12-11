@@ -10,7 +10,6 @@ namespace Script.Runtime.ColorManagement {
         private SCPlayerMovement _playerMovement;
         private SCPlayerHold _playerHold;
         private CapsuleCollider _capsule;
-        [SerializeField] private float _capsuleOffset;
 
         [SerializeField] private LayerMask _throwingLayer;
 
@@ -87,14 +86,12 @@ namespace Script.Runtime.ColorManagement {
 
         void DetectWall() {
             Vector3 capsuleCenter = _capsule.bounds.center;
-            float capsuleRadius = _capsule.radius * 0.9f; // Réduction de 10%
-            float capsuleHeight = _capsule.height * 0.9f; // Réduction de 10%
-        
-            // Calculer les points de la capsule
+            float capsuleRadius = _capsule.radius * 0.9f;
+            float capsuleHeight = _capsule.height * 0.9f;
+            
             Vector3 point1 = capsuleCenter + Vector3.up * (capsuleHeight / 2 - capsuleRadius);
             Vector3 point2 = capsuleCenter - Vector3.up * (capsuleHeight / 2 - capsuleRadius);
-        
-            // Direction et distance du cast
+
             Vector3 direction = transform.forward;
 
 

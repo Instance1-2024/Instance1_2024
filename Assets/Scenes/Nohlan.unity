@@ -1630,10 +1630,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4411154798486948868, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
-      propertyPath: _capsuleOffset
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5174328237808387174, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.12
@@ -1674,26 +1670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5179727027237066034, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179727027237066034, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.29870015
-      objectReference: {fileID: 0}
-    - target: {fileID: 5664224000352293280, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6541986954138691229, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: _holdSlot
       value: 
       objectReference: {fileID: 727815016}
-    - target: {fileID: 7265265283309543733, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.82
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

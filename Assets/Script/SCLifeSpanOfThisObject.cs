@@ -5,6 +5,7 @@ public class SCLifeSpanOfThisObject : MonoBehaviour
     public float LifeSpanObject = 10f;
     private float _time;
     public bool canDespawn = false;
+    public TimeBetweenSpawn SpawnerScript;
     void Start() 
     {
         _time = LifeSpanObject ;
@@ -17,5 +18,10 @@ public class SCLifeSpanOfThisObject : MonoBehaviour
         {
             Destroy(gameObject);
         }
+   }
+
+   void OnDestroy() 
+   {
+    SpawnerScript.CanSpawn = true;
    }
 }

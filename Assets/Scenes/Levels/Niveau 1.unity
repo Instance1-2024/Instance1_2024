@@ -2643,7 +2643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76e549548a2be945bdcf5f29c2b39b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationCinematique: {fileID: 1795730619}
+  animationCinematic: {fileID: 1795730619}
   destroyTrigger: 0
 --- !u!65 &1470281247
 BoxCollider:

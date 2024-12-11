@@ -100,6 +100,7 @@ namespace Script.Runtime.ColorManagement {
                 if (hit.transform.CompareTag("Platform")) {
                     if (hit.transform.parent.GetComponent<SCChangeColor>().GetColor() == GetColor()) {
                         GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
+                        return;
                     }
                 }
             }

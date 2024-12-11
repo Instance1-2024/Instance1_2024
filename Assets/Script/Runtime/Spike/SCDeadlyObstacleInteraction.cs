@@ -15,5 +15,10 @@ public class SCDeadlyObstacleInteraction : MonoBehaviour
             other.gameObject.GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
 
         }
+
+        if (other.gameObject.CompareTag("Pebble"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

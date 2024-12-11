@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8341510419629467414}
   - component: {fileID: 3259536058508601259}
   m_Layer: 0
-  m_Name: StyxDrop
+  m_Name: StyxDrop 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

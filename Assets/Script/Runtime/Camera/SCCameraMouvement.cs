@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraMouvement : MonoBehaviour
+public class SCCameraMouvement : MonoBehaviour
 {
     Transform _transform;
     [SerializeField] Transform _playerTransform;

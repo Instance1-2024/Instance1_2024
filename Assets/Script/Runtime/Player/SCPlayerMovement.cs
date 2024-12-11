@@ -155,10 +155,10 @@ namespace Script.Runtime.Player {
         private void CheckGround() {
             Vector3 capsuleBottom = _groundCheck.position;
             Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
-            _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
+            _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform, _comp));
             if (!_isGrounded) {
                 hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
-                _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
+                _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform, _comp));
             }
         }
         

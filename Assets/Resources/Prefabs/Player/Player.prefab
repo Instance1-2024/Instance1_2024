@@ -270,7 +270,7 @@ MonoBehaviour:
   _rayOverlap: 1.29
   _ignoreBallLayers:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 7680
   _ignoreWallLayers:
     serializedVersion: 2
     m_Bits: 0

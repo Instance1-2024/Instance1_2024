@@ -15,11 +15,11 @@ namespace Script.Runtime.Pebble {
 
         public bool IsColliding ;
 
-        private SCColorChange _colorChange;
+        private SCChangeColor _changeColor;
         
         private void Start() {
             CanBeHold = true;
-            _colorChange = GetComponent<SCColorChange>();
+            _changeColor = GetComponent<SCChangeColor>();
         }
 
         public void Interact() {
@@ -40,7 +40,7 @@ namespace Script.Runtime.Pebble {
         /// Remove the collision with the Player
         /// </summary>
         public void RemoveCollisions() {
-            switch (_colorChange.GetColor()) {
+            switch (_changeColor.GetColor()) {
                 case EColor.Black:
                     gameObject.layer = (int)Mathf.Log(ThrowBlack.value, 2);
                     foreach (Transform child in transform) {
@@ -67,7 +67,7 @@ namespace Script.Runtime.Pebble {
         /// Add the collision to the Player
         /// </summary>
         public void GiveCollisions() {
-            _colorChange.ChangeColor(_colorChange.GetColor());
+            _changeColor.ChangeColor(_changeColor.GetColor());
         }
     }
 }

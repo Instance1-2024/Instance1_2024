@@ -89,7 +89,7 @@ namespace Script.Runtime.Player {
         /// <returns>The wall layer</returns>
         LayerMask GetWallLayer() {
             if (!_playerHold.IsHolding) return 0;
-            if (_playerHold.HoldItem.TryGetComponent(out SCColorChange colorChange)) {
+            if (_playerHold.HoldItem.TryGetComponent(out SCChangeColor colorChange)) {
                 switch (colorChange.GetColor()) {
                     case EColor.Black:
                         return _ignoredLayer[0];

@@ -66,5 +66,9 @@ namespace Script.Runtime.ColorManagement {
         void ChangeGroundLayer(SColor color) {
             _playerMovement.ColorGroundLayer = color.Layer.value;
         }
+
+        void ChangeItemColor() {
+            
+        }
     }
 }

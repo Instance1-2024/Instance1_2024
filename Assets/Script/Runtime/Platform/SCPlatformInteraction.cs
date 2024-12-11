@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Script.Runtime.Platform {
     [RequireComponent(typeof(Animation))]
-    public class SCColorShowOnCollision : MonoBehaviour {
+    public class SCPlatformInteraction : MonoBehaviour {
         [SerializeField] private Animation _animation;
 
         private void Start() {

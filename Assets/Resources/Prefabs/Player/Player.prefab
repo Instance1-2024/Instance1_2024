@@ -51,7 +51,6 @@ GameObject:
   - component: {fileID: 6994027422061060209}
   - component: {fileID: 5179727027237066034}
   - component: {fileID: 1288797893517921812}
-  - component: {fileID: 1805664256529407323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -238,7 +237,6 @@ MonoBehaviour:
   HoldItem: {fileID: 0}
   _holdSlot: {fileID: 0}
   HoldPoint: {fileID: 3173426428971848788}
-  _dropPoint: {fileID: 7265265283309543733}
   _meshTrans: {fileID: 4570191073883376724}
 --- !u!114 &2971476854067179295
 MonoBehaviour:
@@ -253,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throwSpeed: 10
-  _aimPoint: {fileID: 1805664256529407323}
+  _aimPoint: {fileID: 0}
   _throwItem: {fileID: 0}
 --- !u!114 &6994027422061060209
 MonoBehaviour:
@@ -378,7 +376,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 90
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
@@ -405,51 +403,6 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 0}
     Color: 0
     IsHandle: 0
---- !u!114 &1805664256529407323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3000130200932419080}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd8aa8feb7a20b44b40c00938da480b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ThrowPosition: {x: 0, y: 0, z: 0}
-  CanThrow: 0
---- !u!1 &3887395790461603237
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7265265283309543733}
-  m_Layer: 0
-  m_Name: DropPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7265265283309543733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3887395790461603237}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4570191073883376724}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4326770490566874776
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +584,6 @@ Transform:
   - {fileID: 7505008184439464418}
   - {fileID: 2225204550822901233}
   - {fileID: 3173426428971848788}
-  - {fileID: 7265265283309543733}
   - {fileID: 190520631179404762}
   m_Father: {fileID: 5174328237808387174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -26,7 +26,7 @@ namespace Script.Runtime.Player {
         /// When the player interact, it will detect one of the object in front and try interacting with it
         /// </summary>
         void InteractStart() {
-            if (_playerHold.IsHolding){
+            if (_playerHold.HoldItem != null){
                 _playerHold.Drop();
                 return;
             }

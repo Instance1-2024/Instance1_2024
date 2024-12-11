@@ -9,17 +9,17 @@ namespace Script.Runtime.Player
 
         [SerializeField] private PlayerDataRespawn _playerDataRespawn;
 
-        private SCPlayerChangeColor _changeColor;
+        private ScChangePlayerColor _color;
         private void Start()
         {
             _transform = transform;
             SCCheckpointManager.Instance.ReachCheckpoint.AddListener(OnCheckPoint);
-            _changeColor = GetComponent<SCPlayerChangeColor>();
+            _color = GetComponent<ScChangePlayerColor>();
             _playerDataRespawn = new PlayerDataRespawn
             {
                 LastCheckpoint = _transform.position,
                 Rotation = _transform.rotation,
-                Color = _changeColor.GetColor(),
+                Color = _color.GetColor(),
                 IsHandle = false
             };
         }
@@ -31,7 +31,7 @@ namespace Script.Runtime.Player
         {
             _playerDataRespawn.LastCheckpoint = _transform.position;
             _playerDataRespawn.Rotation = _transform.rotation;
-            _playerDataRespawn.Color = _changeColor.GetColor();
+            _playerDataRespawn.Color = _color.GetColor();
             // set the Handle 
         }
         
@@ -43,7 +43,7 @@ namespace Script.Runtime.Player
         {
             _transform.position = _playerDataRespawn.LastCheckpoint;
             _transform.rotation = _playerDataRespawn.Rotation;
-            _changeColor.ChangeColor(_playerDataRespawn.Color);
+            _color.ChangeColor(_playerDataRespawn.Color);
             //Set the Handle
         }
     }

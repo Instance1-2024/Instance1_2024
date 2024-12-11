@@ -1,22 +1,22 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class TriggerCinematique : MonoBehaviour
-{
-    public Animation animationCinematique;
+public class TriggerCinematic : MonoBehaviour {
+    public Animation animationCinematic;
     public bool destroyTrigger;
     private void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.CompareTag("Player"))
         {
 
-            animationCinematique.Play(animationCinematique.clip.name);
+            animationCinematic.Play(animationCinematic.clip.name);
             destroyTrigger = true;
 
         }
     }
     private void OnTriggerStay()
     {
-        if (destroyTrigger && !animationCinematique.isPlaying)
+        if (destroyTrigger && !animationCinematic.isPlaying)
             Destroy(gameObject);
     }
 

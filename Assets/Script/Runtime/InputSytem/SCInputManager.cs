@@ -36,6 +36,12 @@ namespace Script.Runtime.InputSystem {
             }
         }
 
+        /// <summary>
+        /// When the player press any key.
+        /// It will set IsKeyboard to true if the device is keyboard or mouse
+        /// It will set IsKeyboard to false if the device is gamepad
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnAny(InputAction.CallbackContext ctx) {
             if(ctx.action.activeControl.device.name == "Keyboard" || ctx.action.activeControl.device.name == "Mouse") {
                 IsKeyboard = true;
@@ -102,6 +108,10 @@ namespace Script.Runtime.InputSystem {
             InvokeInputEvent(ctx, OnPauseEvent);
         }
         
+        /// <summary>
+        /// When the player aim with the gamepad, it will invoke the event
+        /// </summary>
+        /// <param name="ctx">context of the input</param>
         public void OnAim(InputAction.CallbackContext ctx) {
             AimValue = ctx.ReadValue<Vector2>();
             InvokeInputEvent(ctx, OnAimEvent);

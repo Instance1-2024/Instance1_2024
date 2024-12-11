@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions.Comparers;
 
 public class TimeBetweenSpawn : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class TimeBetweenSpawn : MonoBehaviour
     public float SpawnForce ;
     public Vector3 Direction ;
 
-    void Start() {
+    void Start() 
+    {
         _time = TimeBS ;
+
     }
 
     void Update() {
@@ -18,8 +21,16 @@ public class TimeBetweenSpawn : MonoBehaviour
 
         if (_time <= 0) {
             _time = TimeBS ;
+
             GameObject prefab = Instantiate ( PrefabToSpawn ,  SpawnPos.position , Quaternion.identity );
             prefab.GetComponent<Rigidbody>().AddForce(Direction.normalized * SpawnForce) ;
+
+            // si la prefab a une durée de vie alors le spawner définie cette durée
+            if (prefab.TryGetComponent(out SCLifeSpanOfThisObject lifeComp))
+            {
+                lifeComp.LifeSpanObject = TimeBS;
+                lifeComp.canDespawn = true;
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4608267248541802995}
   - component: {fileID: 8341510419629467414}
   - component: {fileID: 3259536058508601259}
+  - component: {fileID: 4997177381313293405}
   m_Layer: 0
   m_Name: StyxDrop
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e39fed1e31c3f48965ed16a775d7d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4997177381313293405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5603798545854701686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2046abdd2a131d143979d67a7a7b2ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LifeSpanObject: 10
 --- !u!1 &7467521112854871638
 GameObject:
   m_ObjectHideFlags: 0

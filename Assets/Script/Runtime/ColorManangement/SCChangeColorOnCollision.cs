@@ -14,13 +14,13 @@ public class SCChangeColorOnCollision : MonoBehaviour
     }
 
     /// <summary>
-    /// Destroy the gameObject on any collision and if this collision is with a black or white plateforme then it change it's actual color
+    /// Destroy the gameObject on any collision and if this collision is with a black or white platform then it change it's actual color
     /// </summary>
     /// <param name="other"></param>
     private void OnCollisionEnter(Collision other) {
         
 
-        if (other.gameObject.CompareTag("Plat")) {
+        if (other.gameObject.CompareTag("Platform")) {
 
             Debug.Log("Styx Drop hit");
 

@@ -25,7 +25,7 @@ public class SCChangeColorOnCollision : MonoBehaviour
             Debug.Log("Styx Drop hit");
 
             // to avoid having to GetComponent multiple time
-            SCColorChange plat = other.gameObject.GetComponentInParent<SCColorChange>();
+            SCChangeColor plat = other.gameObject.GetComponentInParent<SCChangeColor>();
             Debug.Log(plat);
 
             if (plat.GetColor() == SCEnum.EColor.White)

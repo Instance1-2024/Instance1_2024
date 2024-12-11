@@ -4,15 +4,17 @@ using UnityEngine;
 using static Script.Runtime.SCEnum;
 
 namespace Script.Runtime.ColorManagement {
-    public class SCPlayerChangeColor : SCColorChange {
+    public class ScChangePlayerColor : SCChangeColor {
         private SCInputManager _inputManager => SCInputManager.Instance;
         private SCPlayerMovement _playerMovement;
+        private SCPlayerHold _playerHold;
 
         [SerializeField] private LayerMask _throwingLayer;
         
         void Start() {
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
             _playerMovement = GetComponent<SCPlayerMovement>();
+            _playerHold = GetComponent<SCPlayerHold>();
             ChangeColor(_oldColor);
         }
 
@@ -26,6 +28,8 @@ namespace Script.Runtime.ColorManagement {
             else if (_oldColor == EColor.White) {
                 ChangeColor(EColor.Black);
             }
+
+            ChangeItemColor();
         }
         
         /// <summary>
@@ -68,7 +72,11 @@ namespace Script.Runtime.ColorManagement {
         }
 
         void ChangeItemColor() {
-            
+            if(!_playerHold.IsHolding)return;
+            if (_playerHold.HoldItem.TryGetComponent(out SCChangeColor _changeColor)){
+                if (_changeColor.GetColor() == EColor.Gray) return;
+                _changeColor.ChangeColor(_oldColor);
+            }
         }
     }
 }

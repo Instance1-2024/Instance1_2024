@@ -39,7 +39,7 @@ namespace Script.Runtime.Pebble {
         /// <summary>
         /// Remove the collision with the Player
         /// </summary>
-        public void RemoveColllisions() {
+        public void RemoveCollisions() {
             switch (_colorChange.GetColor()) {
                 case EColor.Black:
                     gameObject.layer = (int)Mathf.Log(ThrowBlack.value, 2);

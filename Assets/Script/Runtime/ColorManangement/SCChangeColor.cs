@@ -5,7 +5,7 @@ using static Script.Runtime.SCEnum;
 
 namespace Script.Runtime.ColorManagement {
 
-    public class SCColorChange : MonoBehaviour {
+    public class SCChangeColor : MonoBehaviour {
         protected MeshFilter _meshFilter;
         protected MeshRenderer _meshRenderer;
 

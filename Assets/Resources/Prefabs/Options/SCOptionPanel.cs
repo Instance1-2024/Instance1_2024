@@ -96,6 +96,17 @@ public class SCOptionPanel : MonoBehaviour
         SetMusicVolume();
         SetSFXVolume();
     }
+
+    public void StartGame()
+    {
+        // reprend au dernier checkPoint ou Commence le jeu par l'intro
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+    
 }
 
 

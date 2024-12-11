@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pebble
-  - Plat
+  - Platform
   layers:
   - Default
   - TransparentFX

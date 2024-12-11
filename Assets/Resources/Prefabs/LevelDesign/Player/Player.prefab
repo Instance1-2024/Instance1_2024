@@ -191,6 +191,9 @@ MonoBehaviour:
   _throwingLayer:
     serializedVersion: 2
     m_Bits: 3584
+  _layersThatCollide:
+    serializedVersion: 2
+    m_Bits: 192
 --- !u!114 &7366058715110538198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +275,7 @@ MonoBehaviour:
   _rayOverlap: 1.29
   _ignoreBallLayers:
     serializedVersion: 2
-    m_Bits: 3584
+    m_Bits: 7680
   _ignoreWallLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -337,7 +340,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.28925496
+        value: 0.29870015
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -444,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 3887395790461603237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0.82, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -580,7 +583,7 @@ GameObject:
   m_Layer: 0
   m_Name: FootPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

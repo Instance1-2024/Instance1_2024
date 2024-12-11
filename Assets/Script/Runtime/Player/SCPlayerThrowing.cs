@@ -8,6 +8,9 @@ namespace Script.Runtime.Player {
         private SCPlayerHold _playerHold;
         private SCTrajectoryPredictor _trajectoryPredictor;
 
+        private bool _isThrowing;
+        private bool _isProjectileDataSet;
+        
         private bool _StartedThrow;
         private Vector3 _throwPosition;
         [SerializeField]float _throwSpeed = 2.5f;
@@ -30,8 +33,11 @@ namespace Script.Runtime.Player {
 
         private void Update() {
             _aimPoint.CanThrow = _StartedThrow && _playerHold.IsHolding;
-            if (_aimPoint.CanThrow) {
-                UpdateProjectileData();
+            if (_aimPoint.CanThrow ) {
+                if (!_isProjectileDataSet || !_isThrowing) {
+                    UpdateProjectileData();
+                }
+
                 Predict();
             }
 
@@ -62,7 +68,7 @@ namespace Script.Runtime.Player {
         /// When the player press the throw button, it throws the object if it can
         /// </summary>
         void Throw() {
-            if(!_aimPoint.CanThrow) return;
+            if(!_aimPoint.CanThrow || _isThrowing) return;
 
             _throwPosition = _aimPoint.ThrowPosition;
             
@@ -77,7 +83,8 @@ namespace Script.Runtime.Player {
         /// <param name="holdItem"> The item to throw</param>
         void Throw(Vector3 throwPosition, float throwSpeed, GameObject holdItem) {
             _throwItem = holdItem;
-    
+
+            _isThrowing = true;
             _throwItem.SetActive(true);
             _throwItem.transform.SetParent(null);
      
@@ -120,6 +127,8 @@ namespace Script.Runtime.Player {
             _throwItem = null;
             _pebbleComp = null;
             _throwItemBody = null;
+            _isThrowing = false;
+            _isProjectileDataSet = false;
         }
 
         /// <summary>
@@ -135,6 +144,7 @@ namespace Script.Runtime.Player {
                 Mass = _playerHold.HoldItem.GetComponent<Rigidbody>().mass,
                 Drag = 0.1f
             };
+            _isProjectileDataSet = true;
         }
         
         /// <summary>

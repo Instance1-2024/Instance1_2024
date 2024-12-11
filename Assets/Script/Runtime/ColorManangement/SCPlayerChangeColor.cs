@@ -12,6 +12,7 @@ namespace Script.Runtime.ColorManagement {
         private CapsuleCollider _capsule;
 
         [SerializeField] private LayerMask _throwingLayer;
+        [SerializeField] private LayerMask _layersThatCollide;
 
         void Start() {
             _inputManager.OnChangeColorEvent.Performed.AddListener(OnChangeColor);
@@ -33,6 +34,7 @@ namespace Script.Runtime.ColorManagement {
             }
 
             ChangeItemColor();
+            DetectWall();
         }
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace Script.Runtime.ColorManagement {
             }
 
             _oldColor = color;
-            DetectWall();
+            
         }
 
         public override void ExcludeLayer(SColor color) {
@@ -94,12 +96,13 @@ namespace Script.Runtime.ColorManagement {
 
             Vector3 direction = transform.forward;
 
-
-            RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, capsuleRadius, direction, 10f);
+            RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, capsuleRadius, direction, 10f, _layersThatCollide);
             foreach (RaycastHit hit in hits) {
                 if (hit.transform.CompareTag("Platform")) {
                     if (hit.transform.parent.GetComponent<SCChangeColor>().GetColor() == GetColor()) {
+                        Debug.Log("KILL");
                         GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
+                        return;
                     }
                 }
             }

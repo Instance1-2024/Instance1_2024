@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Option Menu Gabriel.unity
     guid: 666d9d0c80650b547b7391c3b373a19b
   - enabled: 0
-    path: Assets/Scenes/Niveau 1.unity
+    path: Assets/Scenes/Levels/Niveau 1.unity
     guid: 4e2a84aabd3c4934798a3ff714104b1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

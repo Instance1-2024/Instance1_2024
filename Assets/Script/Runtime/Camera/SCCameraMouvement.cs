@@ -16,7 +16,7 @@ public class SCCameraMouvement : MonoBehaviour
     {
 
         // on garde le transform en Z car on ne veut pas que la camera soit au même niveau que le joueur
-        Vector3 desiredPosition = new Vector3( Mathf.Clamp(_playerTransform.position.x, minX, maxX) , Mathf.Clamp(_playerTransform.position.y, minY, maxY), _transform.position.z);
+        Vector3 desiredPosition = new Vector3( _playerTransform.position.x, _playerTransform.position.y, _transform.position.z);
         
         // on créer le vecteur "Smooth" grace a Lerp et on ajoute * Time.deltatime pour toujours le faire a la même vitesse
         Vector3 smoothPosition = Vector3.Lerp(_transform.position , desiredPosition , SmoothSpeed * Time.deltaTime);

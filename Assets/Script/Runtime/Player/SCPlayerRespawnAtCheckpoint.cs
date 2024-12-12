@@ -10,11 +10,13 @@ namespace Script.Runtime.Player
         [SerializeField] private PlayerDataRespawn _playerDataRespawn;
 
         private ScChangePlayerColor _color;
+        private SCSanity _sanity;
         private void Start()
         {
             _transform = transform;
             SCCheckpointManager.Instance.ReachCheckpoint.AddListener(OnCheckPoint);
             _color = GetComponent<ScChangePlayerColor>();
+            _sanity = GetComponent<SCSanity>();
             _playerDataRespawn = new PlayerDataRespawn
             {
                 LastCheckpoint = _transform.position,
@@ -44,6 +46,7 @@ namespace Script.Runtime.Player
             _transform.position = _playerDataRespawn.LastCheckpoint;
             _transform.rotation = _playerDataRespawn.Rotation;
             _color.ChangeColor(_playerDataRespawn.Color);
+            _sanity.UpdateSanity(10f);
             //Set the Handle
         }
     }

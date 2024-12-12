@@ -8,7 +8,7 @@ namespace Script.Runtime.Player {
         [SerializeField] Image _fillImage;
         [SerializeField] float _maxSanity = 10f;
         private SCChangeColor _changeColor;
-        [FormerlySerializedAs("_currentSanity")] public float CurrentSanity;
+        public float CurrentSanity;
         
         private void Start() {
             _changeColor = GetComponent<SCChangeColor>();
@@ -28,11 +28,10 @@ namespace Script.Runtime.Player {
             return _changeColor.GetColor() == SCEnum.EColor.Black;
         }
         
-        public void UpdateSanity(float sanity) {
+        public void  UpdateSanity(float sanity) {
             CurrentSanity = Mathf.Clamp(sanity, 0f, _maxSanity);
             if (CurrentSanity == 0) {
                 GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
-                CurrentSanity = _maxSanity;
             }
             _fillImage.fillAmount = CurrentSanity / _maxSanity;
         }

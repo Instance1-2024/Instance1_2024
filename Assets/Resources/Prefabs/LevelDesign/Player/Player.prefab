@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 5179727027237066034}
   - component: {fileID: 1288797893517921812}
   - component: {fileID: 1805664256529407323}
+  - component: {fileID: 4352506038017760429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -137,10 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e258f1038447208e919daf4587bd0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxSpeed: 7
+  _maxSpeed: 10
   _acceleration: 25
-  _frictionForce: 125
-  _jumpForce: 8
+  _frictionForce: 100
+  _frictionDuration: 1
+  _jumpForce: 10
   ColorGroundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -149,7 +151,10 @@ MonoBehaviour:
     m_Bits: 256
   _groundCheck: {fileID: 190520631179404762}
   _groundCheckRadius: 0.4
-  _turnTime: 0.25
+  _boxHeight: 3
+  _boxWidth: 0.8
+  _fallSpeed: 15
+  _turnDuration: 0.25
   _comp: {fileID: 8760576605095852656}
 --- !u!114 &4411154798486948868
 MonoBehaviour:
@@ -421,7 +426,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThrowPosition: {x: 0, y: 0, z: 0}
+  _point: {fileID: 0}
   CanThrow: 0
+--- !u!114 &4352506038017760429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3000130200932419080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4857c45e9e0c98429f5da08eaf8d316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fillImage: {fileID: 0}
+  _maxSanity: 10
+  CurrentSanity: 0
 --- !u!1 &3887395790461603237
 GameObject:
   m_ObjectHideFlags: 0

@@ -310,17 +310,6 @@
                 },
                 {
                     "name": "",
-                    "id": "2d507b39-ff1a-4f8e-b54c-fe736bffe5b5",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "011e7451-0c16-44bf-8233-3ea777fcf6d9",
                     "path": "<Keyboard>/anyKey",
                     "interactions": "",
@@ -602,6 +591,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Any",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e19e2d3-c2fc-45f4-ba12-e1ff1aecc48c",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -100,7 +100,6 @@ namespace Script.Runtime.ColorManagement {
             foreach (RaycastHit hit in hits) {
                 if (hit.transform.CompareTag("Platform")) {
                     if (hit.transform.parent.GetComponent<SCChangeColor>().GetColor() == GetColor()) {
-                        Debug.Log("KILL");
                         GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
                         return;
                     }

@@ -15,19 +15,29 @@ namespace Script.Runtime.Player {
         [SerializeField] private float _acceleration;
         [SerializeField] private float _frictionForce;
         private bool _isMoving;
+        private Vector3 _horizontalVelocity;
+        [SerializeField] private float _frictionDuration;
+        private float _frictionTime;
+        
         
         [Header("Jump")]
         [SerializeField] private float _jumpForce;
         private bool _isGrounded;
+        private bool _isBuffered;
+        private bool _haveToJump;
         public LayerMask ColorGroundLayer;
         [SerializeField] LayerMask _groundLayer;
 
         [SerializeField] private Transform _groundCheck;
-        [SerializeField] float _groundCheckRadius; 
+        [SerializeField] float _groundCheckRadius;
+        [SerializeField]private float _boxHeight;
+        [SerializeField]private float _boxWidth;
+        [SerializeField] float _fallSpeed;
         
+
         [Header("Rotation")]
-        [SerializeField] private float _turnTime;
-        private float _time;
+        [SerializeField] private float _turnDuration;
+        private float _turnTime;
         private float _direction;
         private float _oldY;
         
@@ -39,7 +49,8 @@ namespace Script.Runtime.Player {
 
         private SCPhysicMaterialManager _materialManager;
 
-        
+
+
         private void Start() {
             _body = GetComponent<Rigidbody>();
             _materialManager = GetComponent<SCPhysicMaterialManager>();
@@ -55,6 +66,8 @@ namespace Script.Runtime.Player {
         }
         
         private void FixedUpdate() {
+
+            
             ClampSpeed();
             ApplyFriction();
             if (_isMoving) {
@@ -62,15 +75,33 @@ namespace Script.Runtime.Player {
             }
 
             if (_isGrounded) {
-                _materialManager.ApplyFrictions(0.6F);
+                Debug.LogError("AAA");
+                if (_frictionTime < _frictionDuration) {
+                    _frictionTime += Time.deltaTime;
+                    
+                    _materialManager.ApplyFrictions(Mathf.Lerp(0f, 0.6f, _frictionTime/_frictionDuration));
+                }
+
                 _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Average);
             } else {
+                _frictionTime = 0;
                 _materialManager.ApplyFrictions(0f);
                 _materialManager.ApplyFrictionCombine(PhysicsMaterialCombine.Minimum);
+                _body.AddForce(Vector3.down * _fallSpeed, ForceMode.Acceleration);
+                /*Debug.Log(_horizontalVelocity.magnitude);*/
             }
 
 
             CheckGround();
+            if (_horizontalVelocity.magnitude != 0) {
+                
+                /*
+                Debug.Log(_body.linearVelocity);*/
+            }
+
+            if (_haveToJump) {
+                Jump();
+            }
         }
         
 
@@ -81,7 +112,7 @@ namespace Script.Runtime.Player {
         /// Move the player
         /// </summary>
         void Move() {
-            if(_body.linearVelocity.magnitude < _maxSpeed) {
+            if(_horizontalVelocity.magnitude < _maxSpeed) {
                 Vector3 movement = (transform.right * _inputManager.MoveValue) * (_acceleration * Time.fixedDeltaTime);
                 _body.linearVelocity += new Vector3(movement.x, 0, movement.z);
             }
@@ -91,10 +122,10 @@ namespace Script.Runtime.Player {
         /// Limit the Player speed
         /// </summary>
         void ClampSpeed() {
-            Vector3 horizontalVelocity = new Vector3(_body.linearVelocity.x, 0, _body.linearVelocity.z);
-            horizontalVelocity = Vector3.ClampMagnitude(horizontalVelocity, _maxSpeed);
+            _horizontalVelocity = new Vector3(_body.linearVelocity.x, 0, _body.linearVelocity.z);
+            _horizontalVelocity = Vector3.ClampMagnitude(_horizontalVelocity, _maxSpeed);
             if(!_body.isKinematic) {
-                _body.linearVelocity = new Vector3(horizontalVelocity.x, _body.linearVelocity.y, horizontalVelocity.z);
+                _body.linearVelocity = new Vector3(_horizontalVelocity.x, _body.linearVelocity.y, _horizontalVelocity.z);
             }
         }
         
@@ -123,7 +154,7 @@ namespace Script.Runtime.Player {
 
         
         /// <summary>
-        /// Flip the player smoothly
+        /// Flip the player smoothly    
         /// </summary>
         /// <param name="targetAngle"> The angle to flip </param>
         /// <returns></returns>
@@ -135,9 +166,9 @@ namespace Script.Runtime.Player {
 
             float elapsedTime = 0f;
 
-            while (elapsedTime < _turnTime) {
+            while (elapsedTime < _turnDuration) {
                 elapsedTime += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsedTime / _turnTime);
+                float t = Mathf.Clamp01(elapsedTime / _turnDuration);
                 _comp.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
                 yield return null;
             }
@@ -153,16 +184,12 @@ namespace Script.Runtime.Player {
         /// Detect if the player is on the ground
         /// </summary>
         private void CheckGround() {
-            Vector3 capsuleBottom = _groundCheck.position;
-            Collider[] hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, ColorGroundLayer);
-            _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
-            if (!_isGrounded) {
-                hits = Physics.OverlapSphere(capsuleBottom, _groundCheckRadius, _groundLayer);
-                _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
-            }
+            Vector3 boxCenter = _groundCheck.position;
+            Vector3 boxSize = new (_boxWidth, _boxHeight, _boxWidth);
+            Collider[] hits = Physics.OverlapBox(boxCenter, boxSize / 2, Quaternion.identity, ColorGroundLayer | _groundLayer);
+
+            _isBuffered = hits.Any(hit => !IsMyself(hit.transform, transform));
         }
-        
-        
         
         /// <summary>
         /// Jump if the player is on the ground
@@ -171,16 +198,28 @@ namespace Script.Runtime.Player {
             if (_isGrounded) {
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
+                _haveToJump = false;
+                _isBuffered = false;
+            }else if (_isBuffered) {
+                _haveToJump = true;
             }
+            
         }
 
         private void OnDrawGizmos() {
-            Vector3 capsuleBottom = _groundCheck.position;
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(capsuleBottom, _groundCheckRadius);
+            Vector3 boxCenter = _groundCheck.position;
+            Vector3 boxSize = new (_boxWidth, _boxHeight, _boxWidth);
+            Gizmos.DrawWireCube(boxCenter, boxSize);
         }
 
         #endregion
-    
+
+
+        private void OnCollisionEnter(Collision other) {
+            
+            Collider[] hits = Physics.OverlapSphere(_groundCheck.position, _groundCheckRadius, ColorGroundLayer | _groundLayer);
+            _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
+        }
     }
 }

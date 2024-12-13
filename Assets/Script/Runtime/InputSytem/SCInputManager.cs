@@ -8,6 +8,7 @@ namespace Script.Runtime.InputSystem {
         public static SCInputManager Instance { get; private set; }
         
         public bool IsKeyboard;
+        public bool IsInputActive;
         
         public SInputEvent OnMoveEvent;
         public float MoveValue;
@@ -27,6 +28,7 @@ namespace Script.Runtime.InputSystem {
         public Vector2 AimValue;
         
         private void Awake() {
+            IsInputActive = true;
             if (Instance == null) {
                 Instance = this;
                 DontDestroyOnLoad(transform.root.gameObject);
@@ -56,6 +58,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnMove(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             MoveValue = ctx.ReadValue<float>();
             InvokeInputEvent(ctx, OnMoveEvent);
         }
@@ -65,6 +68,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnJump(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnJumpEvent);
         }
         
@@ -73,6 +77,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnChangeColor(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnChangeColorEvent);
         }
         
@@ -81,6 +86,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnInteract(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnInteractEvent);
         }
         
@@ -89,6 +95,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnThrow(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnThrowEvent);
         }
         
@@ -97,6 +104,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnStartThrow(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnStartThrowEvent);
         }
         
@@ -105,6 +113,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnPause(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             InvokeInputEvent(ctx, OnPauseEvent);
         }
         
@@ -113,6 +122,7 @@ namespace Script.Runtime.InputSystem {
         /// </summary>
         /// <param name="ctx">context of the input</param>
         public void OnAim(InputAction.CallbackContext ctx) {
+            if(!IsInputActive) return;
             AimValue = ctx.ReadValue<Vector2>();
             InvokeInputEvent(ctx, OnAimEvent);
         }
@@ -123,6 +133,7 @@ namespace Script.Runtime.InputSystem {
         /// <param name="ctx">The context of the input</param>
         /// <param name="inputEvent"> The event to invoke</param>
         void InvokeInputEvent(InputAction.CallbackContext ctx, SInputEvent inputEvent) {
+            
             if (ctx.started) {
                 inputEvent.Started?.Invoke();
             } else if (ctx.performed) {

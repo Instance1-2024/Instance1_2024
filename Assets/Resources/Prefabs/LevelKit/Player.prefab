@@ -140,9 +140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxSpeed: 10
   _acceleration: 25
-  _frictionForce: 100
+  _frictionForce: 125
   _frictionDuration: 1
-  _jumpForce: 10
+  _jumpForce: 13
   ColorGroundLayer:
     serializedVersion: 2
     m_Bits: 0

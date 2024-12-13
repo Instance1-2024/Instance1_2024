@@ -1,14 +1,15 @@
 ﻿#if UNITY_EDITOR
 using System;
 using System.Linq;
+using Script.Runtime.InputSystem.InputTooltip;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Script.Runtime.InputSystem.InputTooltip {
+namespace Script.Editor.InputSystem {
     [CustomEditor(typeof(SCInputTooltipText))]
-    public class SCInputTooltipEditor : Editor {
+    public class SCInputTooltipEditor : UnityEditor.Editor {
         SerializedProperty _actionProperty;
         SerializedProperty _bindingIDProperty;
         SerializedProperty _bindingTextProperty;

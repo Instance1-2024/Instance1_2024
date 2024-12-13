@@ -1,4 +1,4 @@
-﻿using Script.Runtime.Pebble;
+﻿using Script.Runtime.LevelObject.Pebble;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;

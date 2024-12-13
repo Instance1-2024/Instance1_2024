@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cc001de3e973e4f9af7677db25c362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _oldColor: 2
+  <CurrentColor>k__BackingField: 2
   _black:
     Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     Material:

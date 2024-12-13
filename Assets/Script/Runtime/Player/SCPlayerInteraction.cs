@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Script.Runtime.InputSystem;
-using Script.Runtime.Interact;
+using Script.Runtime.LevelObject.Interact;
 using UnityEngine;
 using static Script.Runtime.SCUtils;
 

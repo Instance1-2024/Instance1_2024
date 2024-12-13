@@ -1,9 +1,9 @@
-using Script.Runtime.Interact;
+using Script.Runtime.LevelObject.Interact;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Script.Runtime.Collectibles
+namespace Script.Runtime.LevelObject.Collectibles
 {
     public class SCMemory : MonoBehaviour, IInteractable
     {

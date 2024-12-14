@@ -25,14 +25,21 @@ namespace Script.Runtime.LevelObject {
         /// This spawn instantiate an object and destroy it every TimeBS
         /// </summary>
         void Spawn(bool despawnObjectOnDestroy) {
-            //The timer that start at 0 by default, which makes spawn instantly the first object
-            _time -= Time.deltaTime ;
-
-            if (_time <= 0) {
-                //Reset the timer
-                _time = _timeBetweenSpawn ;
-    
+            if (despawnObjectOnDestroy && CanSpawn) {
                 
+                CanSpawn = false;
+                InstantiatePrefab(true);
+                
+            }
+            else {
+                
+                _time -= Time.deltaTime ;
+
+                if (_time <= 0) {
+                    _time = _timeBetweenSpawn ;
+    
+                    InstantiatePrefab(false);
+                }
             }
         }
 
@@ -47,30 +54,6 @@ namespace Script.Runtime.LevelObject {
             }
 
             
-        }
-
-        // ReSharper disable Unity.PerformanceAnalysis
-        /// <summary>
-        /// This spawn instantiate an object when CanSpawn == true which is the case at the start and when the previous object is destroyed
-        /// </summary>
-        void Spawn2() {
-            if (CanSpawn) {
-                //Prevents the spawn of an object as long as the previous one is not destroyed and therefore returns in OnDestroy : CanSpawn = true
-                CanSpawn = false;
-
-                //Instantiates the prefab specified in the editor
-                
-
-                //Adds a force to the spawn of the object
-                
-
-                //Adds the script of life span to the instantiated object
-                
-                
-                //Adds a reference to this script for the instantiated object
-                
-            }
-
         }
     }
 }

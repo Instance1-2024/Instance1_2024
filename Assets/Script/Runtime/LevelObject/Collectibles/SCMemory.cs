@@ -20,7 +20,7 @@ namespace Script.Runtime.LevelObject.Collectibles
         public void Interact()
         {
             Debug.Log("Collected"); 
-            SCProphecyManager.Instance.GetMemoryEvent.Invoke(_memoryID);
+            SCProphecyUIManager.Instance.GetMemoryEvent.Invoke(_memoryID,false);
             Destroy(this.gameObject);
         }
         

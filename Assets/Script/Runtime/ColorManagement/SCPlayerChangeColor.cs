@@ -22,6 +22,7 @@ namespace Script.Runtime.ColorManagement {
         [SerializeField] LayerMask _white;
         [SerializeField] GameObject _whiteBody;
 
+        [SerializeField] private bool _isLevel1 = false;
         private bool _canChangeColor = false;
 
         public void CanChangeColor(bool value)
@@ -32,7 +33,9 @@ namespace Script.Runtime.ColorManagement {
 
         private void Awake() {
             Collider = GetComponent<Collider>();
-            
+
+            if (!_isLevel1)
+                _canChangeColor = true;
         }
 
         void Start() {

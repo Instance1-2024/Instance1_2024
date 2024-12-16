@@ -1,85 +1,55 @@
+using Script.Runtime.Prophecy;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Script.Runtime.Prophecy
+public class SCProphecyManager : MonoBehaviour
 {
-    public class SCProphecyManager : MonoBehaviour
+    public static SCProphecyManager Instance;
+    private List<int> _memoryFragmentsId = new List<int>();
+
+    private void Awake()
     {
-
-        public static SCProphecyManager Instance;
-
-        public UnityEvent<int> GetMemoryEvent;
-
-        [SerializeField] private List<GameObject> _propheciesGO = new List<GameObject>();
-        private List<int> _memoryIDs;
-
-        [SerializeField] private float _timer = 5f;
-        private float _time = 0f;
-        
-        private bool _hasPlayed = false;
-
-        private int _id;
-        
-        private void Awake()
+        if(Instance != null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
+            Destroy(this.gameObject);
         }
-
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        private void Start()
+        else
         {
-            foreach (GameObject g in _propheciesGO)
-            {
-                g.gameObject.SetActive(false);
-            }
-            _memoryIDs = new List<int>();
-            
-            GetMemoryEvent = new UnityEvent<int>();
-            GetMemoryEvent.AddListener(Test);
+            Instance = this;
         }
+        DontDestroyOnLoad(this.gameObject);
+    }
 
-        private void Update()
+    /// <summary>
+    /// Returned an array of all the memory ids that the played picked up
+    /// </summary>
+    public List<int> GetMemoryIds()
+    {
+        return _memoryFragmentsId;
+    }
+
+    /// <summary>
+    /// Add an id to the memory ids
+    /// </summary>
+    public void AddMemoryPiece(int id)
+    {
+        if(!_memoryFragmentsId.Contains(id))
+            _memoryFragmentsId.Add(id);
+    }
+
+    /// <summary>
+    /// Update the current level ProphecyUiManager with the saved ids
+    /// </summary>
+    public void UpdateProphecyUiManager()
+    {
+        if (_memoryFragmentsId.Count <= 0)
+            return;
+
+        foreach(int id in _memoryFragmentsId)
         {
-            if (_id > 0 && _hasPlayed && !_propheciesGO[_id - 1].GetComponent<Animation>().IsPlaying(
-                    _propheciesGO[_id - 1].GetComponent<Animation>().clip.name))
-            {
-                _memoryIDs.Add(_id);
-
-                _time += Time.deltaTime;
-                if (_time >= _timer)
-                {
-                    foreach (int memoryID in _memoryIDs)
-                    {
-                        _propheciesGO[memoryID - 1].SetActive(false);
-                    }
-                    _hasPlayed = false;
-                    _time = 0f;
-                }
-            }
+            if(SCProphecyManager.Instance != null)
+                SCProphecyUIManager.Instance.GetMemoryEvent.Invoke(id,true);
         }
-
-        private void Test(int i)
-        {
-            _id = i;
-            if (_memoryIDs.Count > 0)
-            {
-                foreach (int memoryID in _memoryIDs)
-                {
-                    _propheciesGO[memoryID - 1].gameObject.SetActive(true);
-                }
-            }
-            
-            _hasPlayed = true;
-            _propheciesGO[i - 1].SetActive(true);
-            _propheciesGO[i - 1].GetComponent<Animation>().Play(_propheciesGO[i - 1].GetComponent<Animation>().clip.name);
-            
-        }
-        
-        
-        
     }
 }

@@ -22,7 +22,7 @@ namespace Script.Runtime.ColorManagement {
         [SerializeField] LayerMask _white;
         [SerializeField] GameObject _whiteBody;
 
-        private bool _canChangeColor = false;
+        [SerializeField]private bool _canChangeColor = false;
 
         public void CanChangeColor(bool value)
         {

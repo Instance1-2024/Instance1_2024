@@ -22,6 +22,14 @@ namespace Script.Runtime.ColorManagement {
         [SerializeField] LayerMask _white;
         [SerializeField] GameObject _whiteBody;
 
+        private bool _canChangeColor = false;
+
+        public void CanChangeColor(bool value)
+        {
+            if(!_canChangeColor)
+                _canChangeColor = value;
+        }
+
         private void Awake() {
             Collider = GetComponent<Collider>();
             
@@ -38,7 +46,10 @@ namespace Script.Runtime.ColorManagement {
         /// <summary>
         /// When the player changes color, it changes the color
         /// </summary>
-        void OnChangeColor() {
+        void OnChangeColor()
+        {
+            if (!_canChangeColor)
+                return;
             if (CurrentColor == EColor.Black) {
                 ChangeColor(EColor.White);
             }
@@ -55,6 +66,7 @@ namespace Script.Runtime.ColorManagement {
         /// </summary>
         /// <param name="color"> The color to apply</param>
         public void ChangeColor(EColor color) {
+
             switch (color) {
                 case EColor.White:
                     ExcludeLayer(_black);

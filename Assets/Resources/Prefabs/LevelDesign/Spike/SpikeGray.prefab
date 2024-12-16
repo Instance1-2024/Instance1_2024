@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8497151640702158803}
   - component: {fileID: 6590448666676968115}
   - component: {fileID: 6485397845123428805}
-  - component: {fileID: 6195285160389498025}
   m_Layer: 8
   m_Name: SpikeGray
   m_TagString: Untagged
@@ -50,21 +49,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentColor>k__BackingField: 2
   _black:
-    Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 1879900250216117662, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
     Material:
     - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 128
   _white:
-    Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 1879900250216117662, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
     Material:
     - {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 64
   _gray:
-    Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 1879900250216117662, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
     Material:
     - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
     Layer:
@@ -101,7 +100,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,28 +122,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6195285160389498025
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8436681459494552198}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1879900250216117662, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
 --- !u!1001 &7885131741066287063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -167,19 +144,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -191,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 9fb569f069a150f47a1fc429ab146cfa, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

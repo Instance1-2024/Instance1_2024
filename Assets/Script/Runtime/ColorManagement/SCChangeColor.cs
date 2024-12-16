@@ -67,6 +67,7 @@ namespace Script.Runtime.ColorManagement {
         }
 
         public void ExcludeLayer(LayerMask layer) {
+            if(Collider == null) return;
             Collider.excludeLayers = layer.value;
         }
 

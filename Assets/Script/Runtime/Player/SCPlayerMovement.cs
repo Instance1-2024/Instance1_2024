@@ -144,6 +144,7 @@ namespace Script.Runtime.Player {
             if (lockVelocity) {
                 _body.linearVelocity = Vector3.zero;
                 CurrentAnimator.SetBool(IsWalking,false);
+                CurrentAnimator.SetBool(IsJumping,false);
             }
         }
         

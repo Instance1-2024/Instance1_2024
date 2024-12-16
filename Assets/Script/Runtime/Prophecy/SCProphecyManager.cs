@@ -8,6 +8,8 @@ public class SCProphecyManager : MonoBehaviour
     public static SCProphecyManager Instance;
     private List<int> _memoryFragmentsId = new List<int>();
 
+    public bool cheatElements = false;
+
     private void Awake()
     {
         if(Instance != null)
@@ -19,6 +21,14 @@ public class SCProphecyManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+
+        if(cheatElements)
+        {
+            for(int i = 0; i < 7; i++)
+            {
+                _memoryFragmentsId.Add(i+1);
+            }
+        }
     }
 
     /// <summary>

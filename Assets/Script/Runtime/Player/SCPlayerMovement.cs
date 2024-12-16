@@ -9,6 +9,7 @@ using static Script.Runtime.SCUtils;
 namespace Script.Runtime.Player {
     public class SCPlayerMovement : MonoBehaviour {
         private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+        private static readonly int IsJumping = Animator.StringToHash("IsJumping");
         SCInputManager _inputManager => SCInputManager.Instance;
 
         public Animator CurrentAnimator;
@@ -138,8 +139,14 @@ namespace Script.Runtime.Player {
         }
         
         public void SetVelocityLock(bool lockVelocity) {
-            _body.constraints = lockVelocity ? RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.FreezeRotation;
+            CurrentAnimator.enabled = !lockVelocity;
+            _body.constraints = lockVelocity ? RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+            if (lockVelocity) {
+                _body.linearVelocity = Vector3.zero;
+                CurrentAnimator.SetBool(IsWalking,false);
+            }
         }
+        
     #endregion
 
     #region Rotation
@@ -200,6 +207,7 @@ namespace Script.Runtime.Player {
         /// </summary>
         private void Jump() {
             if (_isGrounded) {
+                CurrentAnimator.SetBool(IsJumping, true);
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
                 _haveToJump = false;
@@ -224,6 +232,9 @@ namespace Script.Runtime.Player {
             
             Collider[] hits = Physics.OverlapSphere(_groundCheck.position, _groundCheckRadius, ColorGroundLayer | _groundLayer);
             _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
+            if (_isGrounded) {
+                CurrentAnimator.SetBool(IsJumping, false);
+            }
         }
     }
 }

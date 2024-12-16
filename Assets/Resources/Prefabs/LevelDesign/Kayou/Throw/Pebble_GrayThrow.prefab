@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4526632962599748669}
   - component: {fileID: 8976979056732743457}
   - component: {fileID: 7523558682092738846}
-  - component: {fileID: 6713654117393109106}
   m_Layer: 11
   m_Name: Mesh
   m_TagString: Pebble
@@ -29,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.75, y: 1.75, z: 1.75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1651239986122457383}
@@ -41,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586902606303936471}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
 --- !u!23 &7523558682092738846
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65,6 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: cc6bd8f0b836cc24aa04ed9fd5342cc0, type: 2}
   - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -87,27 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6713654117393109106
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1586902606303936471}
-  m_Material: {fileID: 13400000, guid: c979e8e45fe1a184b95270dd9d59c877, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6793736305217471929
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +100,7 @@ GameObject:
   - component: {fileID: 8378620032228554555}
   - component: {fileID: 5537735414019115388}
   - component: {fileID: -6856198861597846337}
+  - component: {fileID: 8874490905339780657}
   m_Layer: 11
   m_Name: Pebble_GrayThrow
   m_TagString: Pebble
@@ -158,26 +138,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentColor>k__BackingField: 2
   _black:
-    Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
+    - {fileID: 2100000, guid: b3c51e45700acf54daa303f2718cccf4, type: 2}
     Layer:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 128
   _white:
-    Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
+    - {fileID: 2100000, guid: 0179f7e51e680394d93f2bff7283ca03, type: 2}
     Layer:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 64
   _gray:
-    Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
+    - {fileID: 2100000, guid: cc6bd8f0b836cc24aa04ed9fd5342cc0, type: 2}
     Layer:
       serializedVersion: 2
-      m_Bits: 2048
+      m_Bits: 256
 --- !u!54 &8378620032228554555
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -245,3 +228,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   IsColliding: 0
+--- !u!135 &8874490905339780657
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793736305217471929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

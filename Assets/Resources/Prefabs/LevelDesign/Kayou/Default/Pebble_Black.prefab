@@ -48,32 +48,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
-      propertyPath: _oldColor
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
-      propertyPath: _gray.Material.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
-      propertyPath: _black.Material.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
-      propertyPath: _white.Material.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
-      propertyPath: <CurrentColor>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6793736305217471929, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
       propertyPath: m_Name
       value: Pebble_Black
       objectReference: {fileID: 0}
     - target: {fileID: 7523558682092738846, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
+    - target: {fileID: 7523558682092738846, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     m_RemovedComponents: []

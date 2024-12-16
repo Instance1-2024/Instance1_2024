@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +11,7 @@ namespace Script.Runtime.LevelObject {
         [SerializeField] float _spawnForce ;
         [SerializeField] Vector3 _direction ;
         [SerializeField] bool _despawnObjectOnDestroy;
-        public bool CanSpawn;
+        public bool CanSpawn = true;
 
         void Update() {
             

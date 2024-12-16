@@ -28,6 +28,7 @@ public class TriggerCinematic : MonoBehaviour {
             
             _tooltip = other.gameObject.GetComponentInChildren<SCPlayerTooltip>().GetTooltipText();
             _inputManager.IsInputActive = false;
+            _inputManager.MoveValue = 0f;
             animationCinematic.Play(animationCinematic.clip.name);
             destroyTrigger = true;
         }

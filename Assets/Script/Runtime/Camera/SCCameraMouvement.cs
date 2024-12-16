@@ -6,7 +6,7 @@ public class SCCameraMouvement : MonoBehaviour
     [SerializeField] Transform _playerTransform;
     SCCameraManager _cameraManager;
     public float SmoothSpeed = 0.125f;
-    private float _minX, _maxX, _minY, _maxY ;
+    [SerializeField] private float _minX, _maxX, _minY, _maxY ;
     void Start()
     {
         _transform = this.transform  ;

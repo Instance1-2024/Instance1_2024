@@ -1,4 +1,5 @@
 using Script.Runtime.LevelObject.Interact;
+using Script.Runtime.Prophecy;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -18,7 +19,8 @@ namespace Script.Runtime.LevelObject.Collectibles
         /// </summary>
         public void Interact()
         {
-            Debug.Log("Collected");
+            Debug.Log("Collected"); 
+            SCProphecyManager.Instance.GetMemoryEvent.Invoke(_memoryID);
             Destroy(this.gameObject);
         }
         

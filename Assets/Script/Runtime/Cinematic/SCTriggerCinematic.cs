@@ -1,3 +1,4 @@
+using Script.Runtime.ColorManagement;
 using Script.Runtime.InputSystem;
 using Script.Runtime.InputSystem.InputTooltip;
 using Script.Runtime.Player;
@@ -39,6 +40,11 @@ public class TriggerCinematic : MonoBehaviour {
                 _tooltip.gameObject.SetActive(true);
                 _inputManager.IsInputActive = true;
                 SetToolTipText();
+
+                if (other.TryGetComponent<ScPlayerChangeColor>(out ScPlayerChangeColor playerChangeColor))
+                {
+                    playerChangeColor.CanChangeColor(true);
+                }
             }
         }
     }

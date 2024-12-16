@@ -29,7 +29,7 @@ namespace Script.Runtime.LevelObject {
             if (despawnObjectOnDestroy && CanSpawn) {
                 
                 CanSpawn = false;
-                InstantiatePrefab(true);
+                InstantiatePrefab(false);
                 
             }
             else {
@@ -39,7 +39,7 @@ namespace Script.Runtime.LevelObject {
                 if (_time <= 0) {
                     _time = _timeBetweenSpawn ;
     
-                    InstantiatePrefab(false);
+                    InstantiatePrefab(true);
                 }
             }
         }

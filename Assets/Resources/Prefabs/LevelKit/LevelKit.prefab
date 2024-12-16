@@ -388,6 +388,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3777057446958120778, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: m_Name
+      value: BlackFlame
+      objectReference: {fileID: 0}
     - target: {fileID: 4352506038017760429, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: _fillImage
       value: 
@@ -436,14 +440,61 @@ PrefabInstance:
       propertyPath: _holdSlot
       value: 
       objectReference: {fileID: 8888282654301049735}
+    - target: {fileID: 6785611696866467573, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: BlackAnimator
+      value: 
+      objectReference: {fileID: 2055822930362596025}
+    - target: {fileID: 6785611696866467573, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: WhiteAnimator
+      value: 
+      objectReference: {fileID: 2085569790573036334}
+    - target: {fileID: 7428033877263200144, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: m_Name
+      value: WhiteFlame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5174328237808387174, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1230613068227972192}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3777057446958120778, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2055822930362596025}
   m_SourcePrefab: {fileID: 100100000, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+--- !u!95 &2085569790573036334 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3831003100437760211, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+  m_PrefabInstance: {fileID: 3016034788359736317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139726685544232119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3777057446958120778, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+  m_PrefabInstance: {fileID: 3016034788359736317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2055822930362596025
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139726685544232119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bb02dad91e61ce4a9ee39895ea71719, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7932514286452117403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5174328237808387174, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}

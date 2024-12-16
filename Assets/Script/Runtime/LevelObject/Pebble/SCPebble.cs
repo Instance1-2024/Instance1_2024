@@ -1,9 +1,9 @@
 ﻿using Script.Runtime.ColorManagement;
-using Script.Runtime.Interact;
+using Script.Runtime.LevelObject.Interact;
 using UnityEngine;
 using static Script.Runtime.SCEnum;
 
-namespace Script.Runtime.Pebble {
+namespace Script.Runtime.LevelObject.Pebble {
     public class SCPebble : MonoBehaviour, IInteractable, IThrowable {
         [field: SerializeField]public Sprite Sprite { get; set; }
         [field: SerializeField]public bool CanBeHold { get; set; }

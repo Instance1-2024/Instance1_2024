@@ -8,7 +8,12 @@ using static Script.Runtime.SCUtils;
 
 namespace Script.Runtime.Player {
     public class SCPlayerMovement : MonoBehaviour {
+        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
         SCInputManager _inputManager => SCInputManager.Instance;
+
+        public Animator CurrentAnimator;
+        public Animator WhiteAnimator;
+        public Animator BlackAnimator;
 
         [Header("Movement")]
         [SerializeField] private float _maxSpeed;
@@ -47,9 +52,7 @@ namespace Script.Runtime.Player {
         [SerializeField] GameObject _comp;
         private Rigidbody _body;
 
-        private SCPhysicMaterialManager _materialManager;
-
-
+        private SCPhysicMaterialManager _materialManager; 
 
         private void Start() {
             _body = GetComponent<Rigidbody>();
@@ -66,16 +69,17 @@ namespace Script.Runtime.Player {
         }
         
         private void FixedUpdate() {
-
-            
             ClampSpeed();
             ApplyFriction();
             if (_isMoving) {
+                CurrentAnimator.SetBool(IsWalking, true);
                 Move();
+            }
+            else {
+                CurrentAnimator.SetBool(IsWalking, false);
             }
 
             if (_isGrounded) {
-                Debug.LogError("AAA");
                 if (_frictionTime < _frictionDuration) {
                     _frictionTime += Time.deltaTime;
                     
@@ -93,11 +97,7 @@ namespace Script.Runtime.Player {
 
 
             CheckGround();
-            if (_horizontalVelocity.magnitude != 0) {
-                
-                /*
-                Debug.Log(_body.linearVelocity);*/
-            }
+
 
             if (_haveToJump) {
                 Jump();
@@ -135,6 +135,10 @@ namespace Script.Runtime.Player {
         void ApplyFriction() {
             Vector3 friction = -_body.linearVelocity * (Time.fixedDeltaTime * _frictionForce);
             _body.AddForce(new Vector3(friction.x, 0, friction.y));
+        }
+        
+        public void SetVelocityLock(bool lockVelocity) {
+            _body.constraints = lockVelocity ? RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.FreezeRotation;
         }
     #endregion
 

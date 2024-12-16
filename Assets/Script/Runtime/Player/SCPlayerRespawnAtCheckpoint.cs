@@ -9,13 +9,13 @@ namespace Script.Runtime.Player
 
         [SerializeField] private PlayerDataRespawn _playerDataRespawn;
 
-        private ScChangePlayerColor _color;
+        private ScPlayerChangeColor _color;
         private SCSanity _sanity;
         private void Start()
         {
             _transform = transform;
             SCCheckpointManager.Instance.ReachCheckpoint.AddListener(OnCheckPoint);
-            _color = GetComponent<ScChangePlayerColor>();
+            _color = GetComponent<ScPlayerChangeColor>();
             _sanity = GetComponent<SCSanity>();
             _playerDataRespawn = new PlayerDataRespawn
             {

@@ -1,5 +1,5 @@
 ﻿using Script.Runtime.InputSystem;
-using Script.Runtime.Pebble;
+using Script.Runtime.LevelObject.Pebble;
 using UnityEngine;
 
 namespace Script.Runtime.Player {

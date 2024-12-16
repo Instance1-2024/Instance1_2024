@@ -225,6 +225,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3948214315130991002, guid: fd88008f6f3a81d4ebed907ba02c66b1, type: 3}
   m_PrefabInstance: {fileID: 36136564}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &74845075 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2085569790573036334, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+  m_PrefabInstance: {fileID: 2154885121787934335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &104041475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1960,6 +1965,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 188534479725222975, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
   m_PrefabInstance: {fileID: 405485374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &899803239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2139726685544232119, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+  m_PrefabInstance: {fileID: 2154885121787934335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &899803241
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899803239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &945197994
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,14 +4437,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2139726685544232119, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_Name
+      value: BlackFlame
+      objectReference: {fileID: 0}
     - target: {fileID: 3325549732154717762, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_Name
       value: LevelKit
       objectReference: {fileID: 0}
+    - target: {fileID: 5678677243546575981, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_Name
+      value: WhiteFlame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642493773132141832, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: WhiteAnimator
+      value: 
+      objectReference: {fileID: 74845075}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2139726685544232119, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 899803241}
   m_SourcePrefab: {fileID: 100100000, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
 --- !u!1001 &6937494041908500876
 PrefabInstance:

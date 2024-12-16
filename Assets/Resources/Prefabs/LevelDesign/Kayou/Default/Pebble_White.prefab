@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: _white.Material.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6056948012608178517, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
+      propertyPath: <CurrentColor>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6793736305217471929, guid: 52e6c43060adaa64e9965981f7168792, type: 3}
       propertyPath: m_Name
       value: Pebble_White

@@ -69,6 +69,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
     - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
+      propertyPath: <CurrentColor>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802013681912282129, guid: 40c9202dafd251f4c885eb5ac4954325, type: 3}
       propertyPath: '_black.Material.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}

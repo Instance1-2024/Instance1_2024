@@ -8,9 +8,9 @@ public class TriggerCinematic : MonoBehaviour {
     public Animation animationCinematic;
     public bool destroyTrigger;
     [SerializeField, Multiline] private string _text;
-    
     private SCInputManager _inputManager => SCInputManager.Instance;
-
+    private SCPlayerMovement _playerMovement;
+    
     private TextMeshProUGUI _tooltip;
     
     [SerializeField] SCInputTooltipText _keyboardTooltip;
@@ -22,6 +22,9 @@ public class TriggerCinematic : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if(_hasBeenTriggered) return;
         if (other.gameObject.CompareTag("Player")) {
+            _playerMovement = other.gameObject.GetComponent<SCPlayerMovement>();
+            _playerMovement.SetVelocityLock(true);
+            
             _tooltip = other.gameObject.GetComponentInChildren<SCPlayerTooltip>().GetTooltipText();
             _inputManager.IsInputActive = false;
             animationCinematic.Play(animationCinematic.clip.name);
@@ -32,6 +35,7 @@ public class TriggerCinematic : MonoBehaviour {
         if(_hasBeenTriggered) return;
         if (other.gameObject.CompareTag("Player")) {
             if (destroyTrigger && !animationCinematic.isPlaying) {
+                _playerMovement.SetVelocityLock(false);
                 _tooltip.gameObject.SetActive(true);
                 _inputManager.IsInputActive = true;
                 SetToolTipText();
@@ -45,6 +49,7 @@ public class TriggerCinematic : MonoBehaviour {
             _tooltip.gameObject.SetActive(false);
             _hasBeenTriggered = true;
             gameObject.SetActive(false);
+            SetNull();
         }
     }
     
@@ -55,7 +60,11 @@ public class TriggerCinematic : MonoBehaviour {
     string GetBind() {
         return _inputManager.IsKeyboard ? _keyboardTooltip.BindingText : _gamepadTooltip.BindingText;
     }
-    
+
+    void SetNull() {
+        _tooltip = null;
+        _playerMovement = null;
+    }
     
 
 }

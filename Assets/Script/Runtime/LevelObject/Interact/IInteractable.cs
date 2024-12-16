@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script.Runtime.Interact {
+namespace Script.Runtime.LevelObject.Interact {
     public interface IInteractable {
 
         public void Interact();

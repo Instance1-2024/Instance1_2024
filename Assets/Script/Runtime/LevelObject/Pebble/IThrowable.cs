@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Script.Runtime.Pebble {
+namespace Script.Runtime.LevelObject.Pebble {
     public interface IThrowable {
         public LayerMask ThrowBlack { get; set; }
         public LayerMask ThrowGray { get; set; }

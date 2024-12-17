@@ -16930,7 +16930,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1330552323566388276, guid: 77120ab781f7ba94896a039416a9bb61, type: 3}
       propertyPath: m_Name
-      value: '[MANGERS]'
+      value: '[MANAGERS]'
       objectReference: {fileID: 0}
     - target: {fileID: 4494479686886630152, guid: 77120ab781f7ba94896a039416a9bb61, type: 3}
       propertyPath: m_LocalPosition.x

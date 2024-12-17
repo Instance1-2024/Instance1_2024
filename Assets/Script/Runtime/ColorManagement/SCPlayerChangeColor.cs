@@ -92,6 +92,7 @@ namespace Script.Runtime.ColorManagement {
 
         void ApplyColor(bool isWhite) {
             _playerMovement.CurrentAnimator = isWhite ? _playerMovement.WhiteAnimator : _playerMovement.BlackAnimator;
+            _playerMovement.CurrentSoundManager = isWhite ? _playerMovement.WhiteSoundManager : _playerMovement.BlackSoundManager;
             _whiteBody.SetActive(isWhite);
             _blackBody.SetActive(!isWhite);
         }

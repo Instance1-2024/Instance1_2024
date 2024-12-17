@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7873955202364948423}
   - component: {fileID: 3842396037089547563}
   m_Layer: 0
-  m_Name: CeilLeft 1
+  m_Name: CeilRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using Script.Runtime.InputSystem;
 using UnityEngine;
-using UnityEngine.Serialization;
 using static Script.Runtime.SCUtils;
 
 namespace Script.Runtime.Player {
@@ -12,9 +10,17 @@ namespace Script.Runtime.Player {
         private static readonly int IsJumping = Animator.StringToHash("IsJumping");
         SCInputManager _inputManager => SCInputManager.Instance;
 
+        [Header("Animators")]
         public Animator CurrentAnimator;
         public Animator WhiteAnimator;
         public Animator BlackAnimator;
+        
+        [Header("SoundManager")]
+        public SCSoundManager CurrentSoundManager;
+        public SCSoundManager WhiteSoundManager;
+        public SCSoundManager BlackSoundManager;
+        
+        private float _walkSoundTimer;
 
         [Header("Movement")]
         [SerializeField] private float _maxSpeed;
@@ -64,11 +70,19 @@ namespace Script.Runtime.Player {
             
             _inputManager.OnJumpEvent.Performed.AddListener(Jump);
         }
-        
+
         private void Update() {
             UpdateRotation();
+
+            if (_isMoving) {
+                _walkSoundTimer -= Time.deltaTime;
+                if (_walkSoundTimer <= 0) {
+                    CurrentSoundManager.PlayWalkSound();
+                    _walkSoundTimer = 2f;
+                }
+            }
         }
-        
+
         private void FixedUpdate() {
             ClampSpeed();
             ApplyFriction();
@@ -209,6 +223,7 @@ namespace Script.Runtime.Player {
         private void Jump() {
             if (_isGrounded) {
                 CurrentAnimator.SetBool(IsJumping, true);
+                CurrentSoundManager.PlayJumpUpSound();
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
                 _haveToJump = false;
@@ -234,6 +249,7 @@ namespace Script.Runtime.Player {
             Collider[] hits = Physics.OverlapSphere(_groundCheck.position, _groundCheckRadius, ColorGroundLayer | _groundLayer);
             _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
             if (_isGrounded) {
+                CurrentSoundManager.PlayJumpDownSound();
                 CurrentAnimator.SetBool(IsJumping, false);
             }
         }

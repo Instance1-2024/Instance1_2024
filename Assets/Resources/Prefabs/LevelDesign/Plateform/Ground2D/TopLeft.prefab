@@ -131,8 +131,9 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 128
   _white:
-    Mesh: {fileID: 0}
-    Material: []
+    Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+    Material:
+    - {fileID: 2100000, guid: 11e49e7dbb9e11540aefad1d5d0ef012, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 64

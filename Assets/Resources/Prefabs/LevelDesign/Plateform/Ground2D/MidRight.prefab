@@ -133,7 +133,7 @@ MonoBehaviour:
   _white:
     Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
     Material:
-    - {fileID: 2100000, guid: 385e2eeda1458fa43ae101a6a1f7e5a3, type: 2}
+    - {fileID: 2100000, guid: 9904551270882c148b4ce40d8b31b9a5, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 64

@@ -17,7 +17,15 @@ public class SCParallaxe : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        float temp = (_camTransform.position.x * (1 - _parallaxEffect));
         float dist = (_camTransform.position.x * _parallaxEffect);
         transform.position = new Vector3(_startPos + dist, transform.position.y, transform.position.z);
+
+        if (temp > _startPos + _length)
+            _startPos += _length;
+        else if (temp < _startPos - _length)
+            _startPos -= _length;
+            
+        
     }
 }

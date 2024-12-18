@@ -25,6 +25,7 @@ public class TriggerCinematic : SCInputTooltipManagement {
             _playerMovement.SetVelocityLock(true);
             
             _tooltip = other.gameObject.GetComponentInChildren<SCPlayerTooltip>().GetTooltipText();
+            _tooltipImage = other.gameObject.GetComponentInChildren<SCPlayerTooltip>().GetTooltipImage();
             _inputManager.IsInputActive = false;
             _inputManager.MoveValue = 0f;
             animationCinematic.Play(animationCinematic.clip.name);
@@ -38,6 +39,7 @@ public class TriggerCinematic : SCInputTooltipManagement {
                 HUD.SetActive(true);
                 _playerMovement.SetVelocityLock(false);
                 _tooltip.gameObject.SetActive(true);
+                _tooltipImage.gameObject.SetActive(true);
                 _inputManager.IsInputActive = true;
                 SetToolTipText();
 
@@ -53,6 +55,7 @@ public class TriggerCinematic : SCInputTooltipManagement {
         if(_hasBeenTriggered) return;
         if (other.gameObject.CompareTag("Player")) {
             _tooltip.gameObject.SetActive(false);
+            _tooltipImage.gameObject.SetActive(false);
             _hasBeenTriggered = true;
             gameObject.SetActive(false);
             SetNull();

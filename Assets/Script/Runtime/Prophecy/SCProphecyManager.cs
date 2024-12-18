@@ -20,11 +20,10 @@ public class SCProphecyManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
 
         if(cheatElements)
         {
-            for(int i = 0; i < 7; i++)
+            for(int i = 0; i < 6; i++)
             {
                 _memoryFragmentsId.Add(i+1);
             }

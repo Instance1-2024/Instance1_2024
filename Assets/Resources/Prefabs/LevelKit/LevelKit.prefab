@@ -541,9 +541,17 @@ PrefabInstance:
       value: -179.3937
       objectReference: {fileID: 0}
     - target: {fileID: 4352506038017760429, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: _fillClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a4438a9cc52e90b43abdd0c6f86270e3, type: 3}
+    - target: {fileID: 4352506038017760429, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: _fillImage
       value: 
       objectReference: {fileID: 7117112763194870285}
+    - target: {fileID: 4352506038017760429, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
+      propertyPath: _fillAudioSource
+      value: 
+      objectReference: {fileID: 8291736541749060263}
     - target: {fileID: 4411154798486948868, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
       propertyPath: _blackBody
       value: 
@@ -1019,9 +1027,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkClip: {fileID: 8300000, guid: 9f7797425f9c32f4e8a19390f0b5da5a, type: 3}
-  _jumpUpClip: {fileID: 8300000, guid: d16c5d227a665574eaaa63730aa641fd, type: 3}
-  _jumpDownClip: {fileID: 8300000, guid: d9c14502025ece948aae3a70f4429e24, type: 3}
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 0}
+  _clipIncompleteProphecy: {fileID: 0}
+  _clipCompleteProphecy: {fileID: 0}
 --- !u!4 &7932514286452117403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5174328237808387174, guid: 855c33b3fbff067498cf5f13a9846c86, type: 3}
@@ -1186,6 +1198,11 @@ MonoBehaviour:
 --- !u!224 &7809743867021563696 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 737425558738721880, guid: fd648ac1b3a96f94a8910f9aaeb47f95, type: 3}
+  m_PrefabInstance: {fileID: 7375229365043415912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8291736541749060263 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1533544376194918863, guid: fd648ac1b3a96f94a8910f9aaeb47f95, type: 3}
   m_PrefabInstance: {fileID: 7375229365043415912}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8888282654301049735 stripped
@@ -1711,9 +1728,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkClip: {fileID: 8300000, guid: 9f7797425f9c32f4e8a19390f0b5da5a, type: 3}
-  _jumpUpClip: {fileID: 8300000, guid: d16c5d227a665574eaaa63730aa641fd, type: 3}
-  _jumpDownClip: {fileID: 8300000, guid: d9c14502025ece948aae3a70f4429e24, type: 3}
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 0}
+  _clipIncompleteProphecy: {fileID: 0}
+  _clipCompleteProphecy: {fileID: 0}
 --- !u!4 &8937935509674866775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2e65e72232f55a94a8bbf80d153913c5, type: 3}

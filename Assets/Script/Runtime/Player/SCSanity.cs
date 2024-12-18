@@ -9,6 +9,9 @@ namespace Script.Runtime.Player {
         [SerializeField] float _maxSanity = 10f;
         private ScPlayerChangeColor _changeColor;
         public float CurrentSanity;
+
+        [Header("Visual Low Sanity")]
+        [SerializeField] private ParticleSystem _particleSystem;
         
         private void Start() {
             _changeColor = GetComponent<ScPlayerChangeColor>();
@@ -32,6 +35,14 @@ namespace Script.Runtime.Player {
             CurrentSanity = Mathf.Clamp(sanity, 0f, _maxSanity);
             if (CurrentSanity == 0) {
                 GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
+            }
+            if(CurrentSanity <= 4.5f)
+            {
+                _particleSystem.Play();
+            }
+            else
+            {
+                _particleSystem.Stop();
             }
             _fillImage.fillAmount = CurrentSanity / _maxSanity;
         }

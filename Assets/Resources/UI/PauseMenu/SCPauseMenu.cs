@@ -36,6 +36,6 @@ public class SCPauseMenu : MonoBehaviour
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene("Alexis_UI");
+        SceneManager.LoadScene("MainMenu");
     }
 }

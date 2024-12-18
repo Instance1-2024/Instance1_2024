@@ -2263,7 +2263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5430501529878814731, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5624823852760777730, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _camTransform
@@ -9743,6 +9743,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6334046477707378968, guid: ba02b8dc05d913c438bbb22d18a6d8c1, type: 3}
   m_PrefabInstance: {fileID: 1588024752}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1430773329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7443479124562962584, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+  m_PrefabInstance: {fileID: 2154885121787934335}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1432427958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9966,7 +9971,7 @@ MonoBehaviour:
   _keyboardSprite: {fileID: 21300000, guid: 0e448f363f6c1e34fbf3a4e023392458, type: 3}
   animationCinematic: {fileID: 1795730619}
   destroyTrigger: 0
-  HUD: {fileID: 2154885121787934336}
+  HUD: {fileID: 1430773329}
   _cinematicAudioSource: {fileID: 1470281248}
   _sidekickClip: {fileID: 8300000, guid: fe09c2ffccd9080458aa00015d69019a, type: 3}
 --- !u!65 &1470281247
@@ -15928,11 +15933,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.5
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: -6.6
       objectReference: {fileID: 0}
     - target: {fileID: 7957439730942795050, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16147,11 +16152,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
---- !u!1 &2154885121787934336 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6762571867079951875, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-  m_PrefabInstance: {fileID: 2154885121787934335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2372355882020946434
 PrefabInstance:
   m_ObjectHideFlags: 0

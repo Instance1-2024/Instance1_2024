@@ -16,6 +16,7 @@ public class TriggerCinematic : MonoBehaviour {
     
     [SerializeField] SCInputTooltipText _keyboardTooltip;
     [SerializeField] SCInputTooltipText _gamepadTooltip;
+    [SerializeField] GameObject HUD;
     
     bool _hasBeenTriggered;
     
@@ -37,6 +38,7 @@ public class TriggerCinematic : MonoBehaviour {
         if(_hasBeenTriggered) return;
         if (other.gameObject.CompareTag("Player")) {
             if (destroyTrigger && !animationCinematic.isPlaying) {
+                HUD.SetActive(true);
                 _playerMovement.SetVelocityLock(false);
                 _tooltip.gameObject.SetActive(true);
                 _inputManager.IsInputActive = true;

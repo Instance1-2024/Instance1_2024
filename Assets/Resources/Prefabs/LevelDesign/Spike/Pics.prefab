@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4563923297357008445}
   - component: {fileID: 3599126804476072602}
   - component: {fileID: 8591157218302851780}
+  - component: {fileID: 9033353473627366797}
   m_Layer: 0
   m_Name: Pics
   m_TagString: Untagged
@@ -34,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!33 &1848784099283795203
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -107,7 +108,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &8591157218302851780
@@ -144,3 +145,15 @@ MonoBehaviour:
     Layer:
       serializedVersion: 2
       m_Bits: 256
+--- !u!114 &9033353473627366797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2669894960533077998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e61c99390c78b4caaa1c985ae0fd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,17 +5,14 @@ using Script.Runtime.Player;
 using TMPro;
 using UnityEngine;
 
-public class TriggerCinematic : MonoBehaviour {
+public class TriggerCinematic : SCInputTooltipManagement {
     public Animation animationCinematic;
     public bool destroyTrigger;
-    [SerializeField, Multiline] private string _text;
-    private SCInputManager _inputManager => SCInputManager.Instance;
+
     private SCPlayerMovement _playerMovement;
     
-    private TextMeshProUGUI _tooltip;
+
     
-    [SerializeField] SCInputTooltipText _keyboardTooltip;
-    [SerializeField] SCInputTooltipText _gamepadTooltip;
     [SerializeField] GameObject HUD;
     
     bool _hasBeenTriggered;
@@ -44,7 +41,7 @@ public class TriggerCinematic : MonoBehaviour {
                 _inputManager.IsInputActive = true;
                 SetToolTipText();
 
-                if (other.TryGetComponent<ScPlayerChangeColor>(out ScPlayerChangeColor playerChangeColor))
+                if (other.TryGetComponent(out ScPlayerChangeColor playerChangeColor))
                 {
                     playerChangeColor.CanChangeColor(true);
                 }
@@ -62,13 +59,7 @@ public class TriggerCinematic : MonoBehaviour {
         }
     }
     
-    void SetToolTipText() {
-        _tooltip.text = _text.Replace("{binding}", GetBind());;
-    }
 
-    string GetBind() {
-        return _inputManager.IsKeyboard ? _keyboardTooltip.BindingText : _gamepadTooltip.BindingText;
-    }
 
     void SetNull() {
         _tooltip = null;

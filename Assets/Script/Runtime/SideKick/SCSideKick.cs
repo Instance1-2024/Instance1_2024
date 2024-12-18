@@ -9,6 +9,7 @@ namespace Script.Runtime.SideKick {
     public class SCSideKickTalk : MonoBehaviour {
         [SerializeField] private TextMeshProUGUI _dialogueBox;
 
+        [SerializeField] GameObject _dialBoxBackground;
         [SerializeField] List<string> _dialogue;
         [SerializeField] List<string> _alternateDialogue;
         [SerializeField] float _timeBetweenText;
@@ -27,16 +28,26 @@ namespace Script.Runtime.SideKick {
         [SerializeField] int _nbOfLines = 2;
 
         private bool _isTextShowed;
-        
-        
+
+        private void Start() {
+            _dialBoxBackground.SetActive(false);
+        }
+
         private void OnTriggerEnter(Collider other) {
             if (other.gameObject.CompareTag("Player")) {
                 if(_isTextShowed) return;
+                _dialBoxBackground.SetActive(true);
                 if (SCProphecyManager.Instance.IsAllMemoryPiecesCollected) {
                     StartCoroutine(BuildLines(_alternateDialogue));
                 }
                 StartCoroutine(BuildLines(_dialogue));
                 _isTextShowed = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider other) {
+            if (other.gameObject.CompareTag("Player")) {
+                _dialBoxBackground.SetActive(false);
             }
         }
 

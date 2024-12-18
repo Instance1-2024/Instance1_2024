@@ -425,11 +425,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf85a451cfdd8444bb7447d161ef7e90, type: 3}
---- !u!95 &74845075 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2085569790573036334, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-  m_PrefabInstance: {fileID: 2154885121787934335}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &79161051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2324,7 +2319,7 @@ PrefabInstance:
       objectReference: {fileID: 726834053}
     - target: {fileID: 7849675488280527097, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9770,6 +9765,18 @@ PrefabInstance:
       value: BottomRight
       objectReference: {fileID: 0}
     - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -9882,12 +9889,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76e549548a2be945bdcf5f29c2b39b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltipText: 
+  _tooltipText: Press  {binding}  to Change Color
   _keyboardTooltip: {fileID: 1587104864}
   _gamepadTooltip: {fileID: 945197996}
   _tooltipImage: {fileID: 0}
-  _gamepadSprite: {fileID: 0}
-  _keyboardSprite: {fileID: 0}
+  _gamepadSprite: {fileID: 21300000, guid: 7f2cc4ef04bace2428d0513de5f80904, type: 3}
+  _keyboardSprite: {fileID: 21300000, guid: 0e448f363f6c1e34fbf3a4e023392458, type: 3}
   animationCinematic: {fileID: 1795730619}
   destroyTrigger: 0
   HUD: {fileID: 2154885121787934336}
@@ -14670,6 +14677,18 @@ PrefabInstance:
       value: BottomRight
       objectReference: {fileID: 0}
     - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
       objectReference: {fileID: 0}
@@ -15071,38 +15090,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1507731999714183161, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: _isLevel1
-      value: 1
+    - target: {fileID: 1293916434616372429, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2139726685544232119, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_Name
-      value: BlackFlame
+    - target: {fileID: 1293916434616372429, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293916434616372429, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2217814794432244649, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.478
       objectReference: {fileID: 0}
     - target: {fileID: 3325549732154717762, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_Name
       value: LevelKit
       objectReference: {fileID: 0}
-    - target: {fileID: 5678677243546575981, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_Name
-      value: WhiteFlame
-      objectReference: {fileID: 0}
-    - target: {fileID: 6762571867079951875, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8642493773132141832, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: WhiteAnimator
-      value: 
-      objectReference: {fileID: 74845075}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15558,6 +15565,18 @@ PrefabInstance:
     - target: {fileID: 135473948835812012, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
       propertyPath: m_Name
       value: BottomRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5267643971278053739, guid: b5d70d0d1d9d85643a16e36960228e0d, type: 3}
       propertyPath: m_LocalPosition.x

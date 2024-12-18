@@ -26,7 +26,9 @@ namespace Script.Runtime.Player {
         /// When the player interact, it will detect one of the object in front and try interacting with it
         /// </summary>
         void InteractStart() {
+            Debug.Log("Interact");
             if (_playerHold.IsHolding){
+                Debug.Log("Drop");
                 _playerHold.Drop();
                 return;
             }
@@ -39,8 +41,8 @@ namespace Script.Runtime.Player {
             }
             
             foreach (Collider hit in hits) {
-                if (hit == null || hit.transform.parent == null) continue;
-                if (hit.transform.parent.TryGetComponent<IInteractable>(out var interactable)) {
+                if (hit == null) continue;
+                if (hit.transform.TryGetComponent<IInteractable>(out var interactable)) {
                     if (hit.gameObject.layer != gameObject.layer && !CompareLayerMask(hit.gameObject.layer, _interactMask)) {
                         continue;
                     }

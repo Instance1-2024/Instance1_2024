@@ -23,6 +23,7 @@ namespace Script.Runtime.LevelObject.Pebble {
         }
 
         public void Interact() {
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         }
 
         private void OnCollisionEnter(Collision other) {

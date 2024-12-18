@@ -2,31 +2,59 @@ using UnityEngine;
 
 public class SCSoundManager : MonoBehaviour
 {
-    private AudioSource _audioSource;
-    [SerializeField] private AudioClip _walkClip;
-    [SerializeField] private AudioClip _jumpUpClip; // when player leaves the floor
-    [SerializeField] private AudioClip _jumpDownClip; // when the player hit the floor post jump
+    [Header("Movements Related")]
+    [SerializeField] private AudioSource _audioSourceWalk;
+    [SerializeField] private AudioSource _audioSourceJump;
+    [SerializeField] private AudioClip _clipLand;
+    [SerializeField] private AudioClip _clipJump;
 
-    private void Awake()
+    [Header("Prophecy Related")]
+    [SerializeField] private AudioSource _audioSourceProphecy;
+    [SerializeField] private AudioClip _clipIncompleteProphecy;
+    [SerializeField] private AudioClip _clipCompleteProphecy;
+
+    public void AssembleProphecy()
     {
-        _audioSource = transform.parent.parent.GetComponent<AudioSource>();
+        if (!SCProphecyManager.Instance)
+            return;
+
+        if (SCProphecyManager.Instance.GetMemoryIds().Count >= 7)
+            AssembleProphecyComplete();
+        else
+            AssembleProphecyIncomplete();
+    }
+
+    public void AssembleProphecyIncomplete()
+    {
+        if (!_audioSourceProphecy) return;
+        _audioSourceProphecy.clip = _clipIncompleteProphecy;
+        _audioSourceProphecy.Play();
+    }
+    public void AssembleProphecyComplete()
+    {
+        if (!_audioSourceProphecy) return;
+        _audioSourceProphecy.clip = _clipCompleteProphecy;
+        _audioSourceProphecy.Play();
     }
 
     public void PlayJumpUpSound()
     {
-        _audioSource.clip = _jumpUpClip;
-        _audioSource.Play();
+        if (!_audioSourceJump) return;
+
+        _audioSourceJump.clip = _clipJump;
+        _audioSourceJump.Play();
     }
 
     public void PlayJumpDownSound()
     {
-        _audioSource.clip = _jumpDownClip;
-        _audioSource.Play();
+        if (!_audioSourceJump) return;
+        _audioSourceJump.clip = _clipLand;
+        _audioSourceJump.Play();
     }
 
     public void PlayWalkSound()
     {
-        _audioSource.clip = _walkClip;
-        _audioSource.Play();
+        if (!_audioSourceWalk) return;
+        _audioSourceWalk.Play();
     }
 }

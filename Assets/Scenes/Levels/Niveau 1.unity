@@ -3560,7 +3560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: _dialogue.Array.size
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[0]'
@@ -3584,7 +3584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[5]'
-      value: "but be careful\u2014your darker side could well drive you mad."
+      value: but be careful-your darker side could well drive you mad.
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[6]'
@@ -3592,7 +3592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[7]'
-      value: Be cautious, these lands are vast and deceptive.
+      value: "If you get lost, don\u2019t count on me to search for you forever."
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[8]'
@@ -8479,7 +8479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: _dialogue.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[0]'
@@ -8487,24 +8487,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[1]'
-      value: "It looks like a piece of parchment. There\u2019s something written
-        on it\u2026 Interesting."
+      value: It looks like a piece of parchment.
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[2]'
-      value: There must be other fragments like this one. Try to find them all.
+      value: "There\u2019s something written on it\u2026 Interesting."
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[3]'
-      value: "Maybe their meaning will be revealed once they\u2019re all assembled."
+      value: There must be other fragments like this one.
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[4]'
-      value: "Or maybe not. But it\u2019s worth a try, isn\u2019t it?"
+      value: Try to find them all.
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[5]'
-      value: There must be other fragments like this one.
+      value: "Maybe their meaning will be revealed once they\u2019re all assembled."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_dialogue.Array.data[6]'
+      value: "Or maybe not. But it\u2019s worth a try, isn\u2019t it?"
       objectReference: {fileID: 0}
     - target: {fileID: 8575979974080427732, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10334,7 +10337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 232280474604615050, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 232280474604615050, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.y

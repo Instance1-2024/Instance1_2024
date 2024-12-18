@@ -2321,10 +2321,6 @@ PrefabInstance:
       propertyPath: _camTransform
       value: 
       objectReference: {fileID: 726834053}
-    - target: {fileID: 2973508450349249415, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5256522415194283589, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _camTransform
       value: 
@@ -2332,10 +2328,6 @@ PrefabInstance:
     - target: {fileID: 5430501529878814731, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_Name
       value: 'Parallaxe '
-      objectReference: {fileID: 0}
-    - target: {fileID: 5430501529878814731, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624823852760777730, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _camTransform
@@ -2380,10 +2372,6 @@ PrefabInstance:
     - target: {fileID: 6623758818146703379, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6623758818146703379, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7368055472264384982, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _camTransform
@@ -6472,18 +6460,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6334046477707378968, guid: ba02b8dc05d913c438bbb22d18a6d8c1, type: 3}
   m_PrefabInstance: {fileID: 2137740901}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &974560522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974560520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e61c99390c78b4caaa1c985ae0fd26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &984396956
 GameObject:
   m_ObjectHideFlags: 0
@@ -15623,10 +15599,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1524231700}
     m_Modifications:
-    - target: {fileID: 8170780259967865993, guid: 89161ed599e369a4cbc34dc98e40d1e3, type: 3}
-      propertyPath: m_Name
-      value: PillierBottom Variant
-      objectReference: {fileID: 0}
     - target: {fileID: 2450093074720041844, guid: 89161ed599e369a4cbc34dc98e40d1e3, type: 3}
       propertyPath: <CurrentColor>k__BackingField
       value: 1
@@ -15670,6 +15642,10 @@ PrefabInstance:
     - target: {fileID: 3189568920212516266, guid: 89161ed599e369a4cbc34dc98e40d1e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170780259967865993, guid: 89161ed599e369a4cbc34dc98e40d1e3, type: 3}
+      propertyPath: m_Name
+      value: PillierBottom Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

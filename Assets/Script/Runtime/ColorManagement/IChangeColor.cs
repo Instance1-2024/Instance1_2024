@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using static Script.Runtime.SCEnum;
 
 namespace Script.Runtime.ColorManagement {

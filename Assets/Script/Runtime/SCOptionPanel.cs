@@ -101,7 +101,6 @@ public class SCOptionPanel : MonoBehaviour
 
     public void StartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // reprend au dernier checkPoint ou Commence le jeu par l'intro
     }
 
     public void Quit()

@@ -12,9 +12,9 @@ namespace Script.Runtime.ColorManagement {
         [field:SerializeField] public EColor CurrentColor { get; set; }
         public Collider Collider { get; set; }
         
-        [SerializeField] private  SColor _black;
-        [SerializeField] private SColor _white;
-        [SerializeField] private SColor _gray;
+        [SerializeField] protected  SColor _black;
+        [SerializeField] protected SColor _white;
+        [SerializeField] protected SColor _gray;
         
         void Awake() {
             _meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
@@ -36,7 +36,7 @@ namespace Script.Runtime.ColorManagement {
         /// <param name="color.Mesh"> The mesh to apply</param>
         /// <param name="color.Material"> The material to apply</param>
         /// <param name="color.Layer"> The layer to apply</param>
-        private void ApplyColor(SColor color) {
+        protected void ApplyColor(SColor color) {
             _meshFilter.mesh = color.Mesh;
             _meshRenderer.materials = color.Material.ToArray();
             int layerValue = (int)Mathf.Log(color.Layer.value, 2);
@@ -48,7 +48,7 @@ namespace Script.Runtime.ColorManagement {
         /// Changes the color and exclude the inverse color layer from the collider
         /// </summary>
         /// <param name="color"> The color to apply</param>
-        public void ChangeColor(EColor color) {
+        public virtual void ChangeColor(EColor color) {
             switch (color) {
                 case EColor.White:
                     ApplyColor(_white);

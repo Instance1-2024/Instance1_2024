@@ -1,13 +1,16 @@
+using System;
 using Script.Runtime.ColorManagement;
 using System.Collections;
+using Script.Runtime.InputSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Runtime.Player
 {
-    public class SCPlayerRespawnAtCheckpoint : MonoBehaviour
-    {
+    public class SCPlayerRespawnAtCheckpoint : MonoBehaviour {
         private Transform _transform;
+        private SCPlayerMovement _playerMovement;
+        SCInputManager _inputManager => SCInputManager.Instance;
 
         [SerializeField] private PlayerDataRespawn _playerDataRespawn;
 
@@ -20,6 +23,7 @@ namespace Script.Runtime.Player
         [SerializeField] private ParticleSystem _particleSystemBlack;
         private void Start()
         {
+            _playerMovement = GetComponent<SCPlayerMovement>();
             _transform = transform;
             SCCheckpointManager.Instance.ReachCheckpoint.AddListener(OnCheckPoint);
             _color = GetComponent<ScPlayerChangeColor>();
@@ -31,6 +35,11 @@ namespace Script.Runtime.Player
                 Color = _color.GetColor(),
                 IsHandle = false
             };
+        }
+
+        private void Update() {
+            _playerMovement.SetDeath(_isRespawning);
+            
         }
 
         /// <summary>

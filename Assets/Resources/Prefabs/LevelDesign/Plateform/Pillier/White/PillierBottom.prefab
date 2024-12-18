@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 7410307355198110544}
   - component: {fileID: 8701212252243476476}
   - component: {fileID: 1270138755066892200}
-  - component: {fileID: 2365767888107433701}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Platform
@@ -198,37 +197,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2365767888107433701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7937373959152848650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cc001de3e973e4f9af7677db25c362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CurrentColor>k__BackingField: 0
-  _black:
-    Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-    Material:
-    - {fileID: 2100000, guid: e2a5604ad3dbb5741bffaf291c3ae55b, type: 2}
-    Layer:
-      serializedVersion: 2
-      m_Bits: 128
-  _white:
-    Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-    Material:
-    - {fileID: 2100000, guid: 162965d98cccd444b9de7c8a7cfc67b0, type: 2}
-    Layer:
-      serializedVersion: 2
-      m_Bits: 64
-  _gray:
-    Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
-    Material:
-    - {fileID: 2100000, guid: 162965d98cccd444b9de7c8a7cfc67b0, type: 2}
-    Layer:
-      serializedVersion: 2
-      m_Bits: 256

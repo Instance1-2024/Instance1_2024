@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Script.Runtime.Platform {
+namespace Script.Runtime.Platform {     
     public class SCColorShowOnCollision : MonoBehaviour {
         [SerializeField] private Animation _animation;
 

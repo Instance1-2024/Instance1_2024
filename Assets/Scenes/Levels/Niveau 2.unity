@@ -7151,25 +7151,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1507731999714183161, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: _canChangeColor
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3325549732154717762, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_Name
       value: LevelKit
       objectReference: {fileID: 0}
-    - target: {fileID: 3325549732154717762, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8861,6 +8853,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2048769264260108446, guid: 061ff6ea270bb4646bfdc71f21174aac, type: 3}
   m_PrefabInstance: {fileID: 811786081}
   m_PrefabAsset: {fileID: 0}
+--- !u!111 &814086508 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 9155558244622211171, guid: 4c39df12065b8b04cabe307467e76d20, type: 3}
+  m_PrefabInstance: {fileID: 983004657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &825340456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10542,6 +10539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plat_WhiteFade
       objectReference: {fileID: 0}
+    - target: {fileID: 2185207821928531642, guid: 4c39df12065b8b04cabe307467e76d20, type: 3}
+      propertyPath: _animation
+      value: 
+      objectReference: {fileID: 814086508}
     - target: {fileID: 3956972815661869518, guid: 4c39df12065b8b04cabe307467e76d20, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0701

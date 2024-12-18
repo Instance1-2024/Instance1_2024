@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7993082416515143928}
   - component: {fileID: 1850447305625589165}
   - component: {fileID: 3503330608765322195}
+  - component: {fileID: 2676502328381315959}
   m_Layer: 0
   m_Name: Prophecy_6
   m_TagString: Untagged
@@ -93,6 +94,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &2676502328381315959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449776774441290452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &1191193489920377535
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6109640469524109785}
   - component: {fileID: 8461386742176136354}
+  - component: {fileID: 3887844560210070558}
   m_Layer: 0
   m_Name: Prophecy
   m_TagString: Untagged
@@ -157,6 +178,103 @@ MonoBehaviour:
   - {fileID: 449776774441290452}
   - {fileID: 8868339341115408470}
   _timer: 5
+--- !u!82 &3887844560210070558
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191193489920377535}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.322
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 186
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2658323447337467263
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +287,7 @@ GameObject:
   - component: {fileID: 2401542591250526419}
   - component: {fileID: 7090487758108298039}
   - component: {fileID: 3770179036853190762}
+  - component: {fileID: 1009901172468727935}
   m_Layer: 0
   m_Name: Prophecy_5
   m_TagString: Untagged
@@ -250,6 +369,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &1009901172468727935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658323447337467263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &3537885254171460693
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +400,7 @@ GameObject:
   - component: {fileID: 2823368298090819358}
   - component: {fileID: 8078016626732648098}
   - component: {fileID: 8471277966508372574}
+  - component: {fileID: 3139490054405904717}
   m_Layer: 0
   m_Name: Prophecy_4
   m_TagString: Untagged
@@ -343,6 +482,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &3139490054405904717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537885254171460693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &4329698262398455280
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +513,7 @@ GameObject:
   - component: {fileID: 9075953905802517758}
   - component: {fileID: 3911786161587101858}
   - component: {fileID: 649778533971512720}
+  - component: {fileID: 8686674067612914536}
   m_Layer: 0
   m_Name: Prophecy_3
   m_TagString: Untagged
@@ -436,6 +595,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &8686674067612914536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4329698262398455280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &4922678378189477697
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +626,7 @@ GameObject:
   - component: {fileID: 8343509546019784798}
   - component: {fileID: 3460589195168762809}
   - component: {fileID: 1779496501420045331}
+  - component: {fileID: 2287295378653134955}
   m_Layer: 0
   m_Name: Prophecy_1
   m_TagString: Untagged
@@ -529,6 +708,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &2287295378653134955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922678378189477697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &5613952919761982824
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +739,7 @@ GameObject:
   - component: {fileID: 312923529142233853}
   - component: {fileID: 8332331890743156158}
   - component: {fileID: 8888973521196765766}
+  - component: {fileID: 476900170215461838}
   m_Layer: 0
   m_Name: Prophecy_2
   m_TagString: Untagged
@@ -622,6 +821,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &476900170215461838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613952919761982824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &8868339341115408470
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +852,7 @@ GameObject:
   - component: {fileID: 9079680568279544376}
   - component: {fileID: 8602122555541232277}
   - component: {fileID: 1661947110565600447}
+  - component: {fileID: 5377401331577340694}
   m_Layer: 0
   m_Name: Prophecy_7
   m_TagString: Untagged
@@ -715,6 +934,25 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &5377401331577340694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868339341115408470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3d62256aceeb443a1383d848aba48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSourceWalk: {fileID: 0}
+  _audioSourceJump: {fileID: 0}
+  _clipLand: {fileID: 0}
+  _clipJump: {fileID: 0}
+  _audioSourceProphecy: {fileID: 3887844560210070558}
+  _clipIncompleteProphecy: {fileID: 8300000, guid: 5c1ea762ebb01b440807e066a841da6f, type: 3}
+  _clipCompleteProphecy: {fileID: 8300000, guid: 07864a5045276d446b48363f86c425cd, type: 3}
 --- !u!1 &9019186299354743626
 GameObject:
   m_ObjectHideFlags: 0

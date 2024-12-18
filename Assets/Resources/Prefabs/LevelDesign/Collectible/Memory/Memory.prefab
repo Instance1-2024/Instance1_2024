@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7040307650986636443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1000, y: 1000, z: 1000}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -134,16 +134,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cc001de3e973e4f9af7677db25c362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentColor>k__BackingField: 0
+  <CurrentColor>k__BackingField: 2
   _black:
-    Mesh: {fileID: 0}
-    Material: []
+    Mesh: {fileID: -7017155640922221079, guid: 49189cfa5daebf84bb313b49d513528b, type: 3}
+    Material:
+    - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 128
   _white:
-    Mesh: {fileID: 0}
-    Material: []
+    Mesh: {fileID: -7017155640922221079, guid: 49189cfa5daebf84bb313b49d513528b, type: 3}
+    Material:
+    - {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 0
@@ -209,7 +211,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

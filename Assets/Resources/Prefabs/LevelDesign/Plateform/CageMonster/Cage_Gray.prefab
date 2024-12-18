@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 188534479725222975}
-  - component: {fileID: 802013681912282129}
+  - component: {fileID: 3539519860894844597}
   - component: {fileID: 5041731229229741168}
   m_Layer: 8
   m_Name: Cage_Gray
@@ -121,7 +121,7 @@ Transform:
   - {fileID: 4370607057878055828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &802013681912282129
+--- !u!114 &3539519860894844597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3266856179287137338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68cc001de3e973e4f9af7677db25c362, type: 3}
+  m_Script: {fileID: 11500000, guid: fb87bf79de64419db289840188f81dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentColor>k__BackingField: 2
@@ -155,6 +155,31 @@ MonoBehaviour:
     Layer:
       serializedVersion: 2
       m_Bits: 256
+  _monsterRenderer: {fileID: 917610399403357587}
+  _blackMonsters:
+  - {fileID: 2100000, guid: 3d002690e8a6a0042a9b18c1254b86d6, type: 2}
+  - {fileID: 2100000, guid: 6695fd2511f9dc9488633ef950384179, type: 2}
+  - {fileID: 2100000, guid: 48ca42289989470478a90a3380df0f2f, type: 2}
+  - {fileID: 2100000, guid: af9f476d53e8f3d44aceeb28dcceff86, type: 2}
+  - {fileID: 2100000, guid: 1b89f51307fa0874ca7ce16da78953a4, type: 2}
+  - {fileID: 2100000, guid: 992f0c51d3892b84ca5bf00675bf732e, type: 2}
+  - {fileID: 2100000, guid: 630f91cbed4d8aa4b983da75b520c3a5, type: 2}
+  - {fileID: 2100000, guid: 67f9f8027a8df4f4eb67eae084ac4212, type: 2}
+  - {fileID: 2100000, guid: 49ececc46bcdf6947b396cdb7dca3ee5, type: 2}
+  - {fileID: 2100000, guid: b46a17e12d0e2704eaa715936136adff, type: 2}
+  - {fileID: 2100000, guid: 6e20a55fa1d4cd1479b46a1d6d0ba1f2, type: 2}
+  _whiteMonsters:
+  - {fileID: 2100000, guid: 4cf9772945273624a99ae43dc017a99d, type: 2}
+  - {fileID: 2100000, guid: 05bef5c4cb1823049814f4f664110047, type: 2}
+  - {fileID: 2100000, guid: 1e41238608db38b4bb6f73c0104d7aaa, type: 2}
+  - {fileID: 2100000, guid: 8d401045d9214194b9afb4214a98520c, type: 2}
+  - {fileID: 2100000, guid: d8347513fb9ed2f4e886d7b34ca7504c, type: 2}
+  - {fileID: 2100000, guid: 9a2736e812a955946aaa39f2817d29b9, type: 2}
+  - {fileID: 2100000, guid: c4be8fcded69f6d49abbaaa30d8e163e, type: 2}
+  - {fileID: 2100000, guid: 33dfc2e62c83e454fafccd09bc1c04a1, type: 2}
+  - {fileID: 2100000, guid: 0c6bd1e984be9b546bc215306b61545a, type: 2}
+  - {fileID: 2100000, guid: 0b4c7c5d0a693d14282592a0f25fca38, type: 2}
+  - {fileID: 2100000, guid: 50b5fc9f79fc17f4bb0146d51d887d60, type: 2}
 --- !u!65 &5041731229229741168
 BoxCollider:
   m_ObjectHideFlags: 0

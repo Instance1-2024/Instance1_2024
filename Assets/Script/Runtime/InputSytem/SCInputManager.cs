@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using static UnityEngine.SceneManagement.SceneManager;
 
 namespace Script.Runtime.InputSystem
 {
@@ -13,8 +14,6 @@ namespace Script.Runtime.InputSystem
         public bool IsInputActive;
 
         public SInputEvent OnMoveEvent;
-
-        public SInputEvent OpenMenuPauseEvent;
         public float MoveValue;
 
         public SInputEvent OnJumpEvent;
@@ -74,12 +73,6 @@ namespace Script.Runtime.InputSystem
             InvokeInputEvent(ctx, OnMoveEvent);
         }
 
-        public void OpenMenuPause(InputAction.CallbackContext ctx)
-        {
-            if (!IsInputActive) return;
-            InvokeInputEvent(ctx, OpenMenuPauseEvent);
-        }
-
         /// <summary>
         /// When the player Jump, it will invoke the event
         /// </summary>
@@ -136,6 +129,9 @@ namespace Script.Runtime.InputSystem
         /// <param name="ctx">context of the input</param>
         public void OnPause(InputAction.CallbackContext ctx)
         {
+            if (GetActiveScene().buildIndex == 0) return;
+            if (GetActiveScene().buildIndex == 1) return;
+            if (GetActiveScene().buildIndex == 6) return;
             if (!IsInputActive) return;
             InvokeInputEvent(ctx, OnPauseEvent);
         }

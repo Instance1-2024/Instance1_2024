@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class SCPauseMenu : MonoBehaviour
-{
+public class SCPauseMenu : MonoBehaviour {
     [SerializeField] private GameObject _pauseGO;
     [SerializeField] private GameObject _settingsGO;
     [SerializeField] private SCInputManager _inputManager;
@@ -13,12 +12,10 @@ public class SCPauseMenu : MonoBehaviour
     void Start()
     {
         _inputManager.OnPauseEvent.Performed.AddListener(OpenPause);
-        Debug.Log("Halojrpojpreg");
     }
 
     private void OpenPause()
     {
-        Debug.Log("Halojrpojpreg");
         _pauseGO.SetActive(true);
         Time.timeScale = 0.0f;
     }
@@ -37,5 +34,6 @@ public class SCPauseMenu : MonoBehaviour
     public void MainMenuButton()
     {
         SceneManager.LoadScene("MainMenu");
+        _pauseGO.SetActive(false);
     }
 }

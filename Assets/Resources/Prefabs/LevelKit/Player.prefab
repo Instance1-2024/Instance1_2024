@@ -143,6 +143,9 @@ MonoBehaviour:
   CurrentAnimator: {fileID: 0}
   WhiteAnimator: {fileID: 3831003100437760211}
   BlackAnimator: {fileID: 2840818204668108648}
+  CurrentSoundManager: {fileID: 0}
+  WhiteSoundManager: {fileID: 0}
+  BlackSoundManager: {fileID: 0}
   _maxSpeed: 10
   _acceleration: 25
   _frictionForce: 125
@@ -690,8 +693,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tooltip
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fab8711ee5cc9b145bee591033a12351, type: 2}
+  m_sharedMaterial: {fileID: 8246766509116814246, guid: fab8711ee5cc9b145bee591033a12351, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

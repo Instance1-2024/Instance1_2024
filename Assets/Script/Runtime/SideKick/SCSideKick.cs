@@ -47,7 +47,8 @@ namespace Script.Runtime.SideKick {
 
         private void OnTriggerExit(Collider other) {
             if (other.gameObject.CompareTag("Player")) {
-                _dialBoxBackground.SetActive(false);
+                //if(_isBuildingText) return;
+                //_dialBoxBackground.SetActive(false);
             }
         }
 

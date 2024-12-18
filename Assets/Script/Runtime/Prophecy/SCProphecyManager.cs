@@ -7,7 +7,7 @@ public class SCProphecyManager : MonoBehaviour
 {
     public static SCProphecyManager Instance;
     private List<int> _memoryFragmentsId = new List<int>();
-
+    public bool IsAllMemoryPiecesCollected => _memoryFragmentsId.Count == 7;
     public bool cheatElements = false;
 
     private void Awake()

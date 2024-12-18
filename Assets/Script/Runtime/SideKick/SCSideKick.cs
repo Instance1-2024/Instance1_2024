@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.SceneManagement.SceneManager;
 
 namespace Script.Runtime.SideKick {
     public class SCSideKickTalk : MonoBehaviour {
         [SerializeField] private TextMeshProUGUI _dialogueBox;
 
         [SerializeField] List<string> _dialogue;
+        [SerializeField] List<string> _alternateDialogue;
+        [SerializeField] float _timeBetweenText;
         
         private Coroutine _buildProcess;
         
@@ -29,6 +32,9 @@ namespace Script.Runtime.SideKick {
         private void OnTriggerEnter(Collider other) {
             if (other.gameObject.CompareTag("Player")) {
                 if(_isTextShowed) return;
+                if (SCProphecyManager.Instance.IsAllMemoryPiecesCollected) {
+                    StartCoroutine(BuildLines(_alternateDialogue));
+                }
                 StartCoroutine(BuildLines(_dialogue));
                 _isTextShowed = true;
             }
@@ -37,6 +43,7 @@ namespace Script.Runtime.SideKick {
         IEnumerator BuildLines(List<string> lines) {
             foreach (string line in lines) {
                 yield return BuildDialogue(line);
+                yield return new WaitForSeconds(_timeBetweenText);
             }
         }
         

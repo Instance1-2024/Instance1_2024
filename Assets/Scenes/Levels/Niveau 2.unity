@@ -7157,14 +7157,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
-      propertyPath: m_LocalPosition.x
       value: -17.59
       objectReference: {fileID: 0}
     - target: {fileID: 7932514286452117403, guid: 8bfc2f6cdce7c024a8c7fcee8c4ca0c4, type: 3}
@@ -16119,14 +16111,26 @@ PrefabInstance:
       propertyPath: _camTransform
       value: 
       objectReference: {fileID: 980718304}
+    - target: {fileID: 1187145480527877047, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1743838206053508965, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _parallaxEffect
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973508450349249415, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3240225519614185355, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5256522415194283589, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
+      propertyPath: _camTransform
+      value: 
+      objectReference: {fileID: 726834053}
     - target: {fileID: 5430501529878814731, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_Name
       value: 'Parallaxe '

@@ -33,11 +33,9 @@ namespace Script.Runtime.ColorManagement {
         /// Applies the mesh, the material and the layer to the object
         /// </summary>
         /// <param name="color">The struct that contains the mesh, the material and the layer to apply to the object</param>
-        /// <param name="color.Mesh"> The mesh to apply</param>
         /// <param name="color.Material"> The material to apply</param>
         /// <param name="color.Layer"> The layer to apply</param>
         protected void ApplyColor(SColor color) {
-            _meshFilter.mesh = color.Mesh;
             _meshRenderer.materials = color.Material.ToArray();
             int layerValue = (int)Mathf.Log(color.Layer.value, 2);
             gameObject.layer = layerValue;
@@ -74,12 +72,10 @@ namespace Script.Runtime.ColorManagement {
         /// <summary>
         /// The structure that contains the mesh, the material and the layer to apply to the object
         /// </summary>
-        /// <param name="Mesh">The mesh to apply</param>
         /// <param name="Material">The material to apply</param>
         /// <param name="Layer">The layer to apply</param>
         [Serializable]
         public struct SColor {
-            public Mesh Mesh;
             public List<Material> Material;
             public LayerMask Layer;
         }

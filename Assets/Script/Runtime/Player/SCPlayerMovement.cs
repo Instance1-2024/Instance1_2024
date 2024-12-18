@@ -59,7 +59,10 @@ namespace Script.Runtime.Player {
         [SerializeField] GameObject _comp;
         private Rigidbody _body;
 
-        private SCPhysicMaterialManager _materialManager; 
+        private SCPhysicMaterialManager _materialManager;
+        
+        private bool _isInCinematic;
+        private bool _isDeath;
 
         private void Start() {
             _body = GetComponent<Rigidbody>();
@@ -111,6 +114,9 @@ namespace Script.Runtime.Player {
             }
 
 
+            SetVelocityLock(_isDeath || _isInCinematic);
+                
+            
             CheckGround();
 
 
@@ -152,14 +158,25 @@ namespace Script.Runtime.Player {
             _body.AddForce(new Vector3(friction.x, 0, friction.y));
         }
         
+
         public void SetVelocityLock(bool lockVelocity) {
+            _inputManager.IsInputActive = !lockVelocity;
             CurrentAnimator.enabled = !lockVelocity;
             _body.constraints = lockVelocity ? RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation : RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
             if (lockVelocity) {
+                _inputManager.MoveValue = 0f;
                 _body.linearVelocity = Vector3.zero;
                 CurrentAnimator.SetBool(IsWalking,false);
                 CurrentAnimator.SetBool(IsJumping,false);
             }
+        }
+        
+        public void SetInCinematic(bool value) {
+            _isInCinematic = value;
+        }
+        
+        public void SetDeath(bool value) {
+            _isDeath = value;
         }
         
     #endregion

@@ -38,8 +38,7 @@ namespace Script.Runtime.Player
         }
 
         private void Update() {
-            _inputManager.IsInputActive =!_isRespawning;
-            _playerMovement.SetVelocityLock(_isRespawning);
+            _playerMovement.SetDeath(_isRespawning);
             
         }
 

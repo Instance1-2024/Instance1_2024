@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 358736045586056089}
   - component: {fileID: 8497151640702158803}
   - component: {fileID: 6751342018919042583}
-  - component: {fileID: 5444958309744332967}
   - component: {fileID: 5220419837938671678}
+  - component: {fileID: 7965730754041804669}
   m_Layer: 8
   m_Name: RollingSphereGray
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 21, y: 39.07, z: 33.7}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1564983665076690971}
@@ -177,7 +177,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5444958309744332967
+--- !u!114 &5220419837938671678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436681459494552198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655b24e1bc4924a4c80c5bbb2a77463c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &7965730754041804669
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,15 +216,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5220419837938671678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8436681459494552198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655b24e1bc4924a4c80c5bbb2a77463c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

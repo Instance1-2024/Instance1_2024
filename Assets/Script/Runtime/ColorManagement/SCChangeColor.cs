@@ -1,24 +1,23 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static Script.Runtime.ColorManagement.IChangeColor;
 using static Script.Runtime.SCEnum;
 
 namespace Script.Runtime.ColorManagement {
 
     public class SCChangeColor : MonoBehaviour, IChangeColor {
-        private MeshFilter _meshFilter;
         private MeshRenderer _meshRenderer;
         
         [field:SerializeField] public EColor CurrentColor { get; set; }
         public Collider Collider { get; set; }
         
-        [SerializeField] protected  SColor _black;
+        [SerializeField] protected SColor _black;
         [SerializeField] protected SColor _white;
         [SerializeField] protected SColor _gray;
         
         void Awake() {
             _meshRenderer = transform.GetComponentInChildren<MeshRenderer>();
-            _meshFilter = transform.GetComponentInChildren<MeshFilter>();
             Collider = transform.GetComponentInChildren<Collider>();
         }
 
@@ -39,7 +38,7 @@ namespace Script.Runtime.ColorManagement {
             _meshRenderer.materials = color.Material.ToArray();
             int layerValue = (int)Mathf.Log(color.Layer.value, 2);
             gameObject.layer = layerValue;
-            _meshFilter.gameObject.layer = layerValue;
+            _meshRenderer.gameObject.layer = layerValue;
         }
         
         /// <summary>
@@ -68,16 +67,6 @@ namespace Script.Runtime.ColorManagement {
             if(Collider == null) return;
             Collider.excludeLayers = layer.value;
         }
-
-        /// <summary>
-        /// The structure that contains the mesh, the material and the layer to apply to the object
-        /// </summary>
-        /// <param name="Material">The material to apply</param>
-        /// <param name="Layer">The layer to apply</param>
-        [Serializable]
-        public struct SColor {
-            public List<Material> Material;
-            public LayerMask Layer;
-        }
+        
     }
 }

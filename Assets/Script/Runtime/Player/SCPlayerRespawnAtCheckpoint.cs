@@ -1,4 +1,6 @@
 using Script.Runtime.ColorManagement;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Runtime.Player
@@ -11,6 +13,11 @@ namespace Script.Runtime.Player
 
         private ScPlayerChangeColor _color;
         private SCSanity _sanity;
+        private bool _isRespawning = false;
+
+        [Header("Death Animation")]
+        [SerializeField] private ParticleSystem _particleSystemWhite;
+        [SerializeField] private ParticleSystem _particleSystemBlack;
         private void Start()
         {
             _transform = transform;
@@ -43,13 +50,71 @@ namespace Script.Runtime.Player
         [ContextMenu("TestRespawn")]
         public void OnRespawn()
         {
+            if(_isRespawning) return;
+            StartCoroutine(RespawnPlayer());
+        }
+
+        private IEnumerator RespawnPlayer ()
+        {
+            _isRespawning = true;
+            switch (_color.GetColor())
+            {
+                case SCEnum.EColor.White:
+                    if (!_particleSystemWhite)
+                    {
+                        StopAllCoroutines();
+                    }
+                    _particleSystemWhite.gameObject.SetActive(true);
+                    _particleSystemWhite.Play();
+
+
+
+                    while (_transform.GetChild(0).GetChild(0).GetChild(0).localScale.x > 0)
+                    {
+                        _transform.GetChild(0).GetChild(0).GetChild(0).localScale -= new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime);
+                        yield return null;
+                    }
+                    yield return new WaitForSeconds(1);
+                    break;
+                case SCEnum.EColor.Black:
+                    if (!_particleSystemBlack)
+                    {
+                        StopAllCoroutines();
+                    }
+                    _particleSystemBlack.gameObject.SetActive(true);
+                    _particleSystemBlack.Play();
+
+
+
+                    while (_transform.GetChild(0).GetChild(1).GetChild(0).localScale.x > 0)
+                    {
+                        _transform.GetChild(0).GetChild(1).GetChild(0).localScale -= new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime);
+                        yield return null;
+                    }
+                    yield return new WaitForSeconds(1);
+                    break;
+            }
+
+            yield return new WaitForSeconds(1);
             _transform.position = _playerDataRespawn.LastCheckpoint;
             _transform.rotation = _playerDataRespawn.Rotation;
             _color.ChangeColor(_playerDataRespawn.Color);
             _sanity.UpdateSanity(10f);
             //Set the Handle
+
+            // reset everything so next death everything is working
+            _transform.GetChild(0).GetChild(0).GetChild(0).localScale = new Vector3(1, 1, 1);
+            _transform.GetChild(0).GetChild(1).GetChild(0).localScale = new Vector3(1, 1, 1);
+            _particleSystemWhite.gameObject.SetActive(false);
+            _particleSystemBlack.gameObject.SetActive(false);
+
+
+            _isRespawning = false;
+
+            yield return null;
         }
     }
+
 
     [System.Serializable]
     public struct PlayerDataRespawn

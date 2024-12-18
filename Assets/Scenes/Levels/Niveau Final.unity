@@ -554,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5422937272988652487, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5422937272988652487, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -630,15 +630,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: _nbOfLines
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: CouldAppendText
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: _timeBetweenText
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: _dialogue.Array.size
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[0]'
@@ -654,11 +658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[3]'
-      value: and your failure seals your fate.
+      value: 'Only one conclusion remains: you are doomed to wander this desert endlessly.'
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[4]'
-      value: 'Only one conclusion remains: '
+      value: "I warned you, didn\u2019t I? Well\u2026 So be it. Farewell."
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[5]'
@@ -671,6 +675,28 @@ PrefabInstance:
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[7]'
       value: "Well\u2026 So be it. Farewell."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: _alternateDialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_alternateDialogue.Array.data[0]'
+      value: At last, here you are.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_alternateDialogue.Array.data[1]'
+      value: "You\u2019ve managed to gather all the memory fragments, thus fulfilling
+        the prophecy."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_alternateDialogue.Array.data[2]'
+      value: "Since you\u2019ve completed this quest, you may continue your journey\u2026
+        as the chosen one."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_alternateDialogue.Array.data[3]'
+      value: Good luck, and welcome to eternity.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

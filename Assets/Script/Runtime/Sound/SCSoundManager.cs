@@ -15,26 +15,24 @@ public class SCSoundManager : MonoBehaviour
 
     public void AssembleProphecy()
     {
-        if (SCProphecyManager.Instance)
+        if (!SCProphecyManager.Instance)
             return;
 
-        if (SCProphecyManager.Instance.GetMemoryIds().Count < 7)
-            AssembleProphecyIncomplete();
-        else
+        if (SCProphecyManager.Instance.GetMemoryIds().Count >= 7)
             AssembleProphecyComplete();
+        else
+            AssembleProphecyIncomplete();
     }
 
     public void AssembleProphecyIncomplete()
     {
         if (!_audioSourceProphecy) return;
-
         _audioSourceProphecy.clip = _clipIncompleteProphecy;
         _audioSourceProphecy.Play();
     }
     public void AssembleProphecyComplete()
     {
         if (!_audioSourceProphecy) return;
-
         _audioSourceProphecy.clip = _clipCompleteProphecy;
         _audioSourceProphecy.Play();
     }

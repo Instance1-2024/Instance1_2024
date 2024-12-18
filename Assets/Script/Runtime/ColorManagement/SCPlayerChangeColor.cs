@@ -132,7 +132,7 @@ namespace Script.Runtime.ColorManagement {
             RaycastHit[] hits = Physics.CapsuleCastAll(point1, point2, capsuleRadius, direction, 10f, _layersThatCollide);
             foreach (RaycastHit hit in hits) {
                 if (hit.transform.CompareTag("Platform")) {
-                    if (hit.transform.parent.GetComponent<SCChangeColor>().GetColor() == GetColor()) {
+                    if (hit.transform.GetComponent<SCChangeColor>().GetColor() == GetColor()) {
                         GetComponent<SCPlayerRespawnAtCheckpoint>().OnRespawn();
                         return;
                     }

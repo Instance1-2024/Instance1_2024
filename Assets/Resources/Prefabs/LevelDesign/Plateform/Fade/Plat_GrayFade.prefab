@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188534479725222975}
   - component: {fileID: 802013681912282129}
+  - component: {fileID: -1589907527211132848}
   m_Layer: 8
   m_Name: Plat_GrayFade
   m_TagString: Platform
@@ -67,6 +68,27 @@ MonoBehaviour:
     Layer:
       serializedVersion: 2
       m_Bits: 256
+--- !u!65 &-1589907527211132848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266856179287137338}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 0.85, z: 1}
+  m_Center: {x: 0, y: 0.075, z: 0}
 --- !u!1 &6847306536583041042
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +100,6 @@ GameObject:
   - component: {fileID: 6464878259816398123}
   - component: {fileID: 848359647629722992}
   - component: {fileID: 2957285838683122402}
-  - component: {fileID: 7941279984979068385}
   - component: {fileID: 5438977691842997650}
   - component: {fileID: 3037493490133824331}
   m_Layer: 8
@@ -156,27 +177,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7941279984979068385
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6847306536583041042}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.85, z: 1}
-  m_Center: {x: 0, y: 0.075, z: 0}
 --- !u!111 &5438977691842997650
 Animation:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ namespace Script.Runtime.LevelObject.Collectibles
         public Sprite Sprite { get; set; }
 
         public bool CanBeHold { get; set; }
+        public SCSoundManager SoundManager;
 
         [Tooltip("Choose Between 1 and 7"), Range(1, 7), SerializeField]
         private int _memoryID;
@@ -21,6 +22,8 @@ namespace Script.Runtime.LevelObject.Collectibles
         {
             Debug.Log("Collected"); 
             SCProphecyUIManager.Instance.GetMemoryEvent.Invoke(_memoryID,false);
+            if(SoundManager)
+                SoundManager.PlayPickUpSound();
             Destroy(this.gameObject);
         }
         

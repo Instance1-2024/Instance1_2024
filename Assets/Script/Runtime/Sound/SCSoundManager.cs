@@ -13,6 +13,9 @@ public class SCSoundManager : MonoBehaviour
     [SerializeField] private AudioClip _clipIncompleteProphecy;
     [SerializeField] private AudioClip _clipCompleteProphecy;
 
+    [Header("Pickup Memory Related")]
+    [SerializeField] private AudioSource _audioSourcePickUpMemory;
+
     public void AssembleProphecy()
     {
         if (!SCProphecyManager.Instance)
@@ -56,5 +59,11 @@ public class SCSoundManager : MonoBehaviour
     {
         if (!_audioSourceWalk) return;
         _audioSourceWalk.Play();
+    }
+
+    public void PlayPickUpSound()
+    {
+        if (!_audioSourcePickUpMemory) return;
+        _audioSourcePickUpMemory.Play();
     }
 }

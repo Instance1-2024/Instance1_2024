@@ -13,6 +13,11 @@ public class SCSceneChanger : MonoBehaviour
         SceneManager.LoadScene(_sceneName);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Player"))

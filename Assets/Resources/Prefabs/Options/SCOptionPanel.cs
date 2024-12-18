@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 public class SCOptionPanel : MonoBehaviour
 {
 
@@ -97,8 +99,8 @@ public class SCOptionPanel : MonoBehaviour
         SetSFXVolume();
     }
 
-    public void StartGame()
-    {
+    public void StartGame() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         // reprend au dernier checkPoint ou Commence le jeu par l'intro
     }
 

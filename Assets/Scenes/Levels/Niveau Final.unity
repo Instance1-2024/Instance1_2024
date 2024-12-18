@@ -649,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: _dialogue.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[0]'
@@ -665,10 +665,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[3]'
-      value: 'Only one conclusion remains: you are doomed to wander this desert endlessly.'
+      value: and your failure seals your fate.
       objectReference: {fileID: 0}
     - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
       propertyPath: '_dialogue.Array.data[4]'
+      value: 'Only one conclusion remains: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_dialogue.Array.data[5]'
+      value: you are doomed to wander this desert endlessly.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_dialogue.Array.data[6]'
+      value: "sigh I warned you, didn\u2019t I?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7982252921937421640, guid: 107d7cbe8db41994e8d1ee18c372543c, type: 3}
+      propertyPath: '_dialogue.Array.data[7]'
       value: "Well\u2026 So be it. Farewell."
       objectReference: {fileID: 0}
     m_RemovedComponents: []

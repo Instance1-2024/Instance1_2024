@@ -16,6 +16,11 @@ public class TriggerCinematic : MonoBehaviour {
     
     [SerializeField] SCInputTooltipText _keyboardTooltip;
     [SerializeField] SCInputTooltipText _gamepadTooltip;
+
+    [Header("Sound Related")]
+    [SerializeField] private AudioSource _cinematicAudioSource;
+    [SerializeField] private AudioClip _sidekickClip;
+    private bool _hasSoundPlayed = false;
     
     bool _hasBeenTriggered;
     
@@ -30,6 +35,14 @@ public class TriggerCinematic : MonoBehaviour {
             _inputManager.IsInputActive = false;
             _inputManager.MoveValue = 0f;
             animationCinematic.Play(animationCinematic.clip.name);
+
+            if(!_hasSoundPlayed)
+            {
+                _hasSoundPlayed = true;
+                _cinematicAudioSource.clip = _sidekickClip;
+                _cinematicAudioSource.Play();
+            }
+
             destroyTrigger = true;
         }
     }

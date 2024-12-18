@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueBox: {fileID: 4828351575842986686}
+  _dialBoxBackground: {fileID: 983105243972766972}
   _dialogue: []
   _alternateDialogue: []
   _timeBetweenText: 0

@@ -46,7 +46,7 @@ namespace Script.Runtime.Player {
         public void Hold( GameObject item) {
             if (!CanHold) return;
             
-            HoldItem = item.transform.parent.gameObject;
+            HoldItem = item.transform.gameObject;
             Debug.Log(HoldItem.name);
             HoldItem.GetComponent<Rigidbody>().isKinematic = true;
             HoldItem.transform.SetParent(HoldPoint);

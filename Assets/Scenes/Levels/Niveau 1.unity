@@ -2263,7 +2263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5430501529878814731, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5624823852760777730, guid: 98adbaf4220f6264dbcddae03e68c116, type: 3}
       propertyPath: _camTransform
@@ -3283,7 +3283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 188534479725222975, guid: 8103fc9f58ac6de4abae0c5c588e9af9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.81
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 188534479725222975, guid: 8103fc9f58ac6de4abae0c5c588e9af9, type: 3}
       propertyPath: m_LocalPosition.z

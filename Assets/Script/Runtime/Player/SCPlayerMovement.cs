@@ -209,6 +209,8 @@ namespace Script.Runtime.Player {
         private void Jump() {
             if (_isGrounded) {
                 CurrentAnimator.SetBool(IsJumping, true);
+                if (CurrentAnimator.transform.GetComponent<SCSoundManager>())
+                    CurrentAnimator.transform.GetComponent<SCSoundManager>().PlayJumpUpSound();
                 _body.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
                 _isGrounded = false;
                 _haveToJump = false;
@@ -235,6 +237,8 @@ namespace Script.Runtime.Player {
             _isGrounded = hits.Any(hit => !IsMyself(hit.transform, transform));
             if (_isGrounded) {
                 CurrentAnimator.SetBool(IsJumping, false);
+                if (CurrentAnimator.transform.GetComponent<SCSoundManager>())
+                    CurrentAnimator.transform.GetComponent<SCSoundManager>().PlayJumpDownSound();
             }
         }
     }

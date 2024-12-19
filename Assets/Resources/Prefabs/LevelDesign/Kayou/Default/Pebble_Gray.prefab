@@ -138,7 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentColor>k__BackingField: 2
   _black:
-    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     - {fileID: 2100000, guid: b3c51e45700acf54daa303f2718cccf4, type: 2}
@@ -146,7 +145,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 128
   _white:
-    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 3e46b5db07fc1cd4c8623e01ba44e5b0, type: 2}
     - {fileID: 2100000, guid: 0179f7e51e680394d93f2bff7283ca03, type: 2}
@@ -154,7 +152,6 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 64
   _gray:
-    Mesh: {fileID: 4048681700449303063, guid: bb63a008490c0fc419148f7be50b82fd, type: 3}
     Material:
     - {fileID: 2100000, guid: 58a7f8a0f5e383d4fa3d713db6144763, type: 2}
     - {fileID: 2100000, guid: cc6bd8f0b836cc24aa04ed9fd5342cc0, type: 2}
@@ -216,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0663c76c13f946d4bcad3f80db74c774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: da7cbe1b9d479064096e70b057a2f5c6, type: 3}
   <CanBeHold>k__BackingField: 1
   <ThrowBlack>k__BackingField:
     serializedVersion: 2

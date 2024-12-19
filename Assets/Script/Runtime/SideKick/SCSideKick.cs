@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.SceneManagement.SceneManager;
 
 namespace Script.Runtime.SideKick {
@@ -28,9 +29,22 @@ namespace Script.Runtime.SideKick {
         [SerializeField] int _nbOfLines = 2;
 
         private bool _isTextShowed;
+        private bool _isBuildFinish;
+        private bool _isPlayerExit;
+        
 
+        
         private void Start() {
             _dialBoxBackground.SetActive(false);
+        }
+
+        private void Update() {
+            if (_isBuildFinish && _isPlayerExit) {
+                _dialBoxBackground.SetActive(false);
+                if (SCProphecyManager.Instance.IsAllMemoryPiecesCollected) {
+                    LoadScene(GetActiveScene().buildIndex + 1);
+                }
+            }
         }
 
         private void OnTriggerEnter(Collider other) {
@@ -47,8 +61,8 @@ namespace Script.Runtime.SideKick {
 
         private void OnTriggerExit(Collider other) {
             if (other.gameObject.CompareTag("Player")) {
-                //if(_isBuildingText) return;
-                //_dialBoxBackground.SetActive(false);
+                _isPlayerExit = true;
+
             }
         }
 
@@ -57,6 +71,8 @@ namespace Script.Runtime.SideKick {
                 yield return BuildDialogue(line);
                 yield return new WaitForSeconds(_timeBetweenText);
             }
+
+            _isBuildFinish = true;
         }
         
         IEnumerator BuildDialogue(string line) {

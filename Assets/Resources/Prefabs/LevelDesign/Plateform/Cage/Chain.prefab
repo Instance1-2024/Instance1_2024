@@ -49,7 +49,7 @@ MonoBehaviour:
   <CurrentColor>k__BackingField: 0
   _black:
     Material:
-    - {fileID: -1580535799172915004, guid: c6b5a80fdec121c499b18f26e6ad7e4b, type: 3}
+    - {fileID: 2100000, guid: 49c767d3e2887334399213e37c60accd, type: 2}
     Layer:
       serializedVersion: 2
       m_Bits: 128
